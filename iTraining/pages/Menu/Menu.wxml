@@ -1,0 +1,12 @@
+<view>
+<text>我的社区</text>
+<view>
+<view wx:for="{{testdata}}">
+<view class='list-view'>
+<label>{{item.title}}</label>
+<label>{{item.content}}</label>
+</view>
+</view>
+</view>
+<button bindtap='registerCommunity'>注册创建队伍社区</button>
+</view>

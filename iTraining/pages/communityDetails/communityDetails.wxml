@@ -1,0 +1,5 @@
+<view>
+<button>发布训练计划</button>
+<button>邀请好友加入社区</button>
+<button bindtap='ToTrainingItemList'>项目专栏</button>
+</view>

@@ -1,23 +1,17 @@
 Page({
-  //注册社区
-  registerCommunity: function () {
+  /**
+   * 跳转到项目专栏
+   */
+  ToTrainingItemList:function() {
     wx.navigateTo({
-      url: '../communityDetails/communityDetails'
+      url: '../trainingItemList/trainingItemList'
     })
   },
   /**
    * 页面的初始数据
    */
   data: {
-      "testdata":[{
-      "title":"中山大学赛艇队",
-      "content":"赵云雷倾力指导，全中大最好的训练队"
-      },
-      {
-      "title":"中山大学龙舟队",
-      "content":"好好学习，天天划水"
-      }
-      ]
+    
   },
 
   /**
