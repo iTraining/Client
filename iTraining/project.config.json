@@ -1,7 +1,7 @@
 {
 	"description": "项目配置文件。",
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -9,7 +9,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "1.9.94",
-	"appid": "wx3e0633a8bc93cdeb",
+	"appid": "wxd3dae784d91bedf3",
 	"projectname": "iTraining",
 	"isGameTourist": false,
 	"condition": {

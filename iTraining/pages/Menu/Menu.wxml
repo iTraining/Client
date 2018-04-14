@@ -2,11 +2,22 @@
 <text>我的社区</text>
 <view>
 <view wx:for="{{testdata}}">
-<view class='list-view'>
+<view class='list-view' bindtap='ToCommunityDetails'>
 <label>{{item.title}}</label>
 <label>{{item.content}}</label>
 </view>
 </view>
 </view>
 <button bindtap='registerCommunity'>注册创建队伍社区</button>
+<button bindtap='onRequest'>调用api test</button>
 </view>
+
+  <scroll-view class="article-list" style="height:500px" scroll-y="true" bindscrolltolower="nextPage">
+  <block wx:for="{{list}}">
+  <view class="list-item" index="{{index}}">
+  <view class="title">
+  <view class="title-name">{{item.title}}</view>
+  </view>
+  </view>
+  </block>
+  </scroll-view>>
