@@ -2,7 +2,7 @@ Page({
   //注册社区
   registerCommunity: function () {
     wx.navigateTo({
-      url: '../communityDetails/communityDetails'
+      url: '../registerCommunity/registerCommunity'
     })
   },
   //跳转到社区详情界面

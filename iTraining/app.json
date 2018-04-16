@@ -4,7 +4,8 @@
     "pages/logs/logs",
     "pages/Menu/Menu",
     "pages/communityDetails/communityDetails",
-    "pages/trainingItemList/trainingItemList"
+    "pages/trainingItemList/trainingItemList",
+    "pages/registerCommunity/registerCommunity"
   ],
   "window": {
     "backgroundTextStyle": "light",
