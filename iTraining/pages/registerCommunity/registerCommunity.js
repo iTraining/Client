@@ -1,11 +1,30 @@
 // pages/registerCommunity/registerCommunity.js
 Page({
+  
+  /**
+   * 选择队伍图标
+   */
+  choseTeamIcon:function() {
+    var that=this;
+    wx.chooseImage({
+      count:1,
+      sizeType:['original','compressed'],
+      sourceType:['album','camera'],
+      success: function(res) {
+        var tempFilePath=res.tempFilePaths;
+        that.setData({
+          avatarUrl:tempFilePath
+        })
+      },
+    })
+  },
 
   /**
    * 页面的初始数据
    */
+
   data: {
-  
+    avatarUrl:'../../image/icon_tab/11.png',
   },
 
   /**
@@ -63,7 +82,15 @@ Page({
   onShareAppMessage: function () {
   
   },
+
+  /**
+   * 确认提交
+   */
   confirm:function() {
     console.log("确认成功");
+    wx.navigateTo({
+      url: '../PersonalCenter/PersonalCenter'
+    })
   }
+
 })

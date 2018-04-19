@@ -79,6 +79,10 @@ function trainingitem() {
   return arr
 }
 
+
+
+
+
 module.exports = {
   formatTime: formatTime,
   trainingitem: trainingitem

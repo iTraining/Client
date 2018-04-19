@@ -5,7 +5,8 @@
     "pages/Menu/Menu",
     "pages/communityDetails/communityDetails",
     "pages/trainingItemList/trainingItemList",
-    "pages/registerCommunity/registerCommunity"
+    "pages/registerCommunity/registerCommunity",
+    "pages/PersonalCenter/PersonalCenter"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -32,7 +33,7 @@
         "selectedIconPath": "image/icon_tab/221.png"
       },
       {
-        "pagePath": "pages/communityDetails/communityDetails",
+        "pagePath": "pages/PersonalCenter/PersonalCenter",
         "text": "我的",
         "iconPath": "image/icon_tab/33.png",
         "selectedIconPath": "image/icon_tab/331.png"

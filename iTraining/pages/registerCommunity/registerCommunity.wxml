@@ -1,5 +1,7 @@
 <!--pages/registerCommunity/registerCommunity.wxml-->
 <!-- <text>pages/registerCommunity/registerCommunity.wxml</text> -->
 <input class='input' name="communityName" placeholder='队伍名称' bindinput='communityNameInput'></input>
-<button>选择队伍徽标</button>
+<image src='{{avatarUrl}}' bindtap='choseTeamIcon'></image>
+<input class='input' name="communityName" placeholder='队伍简介' bindinput='communityNameInput'></input>
+<!-- <button bindtap='choseTeamIcon' type='submit'>选择队伍徽标</button> -->
 <button bindtap='confirm'>提交</button>

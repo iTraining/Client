@@ -1,5 +1,25 @@
-<view>
-<button>发布训练计划</button>
-<button>邀请好友加入社区</button>
-<button bindtap='ToTrainingItemList'>项目专栏</button>
-</view>
+<view class="main">
+    <view class="item item1">
+    <text>张三</text>
+    <image></image>
+    </view>
+    <view class="item item2">
+    <text>李四</text>
+    </view>
+    <view class="item item3">
+    <text>王五</text>
+    </view>
+     <view class="item item1">
+    <text>张三</text>
+    <image></image>
+    </view>
+    <view class="item item2">
+    <text>李四</text>
+    </view>
+    <view class="item item3">
+    <text>王五</text>
+    </view> 
+    <view class="item item3">
+    <text>+</text>
+    </view> 
+  </view>

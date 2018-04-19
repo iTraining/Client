@@ -1,0 +1,24 @@
+.main {
+  width: 100%;
+   display: flex; 
+   flex-wrap: wrap;
+   /* justify-content: space-around; */
+  background-color: antiquewhite;
+}
+
+.item {
+  height: 130rpx;
+  width: 130rpx;
+}
+
+.item1 {
+  background-color: red;
+}
+
+.item2 {
+  background-color: dodgerblue;
+}
+
+.item3 {
+  background-color: greenyellow;
+}
