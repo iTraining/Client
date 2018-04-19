@@ -1,1 +1,71 @@
 /* pages/trainingItemList/trainingItemList.wxss */
+
+page{
+  height: 100%;
+}
+
+.tab-h {
+  height: 80rpx;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  line-height: 80rpx;
+  background: #f7f7f7;
+  font-size: 16px;
+  white-space: nowrap;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.tab-item {
+  width: 80rpx;
+  height: 80rpx;
+  margin: 0 20px;
+  text-align: center;
+  display: inline-block;
+  box-sizing: border-box;
+  border: 0;
+}
+
+.tab-item.active {
+  color: rgb(225, 115, 100);
+  position: relative;
+  border-bottom: 6rpx solid rgb(225, 115, 100);
+}
+
+.tab-content {
+  position: absolute;
+  bottom: 0;
+  top: 80rpx;
+  width: 100%;
+  height: auto;
+}
+
+.item-image{
+  width: 200rpx;
+  box-shadow: 0rpx 0rpx 100rpx #aaa;
+ }
+
+ .item-name {
+  font-size: 28rpx;
+  color: rgb(100,100,100);
+  font-weight: bold;
+  word-spacing: 0.8em;
+  /* max-width: 210rpx; */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+ }
+
+ .nodata {
+  margin: auto;
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 249rpx;
+  height: 230rpx;
+ }

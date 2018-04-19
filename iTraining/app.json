@@ -10,7 +10,33 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "iTraining",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "backgroundColor": "#fbfbfb",
+    "selectedColor": "#50e3c2",
+    "norderStyle": "black",
+    "color": "#aaa",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "image/icon_tab/11.png",
+        "selectdIconPath": "image/icon_tab/111.png"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "动态",
+        "iconPath": "image/icon_tab/22.png",
+        "selectedIconPath": "image/icon_tab/221.png"
+      },
+      {
+        "pagePath": "pages/communityDetails/communityDetails",
+        "text": "我的",
+        "iconPath": "image/icon_tab/33.png",
+        "selectedIconPath": "image/icon_tab/331.png"
+      }
+    ]
   }
 }
