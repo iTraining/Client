@@ -18,6 +18,10 @@ const formatNumber = n => {
 var training_item = trainingitem()
 
 function trainingitem() {
+  {
+    id1:dasf
+    
+  }
   var arr = [
     {
       id: '力量', content: [

@@ -1,5 +1,12 @@
 // pages/registerCommunity/registerCommunity.js
 Page({
+  /**
+  * 页面的初始数据
+  */
+
+  data: {
+
+  },
   
   /**
    * 选择队伍图标
@@ -17,14 +24,6 @@ Page({
         })
       },
     })
-  },
-
-  /**
-   * 页面的初始数据
-   */
-
-  data: {
-    avatarUrl:'../../image/icon_tab/11.png',
   },
 
   /**

@@ -1,5 +1,11 @@
 <view class="main">
-    <view class="item item1">
+<view wx:for="{{testdata}}" class='item item1'>
+
+<image src='{{item.imgsrc}}' mode='scaleToFill' class='img'></image>
+<view class='memberName'>{{item.name}}</view>
+<!-- <text>{{item.content}}</text> -->
+</view> 
+    <!-- <view class="item item1">
     <text>张三</text>
     <image></image>
     </view>
@@ -21,5 +27,13 @@
     </view> 
     <view class="item item3">
     <text>+</text>
-    </view> 
+    </view>  -->
+  </view>
+<view class='infoItem'>
+<text class='title'>队伍名称</text>
+<input value='中大龙舟队'></input>
+</view>
+<view class='infoItem'>
+  <text class='title'>队伍简介</text>
+  <input value='中大龙舟队，好好学习，天天划水'></input>
   </view>

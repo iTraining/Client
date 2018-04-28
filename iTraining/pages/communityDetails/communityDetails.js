@@ -4,7 +4,36 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+    "testdata": [{
+      "name": "张三",
+      "imgsrc": "../../image/icon_tab/11.png"
+    },
+    {
+      "name": "李四",
+      "imgsrc": "../../image/icon_tab/11.png"
+    },
+    {
+      "name": "王五",
+      "imgsrc": "../../image/icon_tab/11.png"
+    }, {
+      "name": "于海",
+      "imgsrc": "../../image/icon_tab/11.png"
+    },{
+      "name":"盖强",
+      "imgsrc": "../../image/icon_tab/11.png"
+    },
+    {
+      "name": "王五",
+      "imgsrc": "../../image/icon_tab/11.png"
+      
+    }, {
+      "name": "于海",
+      "imgsrc": "../../image/icon_tab/11.png"      
+    }, {
+      "name": "",
+      "imgsrc":"../../image/icon_tab/add.png"
+    }
+    ],
   },
 
   /**

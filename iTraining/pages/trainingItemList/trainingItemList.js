@@ -14,6 +14,7 @@ Page({
     tags: ['力量', '耐力','协调性','水上'],  // 项目分类
     showItems: util.trainingitem(),
     currentPages: [],  // 记录当前tab分页查询当前page
+    
   },
   // 滑动切换标签样式
   switchTab: function (e) {
@@ -23,6 +24,7 @@ Page({
       currentTab: index
     });
   },
+
   // 点击标题切换当前页时改变样式
   switchNav: function (e) {
     var cur = e.target.dataset.current;

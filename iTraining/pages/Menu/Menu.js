@@ -1,8 +1,31 @@
 Page({
+  data: {
+    "TeamID": '',
+    "list": {},
+    "testdata": [{
+      "title": "中山大学赛艇队",
+      "content": "赵云雷倾力指导，全中大最好的训练队"
+    },
+    {
+      "title": "中山大学龙舟队",
+      "content": "好好学习，天天划水"
+    }
+    ],
+
+  },
   //注册社区
   registerCommunity: function () {
     wx.navigateTo({
       url: '../registerCommunity/registerCommunity'
+    })
+  },
+  joinCommunity:function() {
+    var that=this;
+    console.log("----------Team id"+that.data.TeamID);
+  },
+  communityNameInput:function(e) {
+    this.setData({
+      TeamID:e.detail.value
     })
   },
   //跳转到社区详情界面
@@ -14,19 +37,7 @@ Page({
   /**
    * 页面的初始数据
    */
-  data: {
-      "list":{},
-      "testdata":[{
-      "title":"中山大学赛艇队",
-      "content":"赵云雷倾力指导，全中大最好的训练队"
-      },
-      {
-      "title":"中山大学龙舟队",
-      "content":"好好学习，天天划水"
-      }
-      ],
-    
-  },
+  
 
   /**
    * 生命周期函数--监听页面加载
@@ -83,31 +94,31 @@ Page({
   onShareAppMessage: function () {
     
   },
-  onRequest: function () {
-    var that = this;
-    wx.request({
-      url: 'https://douban.uieee.com/v2/movie/top250',
-      method: "GET",
-      header: {
-        'Content-Type': 'json'
-      },
-      success: function (res) {
-        if(res==undefined) {
-          return ;
-        }
-        //console.log(res.data.subjects);
-        var date = res.data.subjects;
-        if(date !=undefined) {
-        that.setData({
-          list: date
-        })
-        }
-      },
-      fail: function () {
-        console.log("接口调用失败");
-      }
-    })
-  },
+  // onRequest: function () {
+  //   var that = this;
+  //   wx.request({
+  //     url: 'https://douban.uieee.com/v2/movie/top250',
+  //     method: "GET",
+  //     header: {
+  //       'Content-Type': 'json'
+  //     },
+  //     success: function (res) {
+  //       if(res==undefined) {
+  //         return ;
+  //       }
+  //       //console.log(res.data.subjects);
+  //       var date = res.data.subjects;
+  //       if(date !=undefined) {
+  //       that.setData({
+  //         list: date
+  //       })
+  //       }
+  //     },
+  //     fail: function () {
+  //       console.log("接口调用失败");
+  //     }
+  //   })
+  // },
   nextPage: function () {
     console.log("下拉触发该函数");
   }

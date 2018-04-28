@@ -1,24 +1,34 @@
 .main {
   width: 100%;
-   display: flex; 
-   flex-wrap: wrap;
-   /* justify-content: space-around; */
+  display: flex; 
+  flex-wrap: wrap;
+  /* justify-content: space-around;  */
   background-color: antiquewhite;
 }
 
 .item {
-  height: 130rpx;
-  width: 130rpx;
+  height: 110rpx;
+  width: 110rpx;
+  margin-top: 22rpx;
+  margin-left: 22rpx;
+  margin-right: 22rpx;
 }
 
 .item1 {
-  background-color: red;
+  background-color: white;
 }
+.title{
 
-.item2 {
-  background-color: dodgerblue;
+  font-weight: bold;
 }
-
-.item3 {
-  background-color: greenyellow;
+.img{
+  width: 110rpx;
+  height: 110rpx;
+}
+.infoItem{
+  margin: 50rpx;
+}
+.memberName{
+  margin: 0rpx;
+  font-size: 30rpx;
 }
