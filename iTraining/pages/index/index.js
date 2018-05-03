@@ -6,22 +6,32 @@ Page({
   data: {
     motto: 'Hello World',
     userInfo: {},
-    isNewUser:ture,
+    openId:'',
+    isNewUser:false,
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
+
+  //获取openId
+  
+
   //事件处理函数
   bindViewTap: function() {
+
+    // console.log(app.globalData.userInfo);
     var that=this;
     if(that.data.isNewUser) {
       wx.navigateTo({
         url: '../Menu/Menu'
       })
     } else {
-
+      wx.navigateTo({
+        url: '../TrainingItemTodoList/TrainingItemTodoList',
+      })
     }
   },
   onLoad: function () {
+    app.globalData.userInfo=null
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -56,5 +66,7 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+
+
   }
 })

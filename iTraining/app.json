@@ -7,7 +7,6 @@
     "pages/trainingItemList/trainingItemList",
     "pages/registerCommunity/registerCommunity",
     "pages/PersonalCenter/PersonalCenter",
-    "pages/TrainingItemTodoList",
     "pages/TrainingItemTodoList/TrainingItemTodoList"
   ],
   "window": {
