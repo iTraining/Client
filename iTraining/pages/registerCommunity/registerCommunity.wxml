@@ -6,8 +6,10 @@
 </view>
 <image class='TeamIcon' src='{{avatarUrl}}' bindtap='choseTeamIcon'></image>
 <view class='InputView'>
-<input class='DetailInput'  placeholder='队伍简介' bindinput='communityNameInput'></input>
+<input class='DetailInput'  placeholder='队伍简介' bindinput='communityDescriptionInput'></input>
 </view>
 <!-- <button bindtap='choseTeamIcon' type='submit'>选择队伍徽标</button> -->
-<button class='submit' bindtap='confirm'>提交</button>
+<view>
+<button bindtap='submit'>提交</button>
+</view>
 </view>

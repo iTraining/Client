@@ -12,7 +12,7 @@ Page({
     scrollleft: 0,  // tab标题的滚动条位置
     currentTab: 0,  // 预设当前项的值
     tags: ['力量', '耐力','协调性','水上'],  // 项目分类
-    showItems: util.trainingitem(),
+     showItems: util.trainingitem(),
     currentPages: [],  // 记录当前tab分页查询当前page
     
   },

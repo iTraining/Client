@@ -3,11 +3,32 @@ Page({
   /**
   * 页面的初始数据
   */
+  /**
+     * 确认提交
+     */
+  submit: function (e) {
+    var that = this;
+    console.log("确认成功" + that.data.CommunityName + "---------" + that.data.CommunityDescription);
+    // wx.navigateTo({
+    //   url: '../PersonalCenter/PersonalCenter'
+    // })
+  },
 
   data: {
-
+    "CommunityName":'',
+    "CommunityDescription":'',
+    "imgUrl":''
   },
-  
+  communityNameInput:function(e){
+    this.setData({
+      CommunityName: e.detail.value
+    })
+  },
+  communityDescriptionInput: function (e) {
+    this.setData({
+      CommunityDescription: e.detail.value
+    })
+  },
   /**
    * 选择队伍图标
    */
@@ -19,8 +40,10 @@ Page({
       sourceType:['album','camera'],
       success: function(res) {
         var tempFilePath=res.tempFilePaths;
+        console.log("-----"+res.tempFilePaths);
         that.setData({
-          avatarUrl:tempFilePath
+          imgUrl:tempFilePath
+          
         })
       },
     })
@@ -80,16 +103,7 @@ Page({
    */
   onShareAppMessage: function () {
   
-  },
-
-  /**
-   * 确认提交
-   */
-  confirm:function() {
-    console.log("确认成功");
-    wx.navigateTo({
-      url: '../PersonalCenter/PersonalCenter'
-    })
   }
 
+  
 })

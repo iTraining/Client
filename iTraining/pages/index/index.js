@@ -6,14 +6,20 @@ Page({
   data: {
     motto: 'Hello World',
     userInfo: {},
+    isNewUser:ture,
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   //事件处理函数
   bindViewTap: function() {
-    wx.navigateTo({
-      url: '../Menu/Menu'
-    })
+    var that=this;
+    if(that.data.isNewUser) {
+      wx.navigateTo({
+        url: '../Menu/Menu'
+      })
+    } else {
+
+    }
   },
   onLoad: function () {
     if (app.globalData.userInfo) {

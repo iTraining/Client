@@ -6,7 +6,9 @@
     "pages/communityDetails/communityDetails",
     "pages/trainingItemList/trainingItemList",
     "pages/registerCommunity/registerCommunity",
-    "pages/PersonalCenter/PersonalCenter"
+    "pages/PersonalCenter/PersonalCenter",
+    "pages/TrainingItemTodoList",
+    "pages/TrainingItemTodoList/TrainingItemTodoList"
   ],
   "window": {
     "backgroundTextStyle": "light",
