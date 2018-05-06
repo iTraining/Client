@@ -1,3 +1,6 @@
+var app = getApp()
+var fileData = require('../../utils/data.js')
+
 // pages/TrainingItemTodoList/TrainingItemTodoList.js
 Page({
 
@@ -5,16 +8,44 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    colors: ['red', 'orange', 'yellow', 'green', 'purple'],
+    // banner 初始化
+    banner_url: fileData.getBannerData(),
+    indicatorDots: true,
+    vertical: false,
+    autoplay: true,
+    interval: 3000,
+    duration: 1000,
+    // nav 初始化
+    // navTopItems: fileData.getIndexNavData(),
+    navSectionItems: fileData.getIndexNavSectionData(),
+    curNavId: 1,
+    curIndex: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var that = this
+    that.setData({
+      list: that.data.navSectionItems
+    })
   },
 
+  // 加载更多
+  loadMore: function (e) {
+    console.log('加载更多')
+    var curid = this.data.curIndex
+
+    if (this.data.navSectionItems[curid].length === 0) return
+
+    var that = this
+    that.data.navSectionItems[curid] = that.data.navSectionItems[curid].concat(that.data.navSectionItems[curid])
+    that.setData({
+      list: that.data.navSectionItems,
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
