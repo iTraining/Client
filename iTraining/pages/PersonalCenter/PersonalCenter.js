@@ -17,7 +17,14 @@ Page({
       url: '../communityDetails/communityDetails'
     })
   },
-
+  /**
+   * 跳转到制定训练计划界面
+   */
+  ToMakePlans:function() {
+    wx.navigateTo({
+      url: '../MakingPlansList/MakingPlansList',
+    })
+  },
   /**
    * 页面的初始数据
    */

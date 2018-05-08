@@ -1,7 +1,7 @@
 <view>
 <button bindtap='ToCommunityDetails'>我的队伍</button>
 <button bindtap='ToTrainingItemList'>训练项目专栏</button>
-<button >制定训练计划</button>
+<button bindtap='ToMakePlans'>制定训练计划</button>
 <button>查看个人成绩</button>
 <button>查看队伍成绩</button>
 <button>我的设置</button>
