@@ -5,27 +5,22 @@ function getBannerData() {
   var arr = ['../../images/banner_01.png', '../../images/banner_02.png', '../../images/banner_03.png', '../../images/banner_04.png']
   return arr
 }
-{
-  队伍名
-  队伍id
-  队伍创始人
-  。。。
-}
-{
-  人员：于海、棍
-}
-
-
-
 
 /*
  * 首页 对应 标签 数据项
  */
 function getIndexNavSectionData() {
   var arr = [
+
     [
       {
-
+        subject: "前平推",
+        coverpath: "../../image/trainingItem/strength/weightlifting.png",
+        numOfGroups: '4',
+        amount: '45kg',
+        message: '提升性能力'
+      },
+      {
         subject: "深蹲",
         coverpath: "../../image/trainingItem/strength/weightlifting.png",
         numOfGroups: '4',
