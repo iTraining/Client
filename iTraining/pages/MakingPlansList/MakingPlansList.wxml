@@ -39,7 +39,7 @@
 </scroll-view>
 <view class='button_items'>
 <view>
-<button class='button_item'>添加</button>
+<button class='button_item' bindtap='ToAddorEditPlans'>添加</button>
 </view>
 <view>
 <button class='button_item'>发布</button>

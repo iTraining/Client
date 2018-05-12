@@ -32,7 +32,11 @@ Page({
       list: that.data.navSectionItems
     })
   },
-
+  ToAddorEditPlans:function() {
+    wx.navigateTo({
+      url: '../AddorEditPlans/AddorEditPlans'
+    })
+  },
   // 加载更多
   loadMore: function (e) {
     console.log('加载更多')

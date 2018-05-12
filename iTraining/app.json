@@ -9,7 +9,8 @@
     "pages/PersonalCenter/PersonalCenter",
     "pages/TrainingItemTodoList/TrainingItemTodoList",
     "pages/TrainingPlanList/TrainingPlanList",
-    "pages/MakingPlansList/MakingPlansList"
+    "pages/MakingPlansList/MakingPlansList",
+    "pages/AddorEditPlans/AddorEditPlans"
   ],
   "window": {
     "backgroundTextStyle": "light",

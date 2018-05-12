@@ -1,0 +1,11 @@
+<picker bindchange="TrainingItemChange" value="{{areaIndex}}" range="{{area}}">  
+    <view class="picker">  
+      训练项目：{{area[areaIndex]}}  
+    </view>  
+</picker>  
+
+<picker bindchange="GroupNumsChange" value="{{GroupNumsIndex}}" range="{{GroupNums}}">  
+    <view class="picker">  
+      组数：{{GroupNums[GroupNumsIndex]}}  
+    </view>  
+</picker>  
