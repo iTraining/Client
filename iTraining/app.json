@@ -10,7 +10,8 @@
     "pages/TrainingItemTodoList/TrainingItemTodoList",
     "pages/TrainingPlanList/TrainingPlanList",
     "pages/MakingPlansList/MakingPlansList",
-    "pages/AddorEditPlans/AddorEditPlans"
+    "pages/AddorEditPlans/AddorEditPlans",
+    "pages/DailyPlansList/DailyPlansList"
   ],
   "window": {
     "backgroundTextStyle": "light",

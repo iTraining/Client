@@ -6,6 +6,28 @@ function getBannerData() {
   return arr
 }
 
+function getDate() {
+  var arr=[
+    [
+      {
+        month:"5",
+        day:"17",
+        trainingItem:"深蹲，臥推"
+      },
+      {
+        month:"5",
+        day:"16",
+        trainingItem: "深蹲,測功儀"
+        
+      },
+      {
+        month: "5",
+        day:"14",
+        trainingItem:"跑步"
+      }
+  ]]
+  return arr;
+}
 /*
  * 首页 对应 标签 数据项
  */
@@ -66,6 +88,7 @@ function getIndexNavSectionData() {
 
 
 module.exports = {
+  getDate:getDate,
   getBannerData: getBannerData,
   getIndexNavSectionData: getIndexNavSectionData
 }

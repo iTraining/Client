@@ -26,7 +26,7 @@ Page({
       })
     } else {
       wx.navigateTo({
-        url: '../TrainingItemTodoList/TrainingItemTodoList',
+        url: '../DailyPlansList/DailyPlansList',
       })
     }
   },
@@ -58,6 +58,8 @@ Page({
         }
       })
     }
+    // console.log(res.userInfo),
+    
   },
   getUserInfo: function(e) {
     console.log(e)
