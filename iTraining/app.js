@@ -11,14 +11,24 @@ App({
       //获取code
       success: function (res) {
         var code = res.code; //返回code
+        console.log("res after login: ");
         console.log(code);
+        // 测试zzy的服务器
+        wx.request({
+          url: 'https://itraining.zhanzy.xyz/api/v1/session?code='+code,
+          data:{
+          },
+          header:{
+            'content-type': 'json'              
+          }
+        })
         var appId = 'wxd3dae784d91bedf3';
         var secret = 'd6c888ecb287e1fcbf28f60e6301201d';
         wx.request({
           url: 'https://api.weixin.qq.com/sns/jscode2session?appid=' + appId + '&secret=' + secret + '&js_code=' + code + '&grant_type=authorization_code',
           data: {},
           header: {
-            'content-type': 'json'
+            'content-type': 'json'  
           },
           success: function (res) {
             var openid = res.data.openid //返回openid
