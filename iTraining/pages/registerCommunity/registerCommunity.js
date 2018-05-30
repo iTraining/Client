@@ -8,10 +8,24 @@ Page({
      */
   submit: function (e) {
     var that = this;
+    console.log(wx.getStorageSync("sessionid"))
+
     console.log("确认成功" + that.data.CommunityName + "---------" + that.data.CommunityDescription);
-    // wx.navigateTo({
-    //   url: '../PersonalCenter/PersonalCenter'
-    // })
+    wx.request({
+      url: 'http://itraining.zhanzy.xyz/api/v1/team',
+      data:{
+        name:'',
+        bio:''
+      },
+      header:{
+        'content-type': 'application/json',
+        'Cookie': wx.getStorageSync("sessionid")
+      },
+      success:function(res){
+          console.log(res.data) 
+      }
+
+    })
   },
 
   data: {

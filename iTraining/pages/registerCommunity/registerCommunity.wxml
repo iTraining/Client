@@ -4,7 +4,7 @@
 <view class='InputView'>
 <input class='TitleInput'  placeholder='队伍名称' bindinput='communityNameInput'></input>
 </view>
-<image class='TeamIcon' src='{{avatarUrl}}' bindtap='choseTeamIcon'></image>
+<image class='TeamIcon' src='{{avatarUrl}}'  bindtap='choseTeamIcon'></image>
 <view class='InputView'>
 <input class='DetailInput'  placeholder='队伍简介' bindinput='communityDescriptionInput'></input>
 </view>

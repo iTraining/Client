@@ -7,7 +7,7 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     openId:'',
-    isNewUser:false,
+    isNewUser:true,
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
@@ -62,7 +62,7 @@ Page({
     
   },
   getUserInfo: function(e) {
-    console.log(e)
+    // console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,
