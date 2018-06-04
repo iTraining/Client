@@ -34,6 +34,23 @@ Page({
       url: '../communityDetails/communityDetails'
     })
   },
+  getCommunity:function() {
+    wx.request({
+      url: 'https://itraining.zhanzy.xyz/api/v1/team',
+      data: {
+        option: 'joined'
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        // 'content-type': 'application/json',
+        'Cookie': wx.getStorageSync("set-cookie")
+      },
+      method: "GET",
+      success: function (res) {
+        console.log(res.data)
+      },
+    })
+  },
   /**
    * 页面的初始数据
    */

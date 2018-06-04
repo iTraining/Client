@@ -82,12 +82,19 @@ function trainingitem() {
   ]   // 具体的训练项目
   return arr
 }
-
+function json2Form(json) {
+  var str = [];
+  for (var p in json) {
+    str.push(encodeURIComponent(p) + "=" + encodeURIComponent(json[p]));
+  }
+  return str.join("&");
+}  
 
 
 
 
 module.exports = {
+  json2Form:json2Form,
   formatTime: formatTime,
   trainingitem: trainingitem
 }

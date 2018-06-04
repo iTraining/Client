@@ -5,43 +5,53 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-
-    // 登录
-    wx.login({
-      //获取code
-      success: function (res) {
-        var code = res.code; //返回code
-        console.log("res after login: ");
-        console.log(code);
-        // 测试zzy的服务器
-        wx.request({
-          url: 'https://itraining.zhanzy.xyz/api/v1/session?code='+code,
-          data:{
-          },
-          header:{
-            'content-type': 'json'              
-          },
-          success: function (res) {
-            console.log(res.data)
-            // console.log(res.data.data.sessionid)
-            wx.setStorageSync("sessionid", res.data.data.sessionid)
-          }
-        })
-        var appId = 'wxd3dae784d91bedf3';
-        var secret = '74f8a0b038820663efbca24da8242b9e';
-        // wx.request({
-        //   url: 'https://api.weixin.qq.com/sns/jscode2session?appid=' + appId + '&secret=' + secret + '&js_code=' + code + '&grant_type=authorization_code',
-        //   data: {},
-        //   header: {
-        //     'content-type': 'json'  
-        //   },
-        //   success: function (res) {
-        //     var openid = res.data.openid //返回sessionid
-        //     console.log('openid为' + openid);
-        //   }
-        // })
-      }
-    })
+    console.log(wx.getStorageSync('set-cookie'))
+    if (wx.getStorageSync('set-cookie')==="") {
+      // 登录
+      wx.login({
+        //获取code
+        success: function (res) {
+          var code = res.code; //返回code
+          console.log("res after login: ");
+          console.log(code);
+          // 测试zzy的服务器
+          wx.request({
+            url: 'https://itraining.zhanzy.xyz/api/v1/session?code=' + code,
+            data: {
+            },
+            header: {
+              'content-type': 'json'
+            },
+            success: function (res) {
+              console.log(res.header['set-cookie'])
+              // console.log(res.data.data.sessionid)
+              wx.setStorageSync("set-cookie", res.header["set-cookie"])
+            },
+            fail: function (res) {
+              console.log("fail to log")
+            }
+          })
+          var appId = 'wxd3dae784d91bedf3';
+          var secret = '74f8a0b038820663efbca24da8242b9e';
+          // wx.request({
+          //   url: 'https://api.weixin.qq.com/sns/jscode2session?appid=' + appId + '&secret=' + secret + '&js_code=' + code + '&grant_type=authorization_code',
+          //   data: {},
+          //   header: {
+          //     'content-type': 'json'  
+          //   },
+          //   success: function (res) {
+          //     var openid = res.data.openid //返回sessionid
+          //     console.log('openid为' + openid);
+          //   }
+          // })
+        }
+      })
+    } else {
+      wx.navigateTo({
+        url: "pages/Menu/Menu"
+      })
+    }
+    
     // 获取用户信息
     wx.getSetting({
       success: res => {

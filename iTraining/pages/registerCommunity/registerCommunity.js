@@ -1,4 +1,5 @@
 // pages/registerCommunity/registerCommunity.js
+var Util = require('../../utils/util.js');
 Page({
   /**
   * 页面的初始数据
@@ -6,25 +7,32 @@ Page({
   /**
      * 确认提交
      */
+    
   submit: function (e) {
     var that = this;
-    console.log(wx.getStorageSync("sessionid"))
+    console.log(wx.getStorageSync("set-cookie"))
 
     console.log("确认成功" + that.data.CommunityName + "---------" + that.data.CommunityDescription);
     wx.request({
-      url: 'http://itraining.zhanzy.xyz/api/v1/team',
-      data:{
-        name:'',
-        bio:''
-      },
+      url: 'https://itraining.zhanzy.xyz/api/v1/team',
+      data:Util.json2Form({
+        name:'123',
+        bio:'123'
+      }),
+      // data:{
+      //   name: '123',
+      //   bio:'123'
+      // },
+      // data:'name=123&bio=10',
       header:{
-        'content-type': 'application/json',
-        'Cookie': wx.getStorageSync("sessionid")
+        'content-type': 'application/x-www-form-urlencoded',
+        // 'content-type': 'application/json',
+        'Cookie':  wx.getStorageSync("set-cookie")
       },
+      method: "POST",      
       success:function(res){
           console.log(res.data) 
-      }
-
+      },
     })
   },
 
