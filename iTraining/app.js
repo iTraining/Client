@@ -6,7 +6,7 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
     console.log(wx.getStorageSync('set-cookie'))
-    if (wx.getStorageSync('set-cookie')==="") {
+    // if (wx.getStorageSync('set-cookie')==="") {
       // 登录
       wx.login({
         //获取code
@@ -46,11 +46,11 @@ App({
           // })
         }
       })
-    } else {
-      wx.navigateTo({
-        url: "pages/Menu/Menu"
-      })
-    }
+    // } else {
+    //   wx.navigateTo({
+    //     url: "pages/Menu/Menu"
+    //   })
+    // }
     
     // 获取用户信息
     wx.getSetting({

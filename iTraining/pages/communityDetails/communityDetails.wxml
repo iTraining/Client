@@ -1,34 +1,11 @@
-<view class="main">
-<view wx:for="{{testdata}}" class='item item1'>
+<!-- <view class="main">
+  <view wx:for="{{testdata}}" class='item item1'>
 
 <image src='{{item.imgsrc}}' mode='scaleToFill' class='img'></image>
-<view class='memberName'>{{item.name}}</view>
-<!-- <text>{{item.content}}</text> -->
-</view> 
-    <!-- <view class="item item1">
-    <text>张三</text>
-    <image></image>
-    </view>
-    <view class="item item2">
-    <text>李四</text>
-    </view>
-    <view class="item item3">
-    <text>王五</text>
-    </view>
-     <view class="item item1">
-    <text>张三</text>
-    <image></image>
-    </view>
-    <view class="item item2">
-    <text>李四</text>
-    </view>
-    <view class="item item3">
-    <text>王五</text>
-    </view> 
-    <view class="item item3">
-    <text>+</text>
-    </view>  -->
-  </view>
+<view class='memberName'>{{item.name}}</view> 
+<text>{{item.content}}</text> 
+
+  </view> -->
 <view class='infoItem'>
 <text class='title'>队伍名称</text>
 <input value='中大龙舟队'></input>
@@ -37,3 +14,5 @@
   <text class='title'>队伍简介</text>
   <input value='中大龙舟队，好好学习，天天划水'></input>
   </view>
+
+<button bindtap='inviteSomeone'>邀请他人加入</button>

@@ -18,6 +18,14 @@ Page({
     })
   },
   /**
+     * 跳转到社区详情界面
+     */
+  ToCommunityList: function () {
+    wx.navigateTo({
+      url: '../communityList/communityList'
+    })
+  },
+  /**
    * 跳转到制定训练计划界面
    */
   ToMakePlans:function() {

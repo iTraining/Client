@@ -93,5 +93,24 @@ Page({
       title: 'iTraing~',
       path: '/page/user?id=123'
     }
+  },
+  inviteSomeone:function() {
+    wx.request({
+      url: 'https://itraining.zhanzy.xyz/api/v1/team/invitation',
+      data: {
+        team_id:'1'
+        // option:'created'
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        // 'content-type': 'application/json',
+        'Cookie': wx.getStorageSync("set-cookie")
+      },
+      method: "GET",
+      success: function (res) {
+        console.log(res.data)
+
+      },
+    })
   }
 })
