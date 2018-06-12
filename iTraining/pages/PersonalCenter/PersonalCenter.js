@@ -25,6 +25,11 @@ Page({
       url: '../communityList/communityList'
     })
   },
+  RegisterCommunity:function() {
+    wx.navigateTo({
+      url: '../registerCommunity/registerCommunity',
+    })
+  },
   /**
    * 跳转到制定训练计划界面
    */

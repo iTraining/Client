@@ -50,19 +50,19 @@ Page({
     })
   },
 
-  // // 加载更多
-  // loadMore: function (e) {
-  //   console.log('加载更多')
-  //   var curid = this.data.curIndex
+  // 加载更多
+  loadMore: function (e) {
+    console.log('加载更多')
+    var curid = this.data.curIndex
 
-  //   if (this.data.navSectionItems[curid].length === 0) return
+    if (this.data.navSectionItems[curid].length === 0) return
 
-  //   var that = this
-  //   that.data.navSectionItems[curid] = that.data.navSectionItems[curid].concat(that.data.navSectionItems[curid])
-  //   that.setData({
-  //     list: that.data.navSectionItems,
-  //   })
-  // },
+    var that = this
+    that.data.navSectionItems[curid] = that.data.navSectionItems[curid].concat(that.data.navSectionItems[curid])
+    that.setData({
+      list: that.data.navSectionItems,
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

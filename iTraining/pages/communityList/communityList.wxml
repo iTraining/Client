@@ -18,12 +18,12 @@
                 </block>
                 </view> -->
                 <!--content-->
-                <view class="section_cont" bindtap="navigateDetail" data-aid="{{item.id}}">
+                <view class="section_cont" bindtap="navigateDetail" data-aid="{{item.name}}">
                     <view class="section_cont_sub">
                         <text>{{item.name}}</text>
                     </view>
                     <view class="section_cont_price">{{item.date}}组 X {{item.bio}}</view>
-                    <!-- <view>{{list[curIndex].leader_id}}</view> -->
+                    <!-- <view>{{item.leader_id}}</view> -->
                 </view>
                 <!--book-->
                 <!-- <view class="section_book" bindtap="bookTap" data-aid="{{item.id}}">

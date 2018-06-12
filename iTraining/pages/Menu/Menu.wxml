@@ -15,13 +15,9 @@
 </view>
 </view>
 </view> -->
-<view class='InputView'>
-<input class='Input'  placeholder='输入队伍ID搜索队伍' name="TeamID" bindinput='communityNameInput'></input>
-</view>
 <view>
- <button bindtap='joinCommunity'>加入队伍</button> 
 <button bindtap='registerCommunity'>创建队伍</button>
-<button bindtap='getCommunity'>获取队伍</button>
+
 </view>
 
   <scroll-view class="article-list" style="height:500px" scroll-y="true" bindscrolltolower="nextPage">

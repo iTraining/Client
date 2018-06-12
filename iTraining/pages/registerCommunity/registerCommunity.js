@@ -12,12 +12,19 @@ Page({
     var that = this;
     console.log(wx.getStorageSync("set-cookie"))
 
-    console.log("确认成功" + that.data.CommunityName + "---------" + that.data.CommunityDescription);
+    
+    if (that.data.CommunityName == undefined || that.data.CommunityDescription == undefined || that.data.CommunityName == "" || that.data.CommunityDescription=="") {
+      console.log("队伍名称或队伍描述不能为空")
+      this.setData({
+        hint:"队伍名称或队伍描述不能为空"
+      })
+      return ;
+    }
     wx.request({
       url: 'https://itraining.zhanzy.xyz/api/v1/team',
       data:Util.json2Form({
-        name:'123',
-        bio:'123'
+        name: that.data.CommunityName,
+        bio: that.data.CommunityDescription,
       }),
       // data:{
       //   name: '123',
@@ -31,7 +38,11 @@ Page({
       },
       method: "POST",      
       success:function(res){
+          console.log("确认成功" + that.data.CommunityName + "---------" + that.data.CommunityDescription);
           console.log(res.data) 
+          that.setData({
+            hint: "创建成功"
+          })
       },
     })
   },
@@ -39,7 +50,8 @@ Page({
   data: {
     "CommunityName":'',
     "CommunityDescription":'',
-    "imgUrl":''
+    "hint":'',
+    imgUrl:''
   },
   communityNameInput:function(e){
     this.setData({

@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/TrainingItemTodoList/TrainingItemTodoList",
     "pages/index/index",
     "pages/logs/logs",
     "pages/Menu/Menu",
@@ -7,7 +8,7 @@
     "pages/trainingItemList/trainingItemList",
     "pages/registerCommunity/registerCommunity",
     "pages/PersonalCenter/PersonalCenter",
-    "pages/TrainingItemTodoList/TrainingItemTodoList",
+    
     "pages/TrainingPlanList/TrainingPlanList",
     "pages/MakingPlansList/MakingPlansList",
     "pages/AddorEditPlans/AddorEditPlans",
@@ -27,7 +28,7 @@
     "color": "#aaa",
     "list": [
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/TrainingItemTodoList/TrainingItemTodoList",
         "text": "首页",
         "iconPath": "image/icon_tab/11.png",
         "selectdIconPath": "image/icon_tab/111.png"
