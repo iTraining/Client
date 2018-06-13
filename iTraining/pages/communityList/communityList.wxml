@@ -6,7 +6,8 @@
  <!--list-->
   <view class="nav_section">
     <view wx:if="{{list[curIndex]}}">
-        <block wx:for="{{list[curIndex]}}" wx:key="item.id">
+        <block wx:for="{{list}}">
+        <!-- wx:key="item.id" -->
             <view class="nav_section_items">
                 <!-- image
                 <view class="section_image" bindtap="navigateDetail" data-aid="{{item.id}}">
@@ -20,9 +21,9 @@
                 <!--content-->
                 <view class="section_cont" bindtap="navigateDetail" data-aid="{{item.name}}">
                     <view class="section_cont_sub">
-                        <text>{{item.name}}</text>
+                        <text>{{item.name}} {{item.bio}}</text>
                     </view>
-                    <view class="section_cont_price">{{item.date}}组 X {{item.bio}}</view>
+                    <view class="section_cont_price">创建于{{item.date}}.substring(0,5)</view>
                     <!-- <view>{{item.leader_id}}</view> -->
                 </view>
                 <!--book-->

@@ -110,5 +110,11 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  navigateDetail:function(e) {
+    console.log(e)
+    wx.navigateTo({
+      url: '../communityDetails/communityDetails?communityName='+,
+    })
   }
 })

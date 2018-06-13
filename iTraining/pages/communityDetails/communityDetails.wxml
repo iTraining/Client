@@ -8,7 +8,7 @@
   </view> -->
 <view class='infoItem'>
 <text class='title'>队伍名称</text>
-<input value='中大龙舟队'></input>
+{{}}
 </view>
 <view class='infoItem'>
   <text class='title'>队伍简介</text>
