@@ -26,11 +26,6 @@ Page({
         name: that.data.CommunityName,
         bio: that.data.CommunityDescription,
       }),
-      // data:{
-      //   name: '123',
-      //   bio:'123'
-      // },
-      // data:'name=123&bio=10',
       header:{
         'content-type': 'application/x-www-form-urlencoded',
         // 'content-type': 'application/json',

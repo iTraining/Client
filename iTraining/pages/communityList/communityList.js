@@ -114,7 +114,7 @@ Page({
   navigateDetail:function(e) {
     console.log(e)
     wx.navigateTo({
-      url: '../communityDetails/communityDetails?communityName='+,
+      url: '../communityDetails/communityDetails?aid='+e.currentTarget.dataset.aid+'&bio='+e.currentTarget.dataset.bio,
     })
   }
 })

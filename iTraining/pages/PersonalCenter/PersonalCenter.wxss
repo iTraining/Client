@@ -1,1 +1,36 @@
 /* pages/PersonalCenter/PersonalCenter.wxss */
+.container {
+  background-color: #F2f2f2;
+}
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  padding: 50rpx 0;
+  align-items: center;
+  background: #f9f027;
+}
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+.userinfo-nickname {
+  color: #333;
+}
+.weui_cell{
+    position: relative;
+    display: flex;
+    padding: 15px;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-bottom: 1px solid #dadada;
+}
+.weui_cell_bd{
+  display: inline-block;
+}
+.weui_cell_bd_p{
+  font-size: 14px;
+  color: #939393;
+}

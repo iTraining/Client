@@ -8,12 +8,12 @@
     "pages/trainingItemList/trainingItemList",
     "pages/registerCommunity/registerCommunity",
     "pages/PersonalCenter/PersonalCenter",
-    
+    "pages/communityList/communityList",
     "pages/TrainingPlanList/TrainingPlanList",
     "pages/MakingPlansList/MakingPlansList",
     "pages/AddorEditPlans/AddorEditPlans",
-    "pages/DailyPlansList/DailyPlansList",
-    "pages/communityList/communityList"
+    "pages/DailyPlansList/DailyPlansList"
+    
   
   ],
   "window": {

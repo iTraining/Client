@@ -7,12 +7,12 @@
 
   </view> -->
 <view class='infoItem'>
-<text class='title'>队伍名称</text>
-{{}}
+<text class='title'>队伍名称\n</text>
+<text>{{name}}</text>
 </view>
 <view class='infoItem'>
-  <text class='title'>队伍简介</text>
-  <input value='中大龙舟队，好好学习，天天划水'></input>
+  <text class='title'>队伍简介\n</text>
+<text>{{bio}}</text>
   </view>
 
 <button bindtap='inviteSomeone'>邀请他人加入</button>
