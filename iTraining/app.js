@@ -7,7 +7,8 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
     console.log(wx.getStorageSync('set-cookie'))
-    if (wx.getStorageSync('set-cookie')==="") {
+    // if (wx.getStorageSync('set-cookie')==="") 
+    {
       // 登录
       wx.login({
         //获取code
@@ -61,7 +62,7 @@ App({
   },
   getUserInfo: function (cb) {
     var that = this
-    if (this.globalData.userInfo || this.globalData.userInfo!=null) {
+    if (this.globalData.userInfo ) {
       console.log(this.globalData.userInfo)
       typeof cb == "function" && cb(this.globalData.userInfo)
     } else {

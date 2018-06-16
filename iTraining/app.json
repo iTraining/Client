@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/authorize/authorize",
-    "pages/TrainingItemTodoList/TrainingItemTodoList",    
+    
+    "pages/TrainingItemTodoList/TrainingItemTodoList",   
+    "pages/authorize/authorize", 
     "pages/logs/logs",
     "pages/Menu/Menu",
     "pages/communityDetails/communityDetails",

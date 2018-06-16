@@ -66,8 +66,9 @@ Page({
    */
   onShareAppMessage: function () {
     return {
-      title: 'iTraing~',
-      path: '/page/user?id=123'
+      title: '中大龙舟队~',
+      desc:'ffffffuck',
+      path: '/page/TrainingItemTodoList/TrainingItemTodoList'
     }
   },
   inviteSomeone:function() {
