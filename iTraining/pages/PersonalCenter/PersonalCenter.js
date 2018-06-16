@@ -53,11 +53,12 @@ Page({
     var that=this
     console.log("on load ")
     app.getUserInfo(function(userInfo) {
+      console.log(userInfo)
       that.setData({
         userInfo:userInfo
       })
     })
-    console.log(this.data.userInfo)
+    // console.log(this.data.userInfo)
   },
 
   /**

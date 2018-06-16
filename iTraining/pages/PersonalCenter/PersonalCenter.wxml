@@ -29,5 +29,5 @@
 <!-- <button bindtap='ToCommunityList'>队伍列表</button> -->
 <!-- <button>查看个人成绩</button>
 <button>查看队伍成绩</button> 
-<button>我的设置</button> -->
+  -->
 </view>
