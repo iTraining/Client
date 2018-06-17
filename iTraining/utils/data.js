@@ -33,8 +33,6 @@ function getDate() {
  */
 function getIndexNavSectionData() {
   var arr = [
-
-    [
       {
         subject: "前平推",
         coverpath: "../../image/trainingItem/strength/weightlifting.png",
@@ -80,7 +78,7 @@ function getIndexNavSectionData() {
         amount: '2mins',
         message: '锻炼核心肌群，让你瘦得更健康，远离下背疼痛。'
       }
-    ]
+    
   ]
   return arr
 }

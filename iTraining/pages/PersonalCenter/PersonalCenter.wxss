@@ -1,14 +1,21 @@
 /* pages/PersonalCenter/PersonalCenter.wxss */
-.container {
-  background-color: #F2f2f2;
+
+.backgroundImg {
+  position: fixed;
+  top :0;
+  left:0;
+  height:125px;
+  width:100%;
+  z-index: -1;
 }
+
 .userinfo {
   display: flex;
   flex-direction: column;
   padding: 50rpx 0;
   align-items: center;
-  background: #f9f027;
 }
+
 .userinfo-avatar {
   width: 128rpx;
   height: 128rpx;
