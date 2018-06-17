@@ -1,8 +1,12 @@
 <view>
+
+<image class="backgroundImg" src="/image/trainingItem/rowing/dragon.JPG"></image>
 <view  class="userinfo">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+  <text class="userinfo-nickname">{{userInfo.nickName}}</text>
 </view>
+
+
 <view class="weui_cell" bindtap='ToCommunityList'>
 <view class="weui_cell_bd">
   <view class="weui_cell_bd_p"> 我的队伍 </view>
