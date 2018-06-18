@@ -1,6 +1,6 @@
 /* pages/registerCommunity/registerCommunity.wxss */
 
-.main{
+/* .main{
   width: 100%;
   display: flex; 
   flex-wrap: wrap;
@@ -35,4 +35,50 @@
 
 .input{
   color: red;
+} */
+
+page{
+  background: #e4e4e4;
+}
+
+.view-community {
+  margin: 50rpx 50rpx;
+}
+
+.view-community .form-community .field {
+  vertical-align: top;
+
+}
+
+.view-community .form-community .field input,
+.view-community .form-community .field textarea{
+  display: inline-block;
+  width: 450rpx;
+  padding: 5rpx 20rpx;
+  vertical-align: middle;
+  box-sizing: border-box;
+  background: white;
+}
+
+.view-community .form-community .upload-box {
+  vertical-align: top;
+  width: 450rpx;
+  box-sizing: border-box;
+  height: 300rpx;
+  border: 1px solid #ccc;
+  display: inline-block;
+}
+
+.view-community .form-community .field-submit {
+  text-align: center;
+}
+
+.view-community .form-community .field-submit .btn {
+  margin: 10rpx;
+  width: 200rpx;
+}
+
+.view-community .form-community textarea,
+.view-community .form-community image {
+  background: white;
 }
