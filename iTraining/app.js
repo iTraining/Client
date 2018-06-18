@@ -7,34 +7,53 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
     console.log(wx.getStorageSync('set-cookie'))
-    if (wx.getStorageSync('set-cookie')==="") {
+    if (wx.getStorageSync('set-cookie')==="") 
+    {
       // 登录
       wx.login({
         //获取code
         success: function (res) {
-          that.globalData.userInfo = res.userInfo
-          console.log(res.userInfo)
-          var code = res.code; //返回code
-          console.log("res after login: ");
-          console.log(code);
-          // 测试zzy的服务器
-          wx.request({
-            url: 'https://itraining.zhanzy.xyz/api/v1/session?code=' + code,
-            data: {
-            },
-            header: {
-              'content-type': 'json'
-            },
+          wx.getUserInfo({
             success: function (res) {
-              
-              console.log(res.header['set-cookie'])
-              // console.log(res.data.data.sessionid)
-              wx.setStorageSync("set-cookie", res.header["set-cookie"])
+              console.log(res)
+              that.globalData.userInfo = res
+              typeof cb == "function" && cb(that.globalData.userInfo)
+              wx.request({
+                url: 'https://itraining.zhanzy.xyz/api/v1/session?code=' + code,
+                data: {
+                  'nickname': that.globalData.userInfo.nickName
+                },
+                header: {
+                  'content-type': 'json'
+                },
+                success: function (res) {
+
+                  console.log("set storage cookie")
+                  console.log(res)
+                  console.log(res.header['set-cookie'])
+                  // console.log(res.data.data.sessionid)
+                  if (res.header["set-cookie"])
+                    wx.setStorageSync("set-cookie", res.header["set-cookie"])
+                  if (res.header["Set-Cookie"])
+                    wx.setStorageSync("set-cookie", res.header["Set-Cookie"])
+
+                },
+                fail: function (res) {
+                  console.log("fail to log")
+                }
+              })
             },
-            fail: function (res) {
-              console.log("fail to log")
+            fail: function () {
+              console.log("fail to get userinfo")
+
             }
           })
+          // that.globalData.userInfo = res.userInfo
+          console.log("user nickName ")
+          console.log(that.globalData.userInfo)
+          var code = res.code; //返回code
+          // 测试zzy的服务器
+          
          
         }
       })
@@ -53,7 +72,7 @@ App({
         } else {
           console.log("没有认证")
           wx.navigateTo({
-          url: "pages/authorize/authorize"
+          url: "authorize"
         })
         }
       }

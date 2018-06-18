@@ -1,6 +1,3 @@
-<!--pages/TrainingItemTodoList/TrainingItemTodoList.wxml-->
-<!-- <text>pages/TrainingItemTodoList/TrainingItemTodoList.wxml</text> -->
-
 <view class="container">
 <scroll-view  scroll-y="true"  class="page-body" bindscrolltolower="loadMore">
  <!--list-->
@@ -9,17 +6,19 @@
         <block wx:for="{{list}}">
         <!-- wx:key="item.id" -->
             <view class="nav_section_items">
-                <!-- image
-                <view class="section_image" bindtap="navigateDetail" data-aid="{{item.id}}">
+                <!-- <view class="section_image" bindtap="navigateDetail" data-aid="{{item.id}}">
+                
+                </view>  -->
+                
+                <view class="section_cont" bindtap="navigateDetail" data-aid="{{item.name}}" data-bio="{{item.bio}}">
+
                 <block wx:if="{{item.coverpath}}">
                     <image src="{{item.coverpath}}" mode="aspectFill"></image>
                 </block>
                 <block wx:else>
-                    <image src="../../images/default_pic.png" mode="aspectFill"></image>
+                    <image src="../../image/icon_tab/11.png" mode="aspectFill"></image>
                 </block>
-                </view> -->
-                <!--content-->
-                <view class="section_cont" bindtap="navigateDetail" data-aid="{{item.name}}" data-bio="{{item.bio}}">
+
                     <view class="section_cont_sub">
                         <text>{{item.name}} {{item.bio}}</text>
                     </view>

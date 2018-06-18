@@ -33,12 +33,13 @@
     background:#ddd;
 }
 .nav_section_items .section_image{
-    width:170rpx;
-    height:158rpx;
+    width:140rpx;
+    height:140rpx;
 }
 .nav_section_items .section_image image{
     width:100%;
     height:100%;
+    border-radius: 50%;    
 }
 .nav_section_items .section_cont{
     width:400rpx;

@@ -1,5 +1,6 @@
 <!--pages/authorize/authorize.wxml-->
 <button 
+    class='btn'
     wx:if="{{canIUse}}" 
     open-type="getUserInfo" 
     bindgetuserinfo="bindGetUserInfo"
