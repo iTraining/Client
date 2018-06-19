@@ -4,7 +4,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+    token:"",
+    team_id:""
   },
 
   /**
@@ -15,7 +16,7 @@ Page({
     this.setData({
       name:options.aid,
       bio:options.bio,
-
+      team_id:options.team_id
     })
   },
 
@@ -67,15 +68,16 @@ Page({
   onShareAppMessage: function () {
     return {
       title: '中大龙舟队~',
-      desc:'ffffffuck',
-      path: '/page/TrainingItemTodoList/TrainingItemTodoList'
+      desc:'token='+this.data.token,
+      path: '/pages/TrainingItemTodoList/TrainingItemTodoList'
     }
   },
   inviteSomeone:function() {
+    var that=this
     wx.request({
       url: 'https://itraining.zhanzy.xyz/api/v1/team/invitation',
       data: {
-        team_id:'1'
+        team_id: that.data.team_id
         // option:'created'
       },
       header: {
@@ -85,8 +87,24 @@ Page({
       },
       method: "GET",
       success: function (res) {
+        // 从链接中获取到teamid 和token
         console.log(res.data)
-
+        var url=res.data.data
+        var index=url.indexOf('?')
+        var resdata=url.substr(index+1)
+        // console.log(resdata)
+        var strs = resdata.split("&")
+        // console.log(strs)
+        var mtoken=strs[0].split('=')[1]
+        var mteamid=strs[1].split('=')[1]
+        console.log("token "+token)
+        console.log('teamid'+teamid)
+        // console.log(res.data.data.indexOf('?'))
+        // var resdata=
+        that.setData({
+          token:mtoken,
+          teamid:mteamid,
+        })
       },
     })
   }

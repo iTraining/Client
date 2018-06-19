@@ -72,7 +72,7 @@ App({
         } else {
           console.log("没有认证")
           wx.navigateTo({
-          url: "authorize"
+            url: "pages/authorize/authorize"
         })
         }
       }

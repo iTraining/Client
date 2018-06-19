@@ -27,7 +27,7 @@
 <scroll-view  scroll-y="true"  class="page-body" >
   <view class="nav_section_items" wx:for="{{list}}" wx:key="item.id" data-data="{{item}}">
     <!--image-->
-    <view class="section_image" bindtap="navigateDetail" data-aid="{{item.name}}" data-bio="{{item.bio}}">
+    <view class="section_image" bindtap="navigateDetail" data-aid="{{item.name}}" data-bio="{{item.bio}}" data-team_id="{{item.team_id}}">
       <block wx:if="{{item.coverpath}}">
         <image src="{{item.coverpath}}" mode="aspectFill"></image>
       </block>
