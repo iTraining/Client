@@ -1,0 +1,3 @@
+<!--pages/JoinCommunity/JoinCommunity.wxml-->
+<!-- <text>pages/JoinCommunity/JoinCommunity.wxml</text> -->
+<button bindtap='joinCommunity'>加入队伍</button>

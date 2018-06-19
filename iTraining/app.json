@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/TrainingItemTodoList/TrainingItemTodoList",  
-    "pages/authorize/authorize",    
+    "pages/TrainingItemTodoList/TrainingItemTodoList",
+    "pages/authorize/authorize",
     "pages/logs/logs",
     "pages/Menu/Menu",
     "pages/communityDetails/communityDetails",
@@ -12,9 +12,8 @@
     "pages/TrainingPlanList/TrainingPlanList",
     "pages/MakingPlansList/MakingPlansList",
     "pages/AddorEditPlans/AddorEditPlans",
-    "pages/DailyPlansList/DailyPlansList"
-    
-  
+    "pages/DailyPlansList/DailyPlansList",
+    "pages/JoinCommunity/JoinCommunity"
   ],
   "window": {
     "backgroundTextStyle": "light",
