@@ -23,7 +23,7 @@ Page({
     if (e.detail.userInfo) {
       //用户按了允许授权按钮
       console.log("用户按了")
-      wx.switchTab({  
+      wx.switchTab({
         url: '../TrainingItemTodoList/TrainingItemTodoList',
       })
     } else {

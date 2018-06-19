@@ -20,7 +20,7 @@ Page({
     // navTopItems: fileData.getIndexNavData(),
     navSectionItems: fileData.getIndexNavSectionData(),
     curNavId: 1,
-    curIndex: 0
+    //curIndex: 0
   },
 
   /**
@@ -35,7 +35,7 @@ Page({
 
   // 加载更多
   loadMore: function (e) {
-    console.log('加载更多')
+    /*console.log('加载更多')
     var curid = this.data.curIndex
 
     if (this.data.navSectionItems[curid].length === 0) return
@@ -44,7 +44,7 @@ Page({
     that.data.navSectionItems[curid] = that.data.navSectionItems[curid].concat(that.data.navSectionItems[curid])
     that.setData({
       list: that.data.navSectionItems,
-    })
+    })*/
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -85,7 +85,11 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+    var that = this;
+     wx.showLoading({
+       title: '玩命加载中',
+     })
+     wx.hideLoading();
   },
 
   /**
