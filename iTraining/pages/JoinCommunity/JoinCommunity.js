@@ -67,6 +67,9 @@ Page({
         that.setData({
           list: res.data.data
         })
+        wx.navigateTo({
+          url: '../TrainingItemTodoList/TrainingItemTodoList'
+        })
       },
     })
   },

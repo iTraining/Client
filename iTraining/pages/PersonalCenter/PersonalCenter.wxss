@@ -1,13 +1,13 @@
 /* pages/PersonalCenter/PersonalCenter.wxss */
 
-.backgroundImg {
+/* .backgroundImg {
   position: fixed;
   top :0;
   left:0;
   height:125px;
   width:100%;
   z-index: -1;
-}
+} */
 
 .userinfo {
   display: flex;
