@@ -8,7 +8,7 @@
   </view> -->
 
 <view bindtap='selectImage' class='selectImg'>
-  <image class='team_img' placeholder="队伍头像" src="{{teamimg}}"></image>
+  <image class='team_img' placeholder="队伍头像" src="{{team_image}}"></image>
 </view>
 <view class='infoItem'>
 <text class='title'>队伍名称\n</text>
@@ -19,4 +19,5 @@
 <text>{{bio}}</text>
   </view>
 
-<button bindtap='inviteSomeone'>邀请他人加入</button>
+<button class='invite_btn' bindtap='inviteSomeone'>邀请他人加入</button>
+<button class='delete_btn' bindtap='deleteCommunity'>删除队伍</button>

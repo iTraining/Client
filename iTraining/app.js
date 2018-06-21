@@ -13,6 +13,8 @@ App({
       wx.login({
         //获取code
         success: function (res) {
+          var code =res.code
+          console.log(code)
           wx.getUserInfo({
             success: function (res) {
               console.log(JSON.parse(res.rawData).image_url)
