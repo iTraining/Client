@@ -1,38 +1,58 @@
-<!-- pages/registerCommunity/registerCommunity.wxml
-<!-- <text>pages/registerCommunity/registerCommunity.wxml</text> -->
- <!-- <view class='main'>
-<view class='InputView'>
-<input class='TitleInput'  placeholder='队伍名称' bindinput='communityNameInput'></input>
+<view class="container edit_wrap">
+<form bindsubmit="formSubmit" id="123">
+    <view class="form_group">
+        <text>队伍名称：</text>
+        <input type="text" placeholder="请输入队伍名称" placeholder-class="placeholder_style" name="name" />
+    </view>
+    <view class="form_group">
+        <text>队伍简介：</text>
+        <input type="text" placeholder="请输入队伍简介" placeholder-class="placeholder_style" name="bio"/>
+    </view>
+    <view class="form_group">
+        <text>队伍头像：</text>
+        <!-- <picker bindchange="bindProviPickerChange" value="{{proviIndex}}" range="{{province}}" name="data_province" value="{{data_province}}"> -->
+        <view bindtap='selectImage' class='selectImg'>
+        <image class='team_img' placeholder="队伍头像" src="{{imagePath}}"></image>
+        </view>
+        <!-- </picker> -->
+    </view>
+    
+    <button class="save_btn"  formType="submit">提交</button>
+    <!-- <toast hidden="{{saveToastHidden}}" bindchange="hideToast">
+    保存成功
+    </toast> -->
+</form>
 </view>
-<image class='TeamIcon' src='{{avatarUrl}}'  bindtap='choseTeamIcon'></image>
-<view class='InputView'>
-<input class='DetailInput'  placeholder='队伍简介' bindinput='communityDescriptionInput'></input>
-</view>
-<view>
-<button bindtap='submit'>提交</button>
-<view>{{hint}}</view>
-</view>
-</view> -->
+
 
 <view class="view-community">
   <form class="form-community" bindsubmit='formSubmit' bindreset='formReset'>
 
-    <view class="field field-name">
+    <!-- <view class="field field-name">
       <input type="text" name="name" placeholder="队伍名称"></input>
-    </view>
+    </view> -->
 
-    <view class="field field-image">
+    <!-- <view class="field field-image">
       <view class="upload-box" bindtap="selectImage">
         <image style='width:100%; height:100%;' placeholder="队伍头像" src="{{imagePath}}"></image>
       </view>
-    </view>
-    
+    </view> -->
+
+    <!-- <view class="field field-image">
+      <view class="upload-box" bindtap="selectImage">
+        <image style='width:100%; height:100%;' placeholder="队伍头像" src="{{imagePathfromServer}}"></image>
+         
+      </view>
+    </view> -->
+<!-- 
     <view class="field field-description">
       <textarea name="bio" maxlength="300" placeholder="队伍简介"></textarea>
-    </view>
+    </view> -->
 
-    <view class="field field-submit">
+    <!-- <view class="field field-submit">
       <button form-type="submit" class="btn btn-default btn-submit" hidden="{{reset}}">提交</button>
-    </view>
+    </view> -->
   </form>
+ 
 </view>
+

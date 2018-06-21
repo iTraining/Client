@@ -5,7 +5,8 @@ Page({
    */
   data: {
     token:"",
-    team_id:""
+    team_id:"",
+    teamimg:'',
   },
 
   /**
@@ -33,15 +34,17 @@ Page({
       method: "GET",
       success: function (res) {
         // 从链接中获取到teamid 和token
-        console.log(res.data)
+        console.log(typeof(res.data))
         var url = res.data.data
         var index = url.indexOf('?')
         var resdata = url.substr(index + 1)
         // console.log(resdata)
         var strs = resdata.split("&")
-        // console.log(strs)
+        console.log("strs from community list")
+        console.log(strs)
         var mtoken = strs[0].split('=')[1]
         var mteamid = strs[1].split('=')[1]
+        var mteamimg=strs[2].split('=')[1]
         console.log("token " + mtoken)
         console.log('teamid' + mteamid)
         // console.log(res.data.data.indexOf('?'))
@@ -49,6 +52,7 @@ Page({
         that.setData({
           token: mtoken,
           teamid: mteamid,
+          teamimg:'https://itraining.zhanzy.xyz/'+mteamimg,
         })
       },
     })

@@ -32,3 +32,13 @@
   margin: 0rpx;
   font-size: 30rpx;
 }
+
+.team_img{
+  width: 200rpx;
+  height: 200rpx;
+  border: 1px solid #ccc;
+  border-radius: 50%;    
+}
+.selectImg{
+  margin-right: 40%;
+}

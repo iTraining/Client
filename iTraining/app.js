@@ -15,17 +15,28 @@ App({
         success: function (res) {
           wx.getUserInfo({
             success: function (res) {
-              console.log(res)
+              console.log(JSON.parse(res.rawData).image_url)
+              var nickName = JSON.parse(res.rawData).nickName
+              var imgUrl = JSON.parse(res.rawData).image_url
               that.globalData.userInfo = res
               typeof cb == "function" && cb(that.globalData.userInfo)
+              // wx.uploadFile({
+              //   url: 'https://itraining.zhanzy.xyz/api/v1/session?code='+code,
+              //   filePath: '',
+              //   name: '',
+              // })
+
               wx.request({
-                url: 'https://itraining.zhanzy.xyz/api/v1/session?code=' + code,
+                url: 'https://itraining.zhanzy.xyz/api/v1/session',
                 data: {
-                  'nickname': that.globalData.userInfo.nickName
+                  'nickname': nickName,
+                  'image_url':imgUrl,
+                  'code':code,
                 },
                 header: {
-                  'content-type': 'json'
+                  'content-type': 'application/x-www-form-urlencoded',
                 },
+                method: "POST",  
                 success: function (res) {
 
                   console.log("set storage cookie")

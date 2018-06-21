@@ -115,7 +115,7 @@ Page({
     console.log("navigate to details")
     console.log(e)
     wx.navigateTo({
-      url: '../communityDetails/communityDetails?aid='+e.currentTarget.dataset.aid+'&bio='+e.currentTarget.dataset.bio+'&team_id='+e.currentTarget.dataset.team_id
+      url: '../communityDetails/communityDetails?aid='+e.currentTarget.dataset.aid+'&bio='+e.currentTarget.dataset.bio+'&team_id='+e.currentTarget.dataset.team_id+'&team_img='+e.currentTarget.dataset.team_image
     })
   }
 })

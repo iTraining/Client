@@ -9,6 +9,7 @@ Page({
      */
   data: {
     imagePath: "/image/icon_tab/add.png",
+    imagePathfromServer:'/image/icon_tab/add.png',
     reset: false    // 再次添加队伍，后续精进
   },
 
@@ -49,27 +50,37 @@ Page({
     return true;
   },
   formSubmit: function (e) {
+
     let that = this;
     console.log('form发生了submit事件，携带数据为:', e.detail.value);
     if (!that.formValidate(e.detail.value)) {
       return;
     } else {
-      console.log(that.data.imagePath),
-        wx.request({
+      console.log(that.data),
+        wx.uploadFile({
           url: 'https://itraining.zhanzy.xyz/api/v1/team',
           filePath: that.data.imagePath,
           name: "avatar",
-          data: e.detail.value,
-          method: "POST",
+          formData:{
+            name: e.detail.value.name,
+            bio: e.detail.value.bio,
+          },
+          // data: e.detail.value,
           header: {
             //'content-type': 'multipart/form-data',
             // 'content-type': 'application/json',
             'Cookie': wx.getStorageSync("set-cookie")
           },
           success: function (res) {
-            console.log(res.data);
+            // 注意使用uploadfile的返回的是string类型的数据
+            console.log(typeof(res.data))
+            console.log(res.data)
+            console.log(typeof (JSON.parse(res.data)))
+            var JsonRes = JSON.parse(res.data)
             that.setData({
-              reset: true
+              reset: true,
+              // 测试图片能不能正常显示
+              imagePathfromServer: 'https://itraining.zhanzy.xyz/'+JsonRes.data.image_url,
             })
           }
         })

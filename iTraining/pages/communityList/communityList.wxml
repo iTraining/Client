@@ -27,9 +27,9 @@
 <scroll-view  scroll-y="true"  class="page-body" >
   <view class="nav_section_items" wx:for="{{list}}" wx:key="item.id" data-data="{{item}}">
     <!--image-->
-    <view class="section_image" bindtap="navigateDetail" data-aid="{{item.name}}" data-bio="{{item.bio}}" data-team_id="{{item.team_id}}">
-      <block wx:if="{{item.coverpath}}">
-        <image src="{{item.coverpath}}" mode="aspectFill"></image>
+    <view class="section_image" bindtap="navigateDetail" data-aid="{{item.name}}" data-bio="{{item.bio}}" data-team_id="{{item.team_id}}" data-team_img='{{item.image_url}}'>
+      <block wx:if="{{item.image_url}}">
+        <image src="https://itraining.zhanzy.xyz/{{item.image_url}}" mode="aspectFill"></image>
       </block>
       <block wx:else>
         <image src="../../image/icon_tab/11.png" mode="aspectFill"></image>

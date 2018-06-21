@@ -63,6 +63,12 @@ Page({
       },
       method: "GET",
       success: function (res) {
+        wx.showToast({
+          title: '成功加入',
+          icon: 'succes',
+          duration: 1000,
+          mask: true
+        })
         console.log(res.data)
         that.setData({
           list: res.data.data
