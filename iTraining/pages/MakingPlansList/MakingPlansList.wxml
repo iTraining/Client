@@ -14,9 +14,9 @@
 
       <view class="field field-trainingClass">
         <text>计划类型：</text>
-        <picker model="selector" range='{{training_class_list}}' value='{{trainPlanData.training_class}}'
+        <picker model="selector" range='{{training_class_list}}' value='{{training_class}}'
        bindchange="trainingClassChange" name="training_class">  
-          <view>{{training_class_list[trainPlanData.training_class]}}</view>
+          <view>{{training_class_list[training_class]}}</view>
         </picker>  
       </view>
 

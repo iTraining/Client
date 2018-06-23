@@ -11,7 +11,7 @@ Page({
     // 存储单个训练计划
     trainPlanData:{
       team_id: 0, // 其实是team_list的下标
-      training_class: 0,  // 其实是training_class_list的下标 0表示训练 1表示测试
+      training_class: '训练',  // 其实是training_class_list的下标 0表示训练 1表示测试
       title: '',
       description: '',
       training_date: '2018-11-11',
@@ -21,6 +21,7 @@ Page({
 
     team_list: [],  
     training_class_list: ['训练', '测试'],
+    training_class: 0,
     title: '',
     description: '',
     state: ['草稿', '发布'],
@@ -56,9 +57,9 @@ Page({
   },
   trainingClassChange: function (e) {
     var that = this
-    var str_training_class = 'trainPlanData.training_class'
+    //var str_training_class = 'trainPlanData.training_class'
     that.setData({
-      [str_training_class]: e.detail.value
+      training_class: e.detail.value
     })
   },
   executeTimeChange: function (e) {
@@ -127,7 +128,7 @@ Page({
     var str_indicators = 'trainPlanData.indicators';
     that.setData({
       [str_team_id]: header_info.team_id,
-      [str_training_class]: header_info.training_class,
+      [str_training_class]: that.data.training_class_list[header_info.training_class],
       [str_title]: header_info.title,
       [str_description]: header_info.description,
       [str_training_date]: header_info.training_date,
@@ -147,7 +148,8 @@ Page({
       console.log(that.data.trainPlanData)
 
 
-      // 上传这一次的训练计划  这里暂时用数据缓存来方便后面打卡取这个计划
+      // 上传给服务器这一次的训练计划  
+      //这里暂时用数据缓存来方便后面打卡取这个计划
       wx.setStorageSync('single_trainPlanData', that.data.trainPlanData)
 
       // 返回到个人中心页面
@@ -168,7 +170,7 @@ Page({
       that.showErrorToast("请添加训练项目")
       return false;
     } else {
-      if (trainPlanData.training_class == 1) {
+      if (trainPlanData.training_class == '测试') {
         // 如果是测试计划 那就只能有一个训练项目
         if (that.data.indi_index != 1) {
           that.showErrorToast("测试计划只允许添加一个项目")
