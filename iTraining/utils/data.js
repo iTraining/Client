@@ -33,18 +33,20 @@ function getDate() {
  */
 function getIndexNavSectionData() {
   var arr = [
-      {
+      { 
         subject: "前平推",
         coverpath: "../../image/trainingItem/strength/weightlifting.png",
         numOfGroups: '4',
         amount: '45kg',
+        requireNum_perGroup: '10',
         message: '提升性能力'
       },
-      {
+      { 
         subject: "深蹲",
         coverpath: "../../image/trainingItem/strength/weightlifting.png",
         numOfGroups: '4',
         amount:'45kg',
+        requireNum_perGroup: '10',
         message: '提升性能力'
       },
       {
@@ -52,7 +54,8 @@ function getIndexNavSectionData() {
         subject: "弓步蹲",
         coverpath: "../../image/trainingItem/strength/lunge.png",
         numOfGroups: '2',
-        amount: '100m',
+        amount: '20kg',
+        requireNum_perGroup: '10',
         message: '锻炼大腿'
       },
       {
@@ -60,6 +63,7 @@ function getIndexNavSectionData() {
         coverpath: "../../image/trainingItem/resistance/rowingmachine.png",
         numOfGroups: '2',
         amount: '3000m',
+        requireNum_perGroup: '10',
         message: '陆上赛艇'
       },
       {
@@ -68,6 +72,7 @@ function getIndexNavSectionData() {
         coverpath: "../../image/trainingItem/strength/benchpress.png",
         numOfGroups: '4',
         amount: '50kg',
+        requireNum_perGroup: '10',
         message: '对上肢伸肌和胸大肌有显著作用'
       },
       {
@@ -75,7 +80,8 @@ function getIndexNavSectionData() {
         subject: " 平板支撑",
         coverpath: "../../image/trainingItem/strength/plank.png",
         numOfGroups: '4',
-        amount: '2mins',
+        amount: '0kg',
+        requireNum_perGroup: '2mins',
         message: '锻炼核心肌群，让你瘦得更健康，远离下背疼痛。'
       }
     

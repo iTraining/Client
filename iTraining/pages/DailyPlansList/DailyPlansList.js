@@ -29,7 +29,7 @@ Page({
   onLoad: function (options) {
     var that = this
     that.setData({
-      list: that.data.navSectionItems
+      //list: that.data.navSectionItems
     })
   },
   ToAddorEditPlans: function () {

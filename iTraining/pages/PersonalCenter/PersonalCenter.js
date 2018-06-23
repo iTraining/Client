@@ -50,8 +50,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
+
+    try {
+      var single_trainPlanData = wx.getStorageSync('single_trainPlanData')
+      if (single_trainPlanData) {
+        console.log('数据缓存中的单个训练计划')
+        console.log(single_trainPlanData)
+      }
+    } catch (e) {
+      // Do something when catch error
+    }
+
+
     var that=this
-    console.log("on load ")
+    //console.log("on load ")
     app.getUserInfo(function(userInfo) {
       // console.log(userInfo)
       that.setData({
@@ -72,7 +84,15 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    try {
+      var single_trainPlanData = wx.getStorageSync('single_trainPlanData')
+      if (single_trainPlanData) {
+        console.log('数据缓存中的单个训练计划')
+        console.log(single_trainPlanData)
+      }
+    } catch (e) {
+      // Do something when catch error
+    }
   },
 
   /**

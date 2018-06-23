@@ -1,1 +1,46 @@
 /* pages/AddorEditPlans/AddorEditPlans.wxss */
+
+.edit_wrap{
+    font-size:30rpx;
+    padding:55rpx 0rpx 18rpx;
+}
+
+.field {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    margin:18rpx;
+    line-height: 60rpx;
+}
+
+.field text{
+    text-align: right;
+    width:160rpx;
+}
+
+.field input,
+.field picker{
+    width:460rpx;
+    border:1px solid #ddd;
+    border-radius:8rpx;
+    height:60rpx;
+    line-height: 60rpx;
+    padding:0rpx 20rpx;
+}
+
+.btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn .sure {
+  margin-left:5px;
+  float:left;
+}
+
+.btn giveup {
+  margin-right:5px;
+  float:right;
+}

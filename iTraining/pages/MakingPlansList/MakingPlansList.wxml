@@ -1,49 +1,93 @@
-<!--pages/TrainingItemTodoList/TrainingItemTodoList.wxml-->
+  <!--pages/TrainingItemTodoList/TrainingItemTodoList.wxml-->
 <!-- <text>pages/TrainingItemTodoList/TrainingItemTodoList.wxml</text> -->
 
 <view class="container">
+<form class="form-book" bindsubmit="formSubmit" bindreset="formReset">
+  <view class='header edit_wrap'>
+      <view class="field field-forTeam">
+        <text>目标队伍：</text>
+        <picker model="selector" range='{{team_list}}' value='{{trainPlanData.team_id}}'
+       bindchange="forTeamChange" name="team_id">  
+          <view>{{team_list[trainPlanData.team_id]}}</view>
+        </picker>  
+      </view>
+
+      <view class="field field-trainingClass">
+        <text>计划类型：</text>
+        <picker model="selector" range='{{training_class_list}}' value='{{trainPlanData.training_class}}'
+       bindchange="trainingClassChange" name="training_class">  
+          <view>{{training_class_list[trainPlanData.training_class]}}</view>
+        </picker>  
+      </view>
+
+      <view class="field field-title">
+        <text>计划标题：</text>
+        <input type="text" placeholder="eg.力量训练" name="title"></input>
+      </view>
+
+      <view class="field field-description">
+        <text>计划简介：</text>
+        <textarea maxlength="300" name="description"></textarea>
+      </view>
+
+      <view class="field field-trainingTime">
+        <text>执行时间：</text>
+        <picker mode="date" value="{{trainPlanData.training_date}}" start="2015-09-01" end="2020-09-01" bindchange="executeTimeChange" name="training_date">
+        <text>{{trainPlanData.training_date}}</text>
+        </picker>
+      </view>
+  </view>
   <scroll-view scroll-y="true" class="page-body" bindscrolltolower="loadMore">
     <!--list-->
     <view class="nav_section">
-      <view wx:if="{{list[curIndex]}}">
-        <block wx:for="{{list[curIndex]}}" wx:key="item.id">
+   
+      <view wx:if="{{trainPlanData.indicators}}">
+        <block wx:for="{{trainPlanData.indicators}}" wx:key="item">
           <view class="nav_section_items">
-            <!--image-->
+            <!--image   <input name="indicators">{{indicators}}</input>
             <view class="section_image" bindtap="navigateDetail" data-aid="{{item.id}}">
-              <block wx:if="{{item.coverpath}}">
+              <block>
                 <image src="{{item.coverpath}}" mode="aspectFill"></image>
               </block>
-              <block wx:else>
-                <image src="../../images/default_pic.png" mode="aspectFill"></image>
-              </block>
             </view>
+
+
+             <viewbindtouchstart="touchS"bindtouchmove="touchM"bindtouchend="touchE"data-index="{{index}}"style="{{item.txtStyle}}"class="inner txt">
+
+      <imageclass="item-icon"mode="widthFix"src="{{item.icon}}"></image>{{item.txt}}</view>
+
+      <viewdata-index="{{index}}"bindtap
+ = "delItem"class="inner del">删除</view>
+
+            -->
             <!--content-->
-            <view class="section_cont" bindtap="navigateDetail" data-aid="{{item.id}}">
+            <view class="section_cont" bindtap="navigateDetail" data-aid="{{item.name}}">
               <view class="section_cont_sub">
-                <text>{{item.subject}}</text>
+                <text>{{item.name}}</text>
               </view>
-              <view class="section_cont_price">{{item.numOfGroups}} 组 X {{item.amount}}</view>
-              <view>{{item.message}}</view>
+              <view class="section_cont_price">
+                {{item.totalGroup}} 组 {{' '+item.train_model}} {{item.require_perGroup}} {{item.units}}*{{item.num_perGroup}}个
+              </view>
             </view>
-            <!--book-->
-            <view class="section_book" bindtap="bookTap" data-aid="{{item.id}}">
+            <view class="section_book" data-index="{{index}}" data-item="{{item}}"bindtap="edit_item">
               <text>修改</text>
             </view>
           </view>
 
         </block>
       </view>
-      <view wx:else>暂无数据</view>
+      <view wx:else class='no_plan'>暂无数据</view>
     </view>
-
   </scroll-view>
+  
   <view class='button_items'>
     <view>
-      <button class='button_item' bindtap='ToAddorEditPlans'>添加</button>
+      <button class='button_item' bindtap='ToAddorEditPlans'>添加项目</button>
     </view>
     <view>
-      <button class='button_item'>发布</button>
+      <button class='button_item' form-type='submit'>发布</button>
     </view>
 
   </view>
+</form>
 </view>
