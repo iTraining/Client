@@ -7,6 +7,7 @@ Page({
     token:"",
     team_id:"",
     teamimg:'',
+    team_leader_id:'',
   },
 
   /**
@@ -17,7 +18,9 @@ Page({
     this.setData({
       name:options.aid,
       bio:options.bio,
-      team_id:options.team_id
+      team_id:options.team_id,
+      team_image: 'https://itraining.zhanzy.xyz/'+options.team_image,
+      team_leader_id:options.team_leader_id,
     })
     var that = this
     wx.request({
@@ -44,7 +47,7 @@ Page({
         console.log(strs)
         var mtoken = strs[0].split('=')[1]
         var mteamid = strs[1].split('=')[1]
-        var mteamimg=strs[2].split('=')[1]
+        // var mteamimg=strs[2].split('=')[1]
         console.log("token " + mtoken)
         console.log('teamid' + mteamid)
         // console.log(res.data.data.indexOf('?'))
@@ -52,7 +55,6 @@ Page({
         that.setData({
           token: mtoken,
           teamid: mteamid,
-          teamimg:'https://itraining.zhanzy.xyz/'+mteamimg,
         })
       },
     })
@@ -147,5 +149,50 @@ Page({
     //     })
     //   },
     // })
-  }
+  },
+  deleteCommunity:function() {
+    var that=this
+    wx.request({
+      url: 'https://itraining.zhanzy.xyz/api/v1/team',
+      data: {
+        team_id: that.data.team_id
+        // option:'created'
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        // 'content-type': 'application/json',
+        'Cookie': wx.getStorageSync("set-cookie")
+      },
+      method: "DELETE",
+      success: function (res) {
+        // 从链接中获取到teamid 和token
+        console.log("删除成功")
+        wx.showToast({
+          title: '删除成功',
+          icon: 'succes',
+          duration: 1000,
+          mask: true
+        })
+        wx.navigateBack({
+            delta: 1
+        })
+      },
+    })
+  },
+  selectImage: function (e) {
+    let that = this;
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+      success: function (res) {
+        var tempFilePaths = res.tempFilePaths
+        that.setData({
+          imagePath: res.tempFilePaths[0],
+        })
+        console.log(res.tempFilePaths[0])
+      },
+
+    })
+  },
 })

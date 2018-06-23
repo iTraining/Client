@@ -74,7 +74,27 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    var that = this
 
+    wx.request({
+      url: 'https://itraining.zhanzy.xyz/api/v1/team',
+      data: {
+        option: 'joined'
+        // option:'created'
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        // 'content-type': 'application/json',
+        'Cookie': wx.getStorageSync("set-cookie")
+      },
+      method: "GET",
+      success: function (res) {
+        console.log(res.data)
+        that.setData({
+          list: res.data.data
+        })
+      },
+    })
   },
 
   /**
@@ -115,7 +135,7 @@ Page({
     console.log("navigate to details")
     console.log(e)
     wx.navigateTo({
-      url: '../communityDetails/communityDetails?aid='+e.currentTarget.dataset.aid+'&bio='+e.currentTarget.dataset.bio+'&team_id='+e.currentTarget.dataset.team_id+'&team_img='+e.currentTarget.dataset.team_image
+      url: '../communityDetails/communityDetails?aid='+e.currentTarget.dataset.aid+'&bio='+e.currentTarget.dataset.bio+'&team_id='+e.currentTarget.dataset.team_id+'&team_image='+e.currentTarget.dataset.team_image+'&team_leader_id='+e.currentTarget.dataset.leader_id
     })
   }
 })

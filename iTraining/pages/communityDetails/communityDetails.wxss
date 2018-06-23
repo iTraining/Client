@@ -42,3 +42,19 @@
 .selectImg{
   margin-right: 40%;
 }
+.invite_btn{
+    width:90%;
+    background:gainsboro;
+    font-size: 32rpx;
+    color:#fff;
+    border-radius: 0rpx;
+    margin:40rpx 0rpx 10rpx;
+}
+.delete_btn{
+    width:90%;
+    background:#d24a58;
+    font-size: 32rpx;
+    color:#fff;
+    border-radius: 0rpx;
+    margin:40rpx 0rpx 10rpx;
+}

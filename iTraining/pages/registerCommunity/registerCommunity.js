@@ -77,10 +77,21 @@ Page({
             console.log(res.data)
             console.log(typeof (JSON.parse(res.data)))
             var JsonRes = JSON.parse(res.data)
-            that.setData({
-              reset: true,
-              // 测试图片能不能正常显示
-              imagePathfromServer: 'https://itraining.zhanzy.xyz/'+JsonRes.data.image_url,
+            // that.setData({
+            //   reset: true,
+            //   // 测试图片能不能正常显示
+            //   imagePathfromServer: 'https://itraining.zhanzy.xyz/'+JsonRes.data.image_url,
+            // })
+            wx.showToast({
+              title: '创建成功',
+              icon: 'succes',
+              duration: 1000,
+              mask: true,
+              complete:function() {
+                wx.navigateBack({
+                  delta:1
+                })
+              }
             })
           }
         })
