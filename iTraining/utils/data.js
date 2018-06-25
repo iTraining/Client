@@ -1,6 +1,18 @@
 /**
  * banner数据
  */
+function getDefaultIndicator() {
+  var arr = [
+    { id: '每组距离', unit: 'km', value: 0 },
+    { id: '每组时间', unit: 'min', value: 0 },
+    { id: '每组重量', unit: 'kg', value: 0 },
+    { id: '每组桨频', unit: '桨数/min', value: 0 },
+    { id: '每组风阻', unit: '风阻', value: 0 },
+    { id: '组间歇时间', unit: 'min', value: 0 },
+    { id: '每组个数', unit: '个', value: 0 }
+  ]
+  return arr
+}
 function getBannerData() {
   var arr = ['../../images/banner_01.png', '../../images/banner_02.png', '../../images/banner_03.png', '../../images/banner_04.png']
   return arr
@@ -92,6 +104,7 @@ function getIndexNavSectionData() {
 
 
 module.exports = {
+  getDefaultIndicator: getDefaultIndicator,
   getDate:getDate,
   getBannerData: getBannerData,
   getIndexNavSectionData: getIndexNavSectionData

@@ -1,24 +1,26 @@
-<!--pages/trainingItemList/trainingItemList.wxml-->
 
-<scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollleft}}">
-  <view class="tab-item {{currentTab==index?'active':''}}" wx:for="{{tags}}" data-current="{{index}}" bindtap="switchNav">{{item}}</view>
-</scroll-view>
-<view class="tab-content" current="{{currentTab}}" duration='50' bindchange='switchTab'>
-  <block wx:for="{{tags}}" wx:for-item="item0">
-    <block wx:if="{{index==currentTab}}">
-      <block wx:for="{{showItems}}" wx:for-item="item1"> 
-        <block wx:if="{{item1.id == item0}}">
-          <block wx:if="{{item1.content.length>0?true:false}}">
-            <block wx:for="{{item1.content}}" wx:for-item="item2">
-              <image src="{{item2.image}}" class="item-image" mode="widthFix"></image>
-              <view calss="item-name">{{item2.name}}</view>
-            </block>
-          </block>
-          <view wx:else="{{item1.content.length>0?false:true}}" class="nodata">
-            <text>该栏暂时没有项目</text>
+<view class='item_title'>
+  <text class='title'>训练项目专栏</text>
+</view>
+<view class="container">
+<form class="form-book" bindsubmit="formSubmit" bindreset="formReset">
+  <scroll-view scroll-y="true" class="page-body" bindscrolltolower="loadMore">
+    <!--list-->
+    <view class="nav_section">
+      <view wx:if="{{amount_meta}}">
+        <block wx:for="{{training_name_list}}" wx:key="item">
+          <view class="nav_section_items">
+            <text>{{item}}</text>
           </view>
         </block>
-      </block>
-    </block>
-  </block>
+      </view>
+      <view wx:else class='no_plan'>暂无训练项目</view>
+    </view>
+  </scroll-view>
+  <view class='btn'>
+    <view><button class='button_item' bindtap='AddItem'>添加</button></view>
+    <view><button class='button_item' form-type='Edit'>编辑</button></view>
+    <view><button class='button_item' form-type='Edit'>确定</button></view>
+  </view>
+</form>
 </view>

@@ -1,0 +1,64 @@
+<!--pages/AddorEditTrainItems/AddorEditTrainItems.wxml-->
+
+<view class="container_item">
+  <view class='item'>
+    <view class='item_team'>
+      <text>所属队伍：</text>
+      <picker model="selector" range='{{team_list}}' value='{{team_id}}'
+       bindchange="forTeamChange" name="team_id">  
+        <view class='team_choose'>{{team_list[team_id]}}</view>
+      </picker>  
+    </view>
+    <view class="item_name">
+      <text>项目名称：</text>
+      <view wx:if="{{add}}">
+        <input type="text" placeholder="请输入项目名称" bindinput="getItemName"></input>
+      </view>
+      <view wx:else>
+        <input type="text" placeholder="{{old_item_name}}" bindinput="getItemName"></input>
+      </view>
+    </view>
+    <view class='item_num'>
+      <text>指标数目：</text>
+      <view wx:if="{{add}}">
+        <input type="number" placeholder="请输入指标数目" bindinput="getNumberIndicator"></input>
+      </view>
+      <view wx:else>
+        <input type="number" placeholder="之前的项目数目" bindinput="getNumberIndicator"></input>
+      </view>
+    </view>
+  </view>
+    <!--指标indicator的table-->
+    <view class="table">
+      <view wx:if="{{number_Indicator}}">
+        <view class='tr bg-w'>  <!--表头-->
+          <view class='th'>sequence</view>
+          <view class='th'>indicator/group</view>
+          <view class='th'>unit</view>
+        </view>
+        <block wx:for="{{objArray}}" wx:for-item="itm" wx:for-index="idx">
+          <block wx:if="{{idx < number_Indicator}}">
+            <view class='tr bg-g' wx:if="{{idx % 2 == 0}}">
+            <view class='td'>{{idx}}</view>
+            <picker model="selector" range='{{itm.indicator_name}}' value='{{itm.index_default_indicator}}'
+       data-current="{{idx}}" bindchange="indicator_change">
+            <view class='td'>{{itm.indicator_name[itm.index_default_indicator]}}</view>
+            </picker>
+            <view class='td'>{{itm.indicator_unit[itm.index_default_indicator]}}</view>
+          </view>
+          <view class='tr' wx:else>
+            <view class='td'>{{idx}}</view>
+            <picker model="selector" range='{{itm.indicator_name}}' value='{{itm.index_default_indicator}}'
+       data-current="{{idx}}" bindchange="indicator_change">
+            <view class='td'>{{itm.indicator_name[itm.index_default_indicator]}}</view>
+            </picker>
+            <view class='td'>{{itm.indicator_unit[itm.index_default_indicator]}}</view>
+          </view>
+          </block>
+        </block>
+      </view>
+    </view>
+  <view class='button_items'>
+    <view><button class='button_item' bindtap='sure'>确定</button></view>
+  </view>
+</view>

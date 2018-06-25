@@ -14,9 +14,7 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
-
 var training_item = trainingitem()
-
 function trainingitem() {
   // {
   //   id1:dasf
@@ -90,11 +88,9 @@ function json2Form(json) {
   return str.join("&");
 }  
 
-
-
-
 module.exports = {
   json2Form:json2Form,
   formatTime: formatTime,
-  trainingitem: trainingitem
+  trainingitem: trainingitem,
+  default_indicator: default_indicator
 }
