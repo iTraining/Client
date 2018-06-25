@@ -51,7 +51,7 @@ Page({
    */
   onLoad: function () {
 
-    try {
+    try {  // 读取数据缓存中的单个训练计划
       var single_trainPlanData = wx.getStorageSync('single_trainPlanData')
       if (single_trainPlanData) {
         console.log('数据缓存中的单个训练计划')
@@ -60,8 +60,7 @@ Page({
     } catch (e) {
       // Do something when catch error
     }
-
-
+    
     var that=this
     //console.log("on load ")
     app.getUserInfo(function(userInfo) {

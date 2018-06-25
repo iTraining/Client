@@ -122,6 +122,9 @@ App({
     }
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    //训练项目数据
+    amount_meta: 1,
+    meta_list: [{team_id:0,training_name:'深蹲',index1:'weigh',index2:'time',index3:'无',index4:'无',index5:'无',index6:'无'}],  // eg. [{team_id, training_name,index1..]},{team_id, training_name,index1..]}]
   }
 })

@@ -16,6 +16,16 @@
       </picker>
     </view>   
 
+    <view class="field field-require">
+      <text>每组要求：</text>
+      <view wx:if="{{edit==false}}">
+        <input type="number" placeholder="{{style[index_style]}}" bindinput="getRequire_PerGroup"></input>
+      </view>
+      <view wx:else>
+        <input type="number" placeholder="{{Require_PerGroup+style[index_style]}}" bindinput="getRequire_PerGroup"></input>
+      </view>
+    </view>   
+
     <view class="field field-totalGroups">
       <text>完成组数：</text>
       <view wx:if="{{edit==false}}">
@@ -36,16 +46,6 @@
       </view>
     </view>
     
-    <view class="field field-require">
-      <text>每组要求：</text>
-      <view wx:if="{{edit==false}}">
-        <input type="number" placeholder="{{style[index_style]}}" bindinput="getRequire_PerGroup"></input>
-      </view>
-      <view wx:else>
-        <input type="number" placeholder="{{Require_PerGroup+style[index_style]}}" bindinput="getRequire_PerGroup"></input>
-      </view>
-    </view>   
-
     <view class="btn">
         <button class='sure' bindtap='sure'>确定</button>
         <button class='sure' bindtap='delete_item'>删除</button>

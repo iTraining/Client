@@ -13,7 +13,8 @@
     "pages/MakingPlansList/MakingPlansList",
     "pages/AddorEditPlans/AddorEditPlans",
     "pages/DailyPlansList/DailyPlansList",
-    "pages/JoinCommunity/JoinCommunity"
+    "pages/JoinCommunity/JoinCommunity",
+    "pages/AddorEditTrainItems/AddorEditTrainItems"
   ],
   "window": {
     "backgroundTextStyle": "light",
