@@ -134,6 +134,7 @@ Page({
   navigateDetail:function(e) {
     console.log("navigate to details")
     console.log(e)
+    wx.setStorageSync("communityClicked", e.currentTarget.dataset)
     wx.navigateTo({
       url: '../communityDetails/communityDetails?aid='+e.currentTarget.dataset.aid+'&bio='+e.currentTarget.dataset.bio+'&team_id='+e.currentTarget.dataset.team_id+'&team_image='+e.currentTarget.dataset.team_image+'&team_leader_id='+e.currentTarget.dataset.leader_id
     })

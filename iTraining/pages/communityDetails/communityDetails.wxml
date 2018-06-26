@@ -1,13 +1,33 @@
-<!-- <view class="main">
-  <view wx:for="{{testdata}}" class='item item1'>
+<view class="container edit_wrap">
+<view class="form_group">
+        <text>队伍成员：</text>
+        <view class="nav_section_items" wx:for="{{team_members}}" wx:key="item.id" data-data="{{item}}">
+        </view>
+</view>
 
-<image src='{{item.imgsrc}}' mode='scaleToFill' class='img'></image>
-<view class='memberName'>{{item.name}}</view> 
-<text>{{item.content}}</text> 
-
-  </view> -->
-
-<view bindtap='selectImage' class='selectImg'>
+<form bindsubmit="formSubmit" id="123">
+    <view class="form_group">
+        <text>队伍名称：</text>
+        <input type="text" value="{{name}}" disabled='{{is_leader?false:true}}' placeholder="请输入队伍名称" placeholder-class="placeholder_style" name="name" bindinput='inputName' />
+    </view>
+    <view class="form_group">
+        <text>队伍简介：</text>
+        <input type="text" value='{{bio}}' disabled='{{is_leader?false:true}}' placeholder="请输入队伍简介" placeholder-class="placeholder_style" name="bio" bindinput='inputBio'/>
+    </view>
+    <view class="form_group">
+        <text>队伍头像：</text>
+        <view bindtap='selectImage' class='selectImg'>
+        <image class='team_img' placeholder="队伍头像" src="{{inputTeam_image}}"></image>
+        </view>
+    </view>
+    
+</form>
+</view>
+<view class="view-community">
+  <form class="form-community" bindsubmit='formSubmit' bindreset='formReset'>
+  </form>
+</view>
+<!-- <view bindtap='selectImage' class='selectImg'>
   <image class='team_img' placeholder="队伍头像" src="{{team_image}}"></image>
 </view>
 <view class='infoItem'>
@@ -17,7 +37,9 @@
 <view class='infoItem'>
   <text class='title'>队伍简介\n</text>
 <text>{{bio}}</text>
-  </view>
-
-<button class='invite_btn' bindtap='inviteSomeone'>邀请他人加入</button>
+  </view> -->
+<view wx:if="{{is_leader}}">
+<!-- <button class="save_btn"  formType="submit">保存更改</button> -->
+<button class='invite_btn' open-type='share'>邀请他人加入</button>
 <button class='delete_btn' bindtap='deleteCommunity'>删除队伍</button>
+</view>
