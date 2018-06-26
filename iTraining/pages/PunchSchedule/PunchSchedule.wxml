@@ -60,6 +60,14 @@
     <slider bindchange="slider3change" show-value/>
   </view>
 </view>
+
+<view class="section section_gap">
+  <!-- <text class="section__title">输入测试成绩</text> -->
+  <view class="body-view">
+    <input type="text" placeholder="输入测试成绩" name="title"></input>
+  </view>
+</view>
+
   <button class='punch_btn' form-type='submit'>打卡</button>
 </form>
 </view>
