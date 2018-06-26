@@ -127,5 +127,15 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  ToPunch: function () {
+    wx.navigateTo({
+      url: '../PunchSchedule/PunchSchedule',
+    })
+  },
+  ToHistoryScheduleList: function () {
+    wx.navigateTo({
+      url: '../HistoryScheduleList/HistoryScheduleList',
+    })
   }
 })

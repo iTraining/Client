@@ -33,4 +33,16 @@
 <!-- <button>查看个人成绩</button>
 <button>查看队伍成绩</button> 
   -->
+
+<view class="weui_cell" bindtap='ToPunch'>
+<view class="weui_cell_bd">
+  <view class="weui_cell_bd_p">打卡</view>
+  </view>
+</view>
+
+<view class="weui_cell" bindtap='ToHistoryScheduleList'>
+<view class="weui_cell_bd">
+  <view class="weui_cell_bd_p">查看历史训练计划</view>
+  </view>
+</view>
 </view>

@@ -14,7 +14,9 @@
     "pages/AddorEditPlans/AddorEditPlans",
     "pages/DailyPlansList/DailyPlansList",
     "pages/JoinCommunity/JoinCommunity",
-    "pages/AddorEditTrainItems/AddorEditTrainItems"
+    "pages/AddorEditTrainItems/AddorEditTrainItems",
+    "pages/PunchSchedule/PunchSchedule",
+    "pages/HistoryScheduleList/HistoryScheduleList"
   ],
   "window": {
     "backgroundTextStyle": "light",
