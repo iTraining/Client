@@ -30,12 +30,28 @@ Page({
     })
   },
   formValidate: function (e) {
+    console.log("this is form validate")
     console.log(e);
     let that = this;
     if (e.name == "") {
       wx.showModal({
         title: '提示',
         content: '队伍名称不能为空',
+        success: function (res) {
+          if (res.confirm) {
+            console.log('用户点击确定')
+          } else {
+            console.log('用户点击取消')
+          }
+
+        }
+      })
+      return false;
+    }
+    if (e.bio == "") {
+      wx.showModal({
+        title: '提示',
+        content: '队伍描述不能为空',
         success: function (res) {
           if (res.confirm) {
             console.log('用户点击确定')
@@ -54,6 +70,7 @@ Page({
     let that = this;
     console.log('form发生了submit事件，携带数据为:', e.detail.value);
     if (!that.formValidate(e.detail.value)) {
+      //校验数据合法性
       return;
     } else {
       console.log(that.data),
@@ -85,7 +102,7 @@ Page({
             wx.showToast({
               title: '创建成功',
               icon: 'succes',
-              duration: 1000,
+              duration: 2000,
               mask: true,
               complete:function() {
                 wx.navigateBack({

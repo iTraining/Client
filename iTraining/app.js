@@ -1,25 +1,28 @@
 //app.js
 App({
   onLaunch: function () {
-    var that=this
+    var that = this
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
     console.log(wx.getStorageSync('set-cookie'))
-    // if (wx.getStorageSync('set-cookie')==="") 
+    //  if (wx.getStorageSync('set-cookie')==="") 
     {
       // 登录
       wx.login({
         //获取code
         success: function (res) {
-          var code =res.code
+          var code = res.code
           console.log(code)
           wx.getUserInfo({
             success: function (res) {
-              console.log(JSON.parse(res.rawData).image_url)
-              var nickName = JSON.parse(res.rawData).nickName
-              var imgUrl = JSON.parse(res.rawData).image_url
+              console.log("get user info")
+              console.log(res.userInfo.nickName)
+              var nickName = res.userInfo.nickName
+              var imgUrl = res.userInfo.avatarUrl
+              console.log("imgurl")
+              console.log(imgUrl)
               that.globalData.userInfo = res
               typeof cb == "function" && cb(that.globalData.userInfo)
               // wx.uploadFile({
@@ -32,15 +35,15 @@ App({
                 url: 'https://itraining.zhanzy.xyz/api/v1/session',
                 data: {
                   'nickname': nickName,
-                  'image_url':imgUrl,
-                  'code':code,
+                  'image_url': imgUrl,
+                  'code': code,
                 },
                 header: {
                   'content-type': 'application/x-www-form-urlencoded',
                 },
-                method: "POST",  
+                method: "POST",
                 success: function (res) {
-
+                  wx.setStorageSync("wx_id", res.data.data.wx_id)
                   console.log("set storage cookie")
                   console.log(res)
                   console.log(res.header['set-cookie'])
@@ -58,7 +61,6 @@ App({
             },
             fail: function () {
               console.log("fail to get userinfo")
-
             }
           })
           // that.globalData.userInfo = res.userInfo
@@ -66,8 +68,8 @@ App({
           console.log(that.globalData.userInfo)
           var code = res.code; //返回code
           // 测试zzy的服务器
-          
-         
+
+
         }
       })
     }
@@ -76,24 +78,26 @@ App({
     //     url: "pages/Menu/Menu"
     //   })
     // }
-    
+
     // 获取用户信息
     wx.getSetting({
       success: res => {
         if (res.authSetting['scope.userInfo']) {
-          
+          // wx.redirectTo({
+          //   url: 'pages/TrainingItemTodoList/TrainingItemTodoList',
+          // })
         } else {
           console.log("没有认证")
           wx.navigateTo({
-            url: "pages/authorize/authorize"
-        })
+            url: "../pages/authorize/authorize"
+          })
         }
       }
     })
   },
   getUserInfo: function (cb) {
     var that = this
-    if (this.globalData.userInfo ) {
+    if (this.globalData.userInfo) {
       console.log(this.globalData.userInfo)
       typeof cb == "function" && cb(this.globalData.userInfo)
     } else {
@@ -107,17 +111,17 @@ App({
               that.globalData.userInfo = res.userInfo
               typeof cb == "function" && cb(that.globalData.userInfo)
             },
-            fail:function() {
+            fail: function () {
               console.log("fail to get userinfo")
-              
+
             }
           })
         },
-        fail:function(){
+        fail: function () {
           console.log("fail to login")
 
         }
-        
+
       })
     }
   },
@@ -125,6 +129,6 @@ App({
     userInfo: null,
     //训练项目数据
     amount_meta: 1,
-    meta_list: [{team_id:0,training_name:'深蹲',index1:'weigh',index2:'time',index3:'无',index4:'无',index5:'无',index6:'无'}],  // eg. [{team_id, training_name,index1..]},{team_id, training_name,index1..]}]
+    meta_list: [{ team_id: 0, training_name: '深蹲', index1: 'weigh', index2: 'time', index3: '无', index4: '无', index5: '无', index6: '无' }],  // eg. [{team_id, training_name,index1..]},{team_id, training_name,index1..]}]
   }
 })
