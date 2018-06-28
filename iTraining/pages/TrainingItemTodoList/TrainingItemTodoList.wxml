@@ -3,7 +3,7 @@
 
 <view class="container">
 
-<scroll-view  scroll-y="true"  class="page-body" >
+<scroll-view  scroll-y="true"  class="page-body" bindscrolltolower="pullUpLoad">
   <view class="nav_section_items" wx:for="{{list}}" wx:key="item.id" data-data="{{item}}">
     <!--image-->
     <view class="section_image" bindtap="navigateDetail" data-aid="{{item.id}}">
@@ -11,7 +11,7 @@
         <image src="{{item.coverpath}}" mode="aspectFill"></image>
       </block>
       <block wx:else>
-        <image src="../../images/default_pic.png" mode="aspectFill"></image>
+        <image src="../../image/default_pic.png" mode="aspectFill"></image>
       </block>
     </view>
 
@@ -20,7 +20,14 @@
       <view class="section_cont_sub">
         <text>{{item.subject}}</text>
       </view>
-      <view class="section_cont_info">{{item.message}}</view>
+
+      <view class="block1">
+        <image class= "img1" src ="../../image/icon_tab/CLOCK.png"mode="aspectFill"></image>
+        <view class="timeTo">19:00:00</view>
+        <image class= "img2" src ="../../image/icon_tab/person.png"mode="aspectFill"></image>
+        <view class="numPersonTrained">1人已打卡</view>
+      </view>
+
       <view class="section_cont_num">{{item.numOfGroups}} 组 X {{item.amount}}</view>
       
     </view>
@@ -33,4 +40,5 @@
   </view>
   
 </scroll-view>
+
 </view>
