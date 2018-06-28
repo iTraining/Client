@@ -31,6 +31,7 @@ Page({
       units: '',
       require_perGroup:0,
     },
+    team_list:[],
   },
 
   item_name_Change: function (e) {
@@ -166,6 +167,85 @@ Page({
    */
   onLoad: function (options) {
     var that = this
+
+    // 获取创建的队伍 
+    var createdTeam = ''
+    wx.request({
+      url: 'https://itraining.zhanzy.xyz/api/v1/team',
+      method: "GET",
+      header: {
+        'Cookie': wx.getStorageSync("set-cookie")
+      },
+      data: {
+        option: 'created'
+      },
+      success: function (res) {
+        console.log("获取队伍信息成功")
+        console.log(res)
+        console.log(res.data.data)
+        createdTeam = res.data.data
+        console.log(createdTeam)
+        var t_team_list = that.data.team_list
+        for (var i = 0; i < createdTeam.length; i++) {
+          t_team_list.push(createdTeam[i].team_id)
+        }
+        if (t_team_list.length != 0) {
+          that.setData({
+            team_list: t_team_list,
+            'meta.team_id': t_team_list[0]
+          })
+        }
+
+        //从服务器获得所有的meta
+        console.log("created team")
+        console.log(createdTeam)
+        for (var i = 0; i < createdTeam.length; i++) {
+
+          wx.request({
+            url: 'https://itraining.zhanzy.xyz/api/v1/schedule/meta',
+            header: {
+              'Cookie': wx.getStorageSync("set-cookie")
+            },
+            data: {
+              team_id: createdTeam[i].team_id,
+            },
+            method: "GET",
+            success: function (res) {
+              console.log(res)
+              var t_name_list = that.data.training_name_list
+              var t_meta_list = that.data.meta_list
+              for (var i = 0; i < res.data.data.length; i++) {
+                t_name_list.push(res.data.data[i].training_name)
+                t_meta_list.push(res.data.data[i])
+              }
+
+              var t_amount_meta = that.data.meta_list.length
+              console.log("successfully get meta data")
+              console.log(res.data.data[0])
+              that.setData({
+                meta_list: t_meta_list,
+                training_name_list: t_name_list,
+                amount_meta: t_amount_meta,
+              })
+
+              console.log(typeof (that.data.training_name_list))
+              // that.data.amount_meta = that.data.meta_list.length 
+              console.log(that.data.amount_meta)
+              console.log(that.data.meta_list)
+            },
+            fail: function (res) {
+              console.log(res)
+              console.log("fail to get meta data")
+            }
+          })
+        }
+      },
+      fail: function (res) {
+        console.log("获取队伍信息失败")
+        console.log(res)
+      }
+    })
+
     that.setData({
       train_item_list: ['前平推', '深蹲', '弓箭步', '测功仪', '平板支撑']  // 应该从数据库获取   
     })

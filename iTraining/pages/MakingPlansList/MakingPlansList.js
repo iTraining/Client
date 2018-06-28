@@ -19,7 +19,9 @@ Page({
     },
     indi_index: 0, // indi_index是训练计划中项目的数目 用于检查数据的准确性
 
-    team_list: [],  
+    team_name_list: [],  
+    team_id_list:[],
+    selected_team_name:'none',
     training_class_list: ['训练', '测试'],
     training_class: 0,
     title: '',
@@ -52,7 +54,9 @@ Page({
     var that = this
     var str_team_id = 'trainPlanData.team_id'
     that.setData({
-      [str_team_id]: e.detail.value
+      // 'meta.team_id': e.detail.value
+       [str_team_id]:that.data.team_id_list[e.detail.value],
+      selected_team_name: that.data.team_name_list[e.detail.value],
     })
   },
   trainingClassChange: function (e) {
@@ -74,6 +78,40 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
+
+    // 获取创建的队伍 
+    var createdTeam = ''
+    wx.request({
+      url: 'https://itraining.zhanzy.xyz/api/v1/team',
+      method: "GET",
+      header: {
+        'Cookie': wx.getStorageSync("set-cookie")
+      },
+      data: {
+        option: 'created'
+      },
+      success: function (res) {
+        console.log("获取队伍信息成功")
+        console.log(res)
+        console.log(res.data.data)
+        createdTeam = res.data.data
+        console.log(createdTeam)
+        var t_team_id_list = that.data.team_id_list
+        var t_team_name_list=that.data.team_name_list
+        for (var i = 0; i < createdTeam.length; i++) {
+          t_team_id_list.push(createdTeam[i].team_id)
+          t_team_name_list.push(createdTeam[i].name)
+        }
+        if (t_team_id_list.length != 0) {
+          that.setData({
+            team_id_list: t_team_id_list,
+            team_name_list:t_team_name_list,
+            selected_team_name: t_team_name_list[0]
+          })
+        }
+      }
+    })
+
     /*  数据缓存的方式需要
     try {
       var train_item_info = wx.getStorageSync('train_item_info');
@@ -90,10 +128,10 @@ Page({
       console.log('没有添加训练项目')
     };
     */
-    that.setData({
-      team_list: ['龙舟队', '赛艇队'],  // 计划的目标队伍，仅供局部测试
-      //list: fileData.getIndexNavSectionData(),
-    })
+    // that.setData({
+    //   team_list: ['龙舟队', '赛艇队'],  // 计划的目标队伍，仅供局部测试
+    //   //list: fileData.getIndexNavSectionData(),
+    // })
     console.log('训练项目信息')
     console.log(that.data.indi_index)
     console.log(that.data.trainPlanData.indicators)

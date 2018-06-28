@@ -8,7 +8,7 @@ Page({
    */
   data: {
     meta: {
-      team_id: 0,
+      team_id: "none",
       training_name: '',
       index1: '无',
       index2: '无',
@@ -52,19 +52,27 @@ Page({
         indicator_unit: ['km', 'min', 'kg', 'number/min', 'thisisfengzu', 'min', 'number']
       },
     ],  /* 用于for循环显示多个picker 数组的每个元素都是一个选择器*/
-    team_list: ['龙舟队', '赛艇队'],
+    team_id_list: [],
+    team_name_list:[],
     team_id: 0,
     number_Indicator: 0,  // 要添加的指标数 即objArray的长度
     Max_number_Indicator: 6,  // 允许用户最多添加的指标数
     item_name: '',
     havedIndicator_list: [],  // 用户从default_indicator选择出的indicator,下标对应顺序应当和objArray的下标顺序一致
     pick_indicator: 0,
+    selected_team_name:'none',
   },
   
   getItemName: function (e) {
     var that = this
     that.setData({
       item_name: e.detail.value,
+    })
+  },
+  getTeam_id:function(e) {
+    var that=this
+    that.setData({
+      'meta.team_id': e.detail.value,
     })
   },
   getNumberIndicator: function (e) {
@@ -86,9 +94,12 @@ Page({
     var that = this
     var str_team_id = 'meta.team_id'
     that.setData({
-      'meta.team_id': e.detail.value
-      //'meta.team_id': that.data.team_list[e.detail.value]
+      // 'meta.team_id': e.detail.value
+      'meta.team_id': that.data.team_id_list[e.detail.value],
+      selected_team_name:that.data.team_name_list[e.detail.value]
     })
+    console.log("set team id ")
+    console.log(that.data.meta.team_id)
   },
   indicator_change: function (e) {
     var that = this
@@ -171,26 +182,35 @@ Page({
     } else {
       console.log('添加的项目信息是')
       console.log(that.data.meta)
-
+      console.log(that.data.meta.team_id)
       // 上传给服务器
-      /*
+      
       wx.request({
         url: 'https://itraining.zhanzy.xyz/api/v1/schedule/meta',
         header: {
-          'cookie': wx.getStorageSync('session')
+          'Cookie': wx.getStorageSync("set-cookie")
         },
-        data: that.data.meta,
+        data: {
+          team_id:that.data.meta.team_id,
+          training_name: that.data.meta.training_name,
+          index1: that.data.meta.index1,
+          index2: that.data.meta.index2,
+          index3: that.data.meta.index3,
+          index4: that.data.meta.index4,
+          index5: that.data.meta.index5,
+          index6: that.data.meta.index6,          
+        },
         method: "POST",
         success: res => {
-          if (res.data.errorCode == 0) {
-            that.showEndToast("添加项目信息成功");
-          } else {
-            that.showErrorToast("未能成功添加信息");
-            console.log(res);
-          }
+            console.log("添加项目信息成功")
+            console.log(res)
         },
+        fail:function(res) {
+          console.log("添加项目信息失败")
+          console.log(res)
+        }
       })
-      */
+      
       // 暂时用全局变量的方式
       var old_amount_meta = app.globalData.amount_meta
       var old_meta_list = app.globalData.meta_list
@@ -214,6 +234,46 @@ Page({
    */
   onLoad: function (options) {
     var that = this
+
+    // 获取创建的队伍 
+    var createdTeam=''
+    wx.request({
+      url: 'https://itraining.zhanzy.xyz/api/v1/team',
+      method: "GET",
+      header: {
+        'Cookie': wx.getStorageSync("set-cookie")
+      },
+      data: {
+        option: 'created'
+      },
+      success: function (res) {
+        console.log("获取队伍信息成功")
+        console.log(res)
+        console.log(res.data.data)
+        createdTeam=res.data.data
+        console.log(createdTeam)
+        var t_team_name_list = that.data.team_name_list
+        var t_team_id_list=that.data.team_id_list
+        for (var i = 0; i < createdTeam.length; i++) {
+          t_team_name_list.push(createdTeam[i].name)
+          t_team_id_list.push(createdTeam[i].team_id)
+        }
+        if(t_team_id_list.length!=0) {
+          that.setData({
+            team_id_list:t_team_id_list,
+            team_name_list:t_team_name_list,
+            // 'meta.team_id':t_team_name_list[0],
+            'selected_team_name': t_team_name_list[0],
+          })
+        }
+      },
+      fail: function (res) {
+        console.log("获取队伍信息失败")
+        console.log(res)
+      }
+    })
+
+    
    /*
     var default_indicator = fileData.getDefaultIndicator()
     var name_list = []
