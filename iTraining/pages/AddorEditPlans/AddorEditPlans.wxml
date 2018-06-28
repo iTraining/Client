@@ -2,29 +2,11 @@
 <view class="container edit_wrap" >
     <view class="field field-name">
       <text>项目名称：</text>
-      <picker model="selector" placeholder="请点击选择项目名称" range='{{train_item_list}}' value='{{index_name}}'
+      <picker model="selector" range='{{train_item_list}}' value='{{index_name}}'
        bindchange="item_name_Change">  
         <view>{{train_item_list[index_name]}}</view>
       </picker>  
-    </view>
-
-     <view class="field field-require">
-      <text>训练模式：</text>
-      <picker model="selector" placeholder="请点击选择训练模式" range='{{style_per_group}}' value='{{index_style}}'
-       bindchange="style_change">
-        <view>{{style_per_group[index_style]}}</view>
-      </picker>
-    </view>   
-
-    <view class="field field-require">
-      <text>每组要求：</text>
-      <view wx:if="{{edit==false}}">
-        <input type="number" placeholder="{{style[index_style]}}" bindinput="getRequire_PerGroup"></input>
-      </view>
-      <view wx:else>
-        <input type="number" placeholder="{{Require_PerGroup+style[index_style]}}" bindinput="getRequire_PerGroup"></input>
-      </view>
-    </view>   
+    </view>  
 
     <view class="field field-totalGroups">
       <text>完成组数：</text>
@@ -32,19 +14,39 @@
         <input type="number" placeholder="组" bindinput="getTotalGroups"></input>
       </view>
       <view wx:else>  
-        <input type="number " placeholder="{{TotalGroups}}" bindinput="getTotalGroups"></input>
+        <input type="number " placeholder="{{old_item_info.group_number}}" bindinput="getTotalGroups"></input>
       </view>
     </view>
 
-    <view class="field field-pergroup">
-      <text>每组数量：</text>
-      <view wx:if="{{edit==false}}">
-        <input type="number" placeholder="个" bindinput="getNum_PerGroup"></input>
-      </view>
-      <view wx:else>
-        <input type="number" placeholder="{{Num_PerGroup}}" bindinput="getNum_PerGroup"></input>
+    <view wx:for="{{indicator_name_list}}" wx:for-item="indicator_name">
+      <view class="field require_indicator">
+        <text>{{indicator_name}}：</text>
+        <view wx:if="{{edit==false}}">
+          <!--data-current="{{index}}"表示该点击操作携带了index这个数据 index指的是indicator_name_list的下标 -->
+          <input type="number" placeholder="{{indicator_unit_list[index]}}" bindinput="getIndicatorValue" data-current="{{index}}"></input>
+        </view>
+        <view wx:else>   <!-- 应该显示用户之前输入的数值-->
+          <input type="number" placeholder="{{indicator_unit_list[index]}}" bindinput="getIndicatorValue" data-current="{{index}}"></input>
+        </view>
       </view>
     </view>
+    <block wx:if="{{training_class}}">
+      <view class="field test_indicator">
+        <text>test_indicator</text>
+        <view wx:if="{{edit==false}}">
+          <picker model="selector" placeholder="请点击选择测试指标" range='{{indicator_name_list}}' value='{{test_indicator_index}}'
+       bindchange="test_indicator_Change">  
+            <view>{{indicator_name_list[test_indicator_index]}}</view>
+          </picker>  
+        </view>
+        <view wx:else>
+          <picker model="selector" placeholder="请点击选择测试指标" range='{{indicator_name_list}}' value='{{test_indicator_index}}'
+       bindchange="test_indicator_Change">  
+            <view>{{indicator_name_list[test_indicator_index]}}</view>
+          </picker>
+        </view>
+      </view>
+    </block>
     
     <view class="btn">
         <button class='sure' bindtap='sure'>确定</button>

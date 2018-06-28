@@ -102,11 +102,13 @@ Page({
           t_team_id_list.push(createdTeam[i].team_id)
           t_team_name_list.push(createdTeam[i].name)
         }
+        var str_team_id = 'trainPlanData.team_id'
         if (t_team_id_list.length != 0) {
           that.setData({
             team_id_list: t_team_id_list,
             team_name_list:t_team_name_list,
-            selected_team_name: t_team_name_list[0]
+            selected_team_name: t_team_name_list[0],
+            [str_team_id]:t_team_id_list[0]
           })
         }
       }
@@ -139,8 +141,9 @@ Page({
   ToAddorEditPlans:function() {
     var that = this
     var str = 'add'
+    console.log(that.data.trainPlanData.team_id)
     wx.navigateTo({
-      url: '../AddorEditPlans/AddorEditPlans?flag='+str
+      url: '../AddorEditPlans/AddorEditPlans?flag=' + str + '&team_id=' + that.data.trainPlanData.team_id
     })
   },
   edit_item: function (event) {

@@ -14,7 +14,7 @@
 }
 
 .field text{
-    text-align: right;
+    text-align: left;
     width:160rpx;
 }
 
