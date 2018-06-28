@@ -1,44 +1,62 @@
-/* pages/PersonalCenter/PersonalCenter.wxss */
-
- /* .backgroundImg {
-  position: fixed;
-  top :0;
-  left:0;
-  height:125px;
-  width:100%;
-  z-index: -1;
-}  */
+page {
+    height: 100%;
+    background-color: #f7f7f7;
+}
 
 .userinfo {
-  display: flex;
-  flex-direction: column;
-  padding: 50rpx 0;
-  align-items: center;
-  background-color: #00A1E9;
+    height: 180rpx;
+    background: #45c7c9;
 }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.userinfo .warn {
+    position: absolute;
+    height: 46rpx;
+    width: 100%;
+    margin-top: 40rpx;
+    margin-left: 230rpx;
+    font-size: 75%;
 }
-.userinfo-nickname {
-  color: #333;
+
+.userinfo .avatar {
+    position: absolute;
+    width: 140rpx;
+    height: 140rpx;
+    margin-top: 20rpx;
+    margin-left: 40rpx;
+    border: 3rpx solid white;
+    border-radius:50%;
 }
+
+.userinfo .name {
+    position: absolute;
+    height: 46rpx;
+    width: 100%;
+    margin-top: 40rpx;
+    margin-left: 230rpx;
+    font-size: 75%;
+}
+
+
 .weui_cell{
-    position: relative;
-    display: flex;
-    padding: 15px;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    border-bottom: 1px solid #dadada;
+  display: flex;
+  flex-direction: row;
+  height: 100rpx;
+  margin-top: 20rpx;
+  background: white;
+
 }
-.weui_cell_bd{
-  display: inline-block;
+
+.weui_cell .img{
+  width: 50rpx;
+  height: 50rpx;
+  margin-top: 25rpx;
+  margin-left: 40rpx;
 }
-.weui_cell_bd_p{
-  font-size: 14px;
-  color: #939393;
+
+.weui_cell .weui_cell_bd_p{
+  width: 70%;
+  margin-left: 20rpx;
+  line-height: 100rpx;
+  vertical-align: middle;
+  font-size: 80%;
 }

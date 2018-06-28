@@ -1,33 +1,42 @@
 <view>
 
-  <!-- <image class="backgroundImg" src="/image/trainingItem/rowing/dragon.JPG"></image>   -->
+  <!-- <image class="backgroundImg" src="/image/trainingItem/rowing/dragon.JPG"></image>   
 <view  class="userinfo" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4enGxUsl5z7dMQEvzqsBIOvDiFlMFGvVh3-u7rxWSbiDR4SRAAQ'); background-size:cover"> 
 <!-- <view class="userinfo"> -->
-  <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+  <!-- <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
   <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view> -->
+
+<view class="userinfo">
+  <block wx:if="{{!hasUserInfo && canIUse}}">
+    <button class="avatar" open-type="getUserInfo" bindgetuserinfo="getUserInfo"></button>
+    <view class="warn">点击头像登录</view>
+  </block>
+  <block wx:else>
+    <image class="avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <view class="name">{{userInfo.nickName}}</view>
+  </block>
 </view>
+
+
 <view class="weui_cell" bindtap='ToCommunityList'>
-<view class="weui_cell_bd">
+  <image class="img" src="../../image/myPageIcon/team1.png"> </image>
   <view class="weui_cell_bd_p"> 我的队伍 </view>
-  </view>
 </view>
 
 <view class="weui_cell" bindtap='RegisterCommunity'>
-<view class="weui_cell_bd">
+  <image class="img" src="../../image/myPageIcon/team2.png"> </image>
   <view class="weui_cell_bd_p"> 创建队伍 </view>
-  </view>
 </view>
 
 <view class="weui_cell" bindtap='ToTrainingItemList'>
-<view class="weui_cell_bd">
+  <image class="img" src="../../image/myPageIcon/training.png"> </image>
   <view class="weui_cell_bd_p"> 训练项目专栏 </view>
-  </view>
 </view>
 
 <view class="weui_cell" bindtap='ToMakePlans'>
-<view class="weui_cell_bd">
+  <image class="img" src="../../image/myPageIcon/weplan.png"> </image>
   <view class="weui_cell_bd_p"> 制定训练计划 </view>
-  </view>
 </view>
 <!-- <button bindtap='ToCommunityList'>队伍列表</button> -->
 <!-- <button>查看个人成绩</button>

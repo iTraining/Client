@@ -14,7 +14,8 @@
     "pages/AddorEditPlans/AddorEditPlans",
     "pages/DailyPlansList/DailyPlansList",
     "pages/JoinCommunity/JoinCommunity",
-    "pages/AddorEditTrainItems/AddorEditTrainItems"
+    "pages/AddorEditTrainItems/AddorEditTrainItems",
+    "pages/moments/moments"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -35,7 +36,7 @@
         "selectdIconPath": "image/icon_tab/111.png"
       },
       {
-        "pagePath": "pages/logs/logs",
+        "pagePath": "pages/moments/moments",
         "text": "动态",
         "iconPath": "image/icon_tab/22.png",
         "selectedIconPath": "image/icon_tab/221.png"
