@@ -1,10 +1,5 @@
 <view>
 
- <view class="userinfo"> 
-  <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
->>>>>>> 0eefd996b01ff912409c86bcf6068903008d938a
-  <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-  </view> -->
 
 <view class="userinfo">
   <block wx:if="{{!hasUserInfo && canIUse}}">
@@ -43,14 +38,13 @@
   -->
 
 <view class="weui_cell" bindtap='ToPunch'>
-<view class="weui_cell_bd">
+  <image class="img" src="../../image/myPageIcon/clockIn.png"> </image>
   <view class="weui_cell_bd_p">打卡</view>
-  </view>
 </view>
 
 <view class="weui_cell" bindtap='ToHistoryScheduleList'>
-<view class="weui_cell_bd">
+  <image class="img" src="../../image/myPageIcon/history.png"> </image>
   <view class="weui_cell_bd_p">查看历史训练计划</view>
-  </view>
 </view>
+
 </view>
