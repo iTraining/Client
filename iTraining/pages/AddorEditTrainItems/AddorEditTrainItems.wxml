@@ -3,11 +3,14 @@
 <view class="container_item">
   <view class='item'>
     <view class='item_team'>
-      <text>所属队伍：</text>
-      <picker model="selector" range='{{team_list}}' value='{{team_id}}'
+      <text>所属队伍</text>
+        <picker model="selector" range='{{team_name_list}}' value='{{team_id}}'
        bindchange="forTeamChange" name="team_id">  
-        <view class='team_choose'>{{team_list[team_id]}}</view>
-      </picker>  
+        <!-- <view class='team_choose'>{{team_list[team_id]}}</view> -->
+        <view class='team_choose'>{{selected_team_name}}</view>
+        
+      </picker>    
+       <!-- <input type='text' placeholder="请输入队伍ID" bindinput='getTeam_id'></input>  -->
     </view>
     <view class="item_name">
       <text>项目名称：</text>

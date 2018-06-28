@@ -1,0 +1,92 @@
+.active_red{
+    color:#e5004f;
+}
+.active_orange{
+    color:#eb6100;
+}
+.active_yellow{
+    color:#fff100;
+}
+.active_green{
+    color:#8fc31f;
+}
+.active_purple{
+    color:#aa2adf;
+}
+
+
+/* 导航对应内容项 */
+.container scroll-view{
+  position: absolute;  
+  bottom: 0;  
+  left: 0;  
+  right: 0;  
+  top: 0;  
+}
+
+.page_body {
+    width:100%;
+    height:100%;
+}
+
+.nav_section_items{
+    display:flex;
+    flex-direction: row;
+    overflow: hidden;
+    justify-content: space-between;
+    padding:30rpx;
+    border-bottom:2rpx solid #ddd;
+    position: relative;
+}
+.nav_section_items:active{
+    background:#ddd;
+}
+.nav_section_items .section_image{
+    width:150rpx;
+    height:150rpx;
+}
+.nav_section_items .section_image image{
+    width:80%;
+    height:80%;
+    border-radius: 50%;    
+}
+
+.nav_section_items .section_cont{
+    width:400rpx;
+    font-size:26rpx;
+    color:#a9a9a9;
+}
+.nav_section_items .section_cont view{
+    overflow:hidden;
+    text-overflow: ellipsis;
+    white-space:nowrap;
+    display: block;
+}
+
+.nav_section_items .section_cont .section_cont_sub{
+    font-size: 35rpx;
+    line-height:60rpx;
+    color:#000;
+    margin-bottom:5rpx;
+}
+.nav_section_items .section_cont .section_cont_info{
+    font-size: 30rpx;
+    margin-bottom:5rpx;
+    margin-top:5rpx;
+}
+.nav_section_items .section_cont .section_cont_num{
+    font-size:32rpx;
+    color:#d24a58;
+    margin-top:10rpx;
+}
+.nav_section_items .section_book{
+    width:80rpx;
+    height:80rpx;
+    font-size:26rpx;
+    border-radius:100%;
+    background:#d24a58;
+    line-height: 80rpx;
+    color:#fff;
+    text-align: center;
+    margin-top:35rpx;
+}

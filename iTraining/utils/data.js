@@ -17,6 +17,29 @@ function getBannerData() {
   var arr = ['../../images/banner_01.png', '../../images/banner_02.png', '../../images/banner_03.png', '../../images/banner_04.png']
   return arr
 }
+/**
+ * 历史训练计划
+ */
+function getHistroyScheduleListData() {
+  var arr = [
+    {
+      date: '2018-4-10',
+      team_id: 'id',
+      training_name: '端午节搞一波'
+    },
+    {
+      date: '2018-4-28',
+      team_id: 'id',
+      training_name: '清明搞一波'
+    },
+    {
+      date: '2018-5-30',
+      team_id: 'id',
+      training_name: '就要搞一波'
+    }
+  ]
+  return arr
+}
 
 function getDate() {
   var arr=[
@@ -107,5 +130,6 @@ module.exports = {
   getDefaultIndicator: getDefaultIndicator,
   getDate:getDate,
   getBannerData: getBannerData,
-  getIndexNavSectionData: getIndexNavSectionData
+  getIndexNavSectionData: getIndexNavSectionData,
+  getHistroyScheduleListData: getHistroyScheduleListData
 }

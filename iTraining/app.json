@@ -15,7 +15,9 @@
     "pages/DailyPlansList/DailyPlansList",
     "pages/JoinCommunity/JoinCommunity",
     "pages/AddorEditTrainItems/AddorEditTrainItems",
-    "pages/moments/moments"
+    "pages/moments/moments",
+    "pages/PunchSchedule/PunchSchedule",
+    "pages/HistoryScheduleList/HistoryScheduleList"
   ],
   "window": {
     "backgroundTextStyle": "light",

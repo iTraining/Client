@@ -19,7 +19,8 @@
   </scroll-view>
   <view class='btn'>
     <view><button class='button_item' bindtap='AddItem'>添加</button></view>
-    <view><button class='button_item' form-type='Edit'>编辑</button></view>
+    <view><button class='button_item' form-type='Edit' bindtap='Addone'>+1
+    </button></view>
     <view><button class='button_item' form-type='Edit'>确定</button></view>
   </view>
 </form>

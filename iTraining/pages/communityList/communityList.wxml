@@ -22,12 +22,12 @@
 
 
 
-<view class="container">
+<view class="container" wx:if="{{list[0]}}">
 
 <scroll-view  scroll-y="true"  class="page-body" >
   <view class="nav_section_items" wx:for="{{list}}" wx:key="item.id" data-data="{{item}}">
-    <!--image-->
-    <view class="section_image" bindtap="navigateDetail" data-aid="{{item.name}}" data-bio="{{item.bio}}" data-team_id="{{item.team_id}}" data-team_image='{{item.image_url}}' data-leader_id='{{item.leader_id}}'>
+    <!--image   -->
+    <view class="section_image" bindtap="navigateDetail" data-aid="{{item.name}}" data-bio="{{item.bio}}" data-team_image='{{item.image_url}}' data-leader_id='{{item.leader_id}}' data-team_id="{{item.team_id}}">
       <block wx:if="{{item.image_url}}">
         <image src="https://itraining.zhanzy.xyz/{{item.image_url}}" mode="aspectFill"></image>
       </block>
@@ -37,7 +37,7 @@
     </view>
 
     <!--content-->
-    <view class="section_cont" bindtap="navigateDetail" data-aid="{{item.id}}">
+    <view class="section_cont" bindtap="navigateDetail" data-aid="{{item.name}}" data-bio="{{item.bio}}" data-team_image='{{item.image_url}}' data-leader_id='{{item.leader_id}}' data-team_id="{{item.team_id}}">
       <view class="section_cont_sub">
         <text>{{item.subject}}</text>
       </view>
@@ -55,3 +55,5 @@
   
 </scroll-view>
 </view>
+
+<view wx:else>暂无数据</view>

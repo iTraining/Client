@@ -1,0 +1,73 @@
+<view class='plan_title'>
+  <text class='title'>打卡界面</text>
+</view>
+<view class="container">
+<form class="form-book" bindsubmit="formSubmit" bindreset="formReset">
+  <view class='header'>
+      <view class="field field-forTeam">
+        <text>目标队伍：</text>
+        <input type="text" placeholder="中大long" name="title" disabled="true"></input>
+      </view>
+
+      <view class="field field-trainingClass">
+        <text>计划类型：</text>
+        <input type="text" placeholder="训练" name="title" disabled="true"></input>
+      </view>
+
+      <view class="field field-title">
+        <text>计划标题：</text>
+        <input type="text" placeholder="周日搞一波" name="title" disabled="true"></input>
+      </view>
+
+      <view class="field field-description">
+        <text>计划简介：</text>
+        <textarea maxlength="300" name="description" value='今天不能虚'></textarea>
+      </view>
+
+      <view class="field field-trainingTime">
+        <text>执行时间：</text>
+        <text >2018-6-25</text>
+      </view>
+  </view>
+  <scroll-view scroll-y="true" class="page-body" bindscrolltolower="loadMore">
+    <!--list-->
+    <view class="nav_section">
+   
+      <view wx:if="{{trainPlanData.indicators}}">
+        <block wx:for="{{trainPlanData.indicators}}" wx:key="item">
+          <view class="nav_section_items">
+            <view class="section_cont" bindtap="navigateDetail" data-aid="{{item.name}}">
+              <view class="section_cont_sub">
+                <text>{{item.name}}</text>
+              </view>
+              <view class="section_cont_price">
+                {{item.totalGroup}} 组 {{' '+item.train_model}} {{item.require_perGroup}} {{item.units}}*{{item.num_perGroup}}个
+              </view>
+            </view>
+            <view class="section_book" data-index="{{index}}" data-item="{{item}}"bindtap="edit_item">
+              <text>修改</text>
+            </view>
+          </view>
+
+        </block>
+      </view>
+      <view wx:else class='no_plan'>暂无数据</view>
+    </view>
+  </scroll-view>
+  <view class="section section_gap">
+  <text class="section__title">自定义训练完成度</text>
+  <view class="body-view">
+    <slider bindchange="slider3change" show-value/>
+  </view>
+</view>
+
+<view class="section section_gap">
+  <!-- <text class="section__title">输入测试成绩</text> -->
+  <view class="body-view">
+    <input type="text" placeholder="输入测试成绩" name="title"></input>
+  </view>
+</view>
+
+  <button class='punch_btn' form-type='submit'>打卡</button>
+</form>
+</view>

@@ -8,9 +8,11 @@
   <view class='header'>
       <view class="field field-forTeam">
         <text>目标队伍：</text>
-        <picker model="selector" range='{{team_list}}' value='{{trainPlanData.team_id}}'
+        <picker model="selector" range='{{team_name_list}}' value='{{trainPlanData.team_id}}'
        bindchange="forTeamChange" name="team_id">  
-          <view>{{team_list[trainPlanData.team_id]}}</view>
+          <!-- <view>{{team_list[trainPlanData.team_id]}}</view> -->
+          <view>{{selected_team_name}}</view>
+          
         </picker>  
       </view>
 
