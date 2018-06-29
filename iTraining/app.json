@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/SquarePage/square",
     "pages/TrainingItemTodoList/TrainingItemTodoList",
     "pages/authorize/authorize",
     "pages/logs/logs",
@@ -17,7 +18,6 @@
     "pages/AddorEditTrainItems/AddorEditTrainItems",
     "pages/PunchSchedule/PunchSchedule",
     "pages/HistoryScheduleList/HistoryScheduleList",
-    "pages/SquarePage/square",
     "pages/injuryArticleList/injuryArticleList",
     "pages/foodArticleList/foodArticleList"
   ],
