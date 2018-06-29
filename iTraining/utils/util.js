@@ -90,3 +90,4 @@ module.exports = {
   // trainingitem: trainingitem,
   // default_indicator: default_indicator
 }
+

@@ -9,7 +9,8 @@
     </view>
     <view class="form_group">
         <text>队伍简介：</text>
-        <input type="text" placeholder="请输入队伍简介(´･_･`)" placeholder-class="placeholder_style" name="bio"/>
+                   <!-- <textarea class="team-info"  placeholder="请输入队伍简介(´･_･`)"maxlength="140" cursor-spacing="0"></textarea>          -->
+        <input type="text" placeholder="" placeholder-class="placeholder_style" name="bio"/>
     </view>
     <view class="tips" >╰(￣▽￣)╭ 点击图片可选择队伍头像</view>
     <view class="save_btn_class">

@@ -90,20 +90,23 @@ page {
 }
 
 .moment{
-  border-bottom: #777 1rpx solid;
+  /* border-bottom: #777 1rpx solid;
   border-left: #777 1rpx solid;
   border-top: #777 1rpx solid;
-  border-right: #777 1rpx solid;
-  margin-bottom: 20rpx;
+  border-right: #777 1rpx solid; */
+  margin-bottom: 5rpx;
   margin-top: 20rpx;
-  margin-left: 10rpx;
-  margin-right: 10rpx;
-  border-radius: 3%;
+  margin-left: 15rpx;
+  margin-right: 15rpx;
   display: flex;
   flex-direction: column;
+  background: white;
+  border-radius: 25rpx;
 }
 
 .moment .userNameAndImg{
+  margin-left: 20rpx;
+  margin-top: 20rpx;
   height: 120rpx;
   width:100%;
   display: flex;
@@ -114,14 +117,14 @@ page {
 .moment .userNameAndImg .momentsImgView{
   margin-left: 15rpx;
   margin-top: 15rpx;
-  height: 100rpx;
-  width:100rpx;
+  height: 70rpx;
+  width:70rpx;
 }
 
 .moment .userNameAndImg .momentsImgView .momentsUserAvator{
   height: 100%;
   width: 100%;
-  border-radius: 50%;
+  
 }
 
 .moment .userNameAndImg .right_side{
@@ -129,9 +132,10 @@ page {
   flex-direction: column;
 }
 .moment .userNameAndImg .right_side .momentsUserName{
-  font-size: 45rpx;
+  font-size: 37rpx;
   margin-left: 15rpx;
   margin-top: 10rpx;
+  color: #4682B4;
 }
 
 .moment .userNameAndImg .right_side .momentsTime{ 
@@ -150,7 +154,7 @@ page {
   width: 100%;
   display: flex;
   
-  margin-bottom: 10rpx;
+  margin-bottom: 20rpx;
 }
 
 .moment .dianzan .dianzan_img_class {
@@ -165,9 +169,78 @@ page {
 }
 
 .moment .dianzan .dianzan_person_name{
-  margin-left: 15rpx;
+  margin-left: 20rpx;
   
   width: 80%;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+
+.thisCityName {
+  display: inline-block;
+  border: 1rpx solid #2a579a;
+  border-radius: 8rpx;
+  padding: 10rpx 10rpx;
+  font-size: 30rpx;
+  color: #2a579a;
+  text-align: center;
+  min-width: 149.5rpx;
+  margin: 16rpx;
+}
+
+.hotcity-common {
+  font-size: 30rpx;
+  color: d4d5e0;
+  padding-bottom: 0;
+  margin: 8rpx 0;
+  margin-left: 16rpx;
+}
+.weatherwrap{
+  height: 100%;
+  display:flex;
+  flex-direction:column;
+  box-sizing:border-box;
+  padding:15rpx 15rpx;
+  margin-left: 15rpx;
+  margin-right: 15rpx;
+  margin-top: 10rpx;
+  color:  #666;
+  font-size:15px;
+  background-color:#EEE9E9;
+}
+/*当天天气信息*/
+.info{
+  margin-top:10rpx;
+  width:100%;
+  height:170px;
+}
+
+/*城市名称*/
+.city{
+  margin: 20rpx;
+  margin-top: 10rpx;
+  border-bottom:1px solid #2a579a;
+}
+
+/*当天温度*/
+.temp{
+  font-size: 70rpx;
+  line-height: 100rpx;
+  text-align: center;
+  color:#2a579a;
+}
+
+/*天气描述*/
+.weather{
+  line-height: 22px;
+  margin: 10rpx;
+  padding: 0 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+}
+.life{
+  line-height: 22px;
+  margin: 5px 0;
 }

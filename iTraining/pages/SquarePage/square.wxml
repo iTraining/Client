@@ -59,11 +59,11 @@
         <image class="momentsUserAvator" src="../../image/icon_tab/food.png"></image>
       </view>
       <view class="right_side">
-        <view class="momentsUserName">uid </view>
+        <view class="momentsUserName">棍哥最厉害 </view>
         <view class="momentsTime">April 20 19:00</view>    
       </view>
     </view>
-    <view class="diary">日记 我很强</view>
+    <view class="diary">    棍哥真的很严格</view>
     <view class="imgs_class"> 
         <image class="img"> </image>
     </view>
@@ -72,7 +72,31 @@
         <image class ="dianzan_img" wx:if="{{collection}}" src="../../image/icon_tab/dianzan.png"  bindtap="toCollect"></image>
         <image class ="dianzan_img" wx:else src="../../image/icon_tab/dianzan.png" bindtap="toCollect"></image>
       </view>
-      <view class="dianzan_person_name">zhangyiqangafaklhfkahslfghasklhgklashgklahslghaslghl</view>
+      <view class="dianzan_person_name">zzy牛逼,yh牛逼</view>
     </view>
 </view>
     
+
+
+<view hidden="{{currentNavTab!=0}}">
+  <view class="hotcity-common" style="display:inline;">当前位置: </view>
+  <view class="thisCityName">{{location}}{{county}}</view>
+  <view class="weatherwrap" bindtap='gotoWeather'>
+      <!--显示当天的天气信息-->
+    <view class="info">
+      <!--城市名称 当前日期-->
+      <view class="city">{{location}} ({{today}})</view>
+      <!--当天温度-->
+      <view class="temp">{{weatherData.tmp}}℃</view>
+      <!--其他描述-->
+      <view class="weather">
+        <view>{{weatherData.cond_txt}}</view>
+        <view>{{weatherData.wind_dir}}</view>
+        <view>{{weatherData.wind_sc}}</view>
+        <view>PM2.5: {{air.pm25}}</view>
+        <view>{{air.qlty}}</view>
+      </view>
+      <view class="life" style='text-indent:1em;'>{{dress.txt}}</view>
+    </view>
+  </view>
+</view>
