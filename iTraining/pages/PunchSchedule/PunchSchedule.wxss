@@ -1,4 +1,6 @@
 /* pages/TrainingItemTodoList/TrainingItemTodoList.wxss */
+
+
 .active_red{
     color:#e5004f;
 }
@@ -15,32 +17,11 @@
     color:#aa2adf;
 }
 
-.page-body{
-    width:100%;
-    height:100%;
-    margin-bottom: 5px;
-}
-.plan_title {
-  width: 100%;
-  height: 90rpx;
-  background:#339966;
-  position: relative;
-}
-.title{
-  margin-left:35%;
-  padding-top:20rpx;
-  position: absolute;
-  color:white;
-  font-size:15px;
-  font-weight: bold;
-  font-family: 微软雅黑;
-}
+
+
 
 .header{
     font-size:30rpx;
-    padding:55rpx 0rpx 18rpx;
-    /*top: 0;*/
-    /*position: fixed;*/
 }
 
 .field {

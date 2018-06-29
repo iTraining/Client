@@ -1,6 +1,4 @@
-<view class='plan_title'>
-  <text class='title'>打卡界面</text>
-</view>
+
 <view class="container">
 <form class="form-book" bindsubmit="formSubmit" bindreset="formReset">
   <view class='header'>
