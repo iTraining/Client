@@ -3,7 +3,15 @@
 
 <view class="container">
 
-<scroll-view  scroll-y="true"  class="page-body" bindscrolltolower="pullUpLoad">
+<scroll-view  scroll-y="true"  class="page-body" bindscrolltolower="pullUpLoad" bindscrolltoupper="refresh">
+    <!-- 列表 下拉刷新 动画 -->
+  <view class="hot-box-top" hidden="{{!refreshhidden}}">
+    <view class="weui-loadmore">
+        <view class="weui-loading"></view>
+        <view class="weui-loadmore__tips">正在刷新...</view>
+    </view>
+  </view>
+
   <view class="nav_section_items" wx:for="{{list}}" wx:key="item.id" data-data="{{item}}">
     <!--image-->
     <view class="section_image" bindtap="navigateDetail" data-aid="{{item.id}}">
@@ -29,7 +37,6 @@
       </view>
 
       <view class="section_cont_num">{{item.numOfGroups}} 组 X {{item.amount}}</view>
-      
     </view>
             
     <!--book-->
@@ -38,7 +45,18 @@
     </view>
       
   </view>
-  
+
+  <!-- <view class="img3">
+    <image class="img4" src="../../image/icon_tab/loading.gif"  mode="aspectFill"></image>
+  </view> -->
+  <!-- <view class="loading" hidden="{{!searchLoading}}">正在载入更多...</view>
+  <view class="loading complete" hidden="{{!searchLoadingComplete}}">已加载全部</view>
+  <view class="tips">
+        <view wx:if="{{hasMore}}">
+            <image src="../../image/icon_tab/loading.gif" mode="aspectFill"/>
+        </view>
+  </view> -->
 </scroll-view>
+
 
 </view>

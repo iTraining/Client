@@ -1,0 +1,173 @@
+/* pages/SquarePage/square.wxss */
+
+page {
+    height: 100%;
+    background-color: #f7f7f7;
+}
+
+.swiper-tab {
+  width: 100%;
+  border-bottom: 2rpx solid gainsboro;
+  text-align: center;
+  line-height:80rpx;
+}
+
+.swiper-tab-list {
+  font-size: 30rpx;
+  display: inline-block;
+  width: 20%;
+  color: #777;
+}
+.on {
+  color: #7cba23;
+  border-bottom: 5rpx solid #7cba23;
+}
+
+.wx-swiper
+{
+  height: 300rpx; 
+}
+
+.wx-image{
+  width: 100%; 
+  height: 100%; 
+}
+
+.button_lies{
+  border-bottom: 2rpx solid gainsboro;
+  margin-top:20rpx;
+  margin-left: 15rpx;
+  margin-right: 15rpx; 
+  background: white;
+  border-radius: 5%;
+  display: flex;
+  flex-direction: row;
+}
+
+.button_lie1 {
+  height:100%;
+  text-align: center;
+  margin-top: 10rpx;
+  display: flex;
+  flex-direction: column;
+  width: 33.3%;
+}
+.button_lie2 {
+  height:100%;
+  text-align: center;
+  margin-top: 10rpx;
+  display: flex;
+  flex-direction: column;
+  width: 33.3%;
+}
+
+.button_lie3 {
+  height:100%;
+  text-align: center;
+  margin-top: 10rpx;
+  display: flex;
+  flex-direction: column;
+  width: 33.3%;
+}
+
+.img_class{
+  width: 100%;
+  height: 100%;
+  margin-bottom: 5rpx;
+  
+}
+
+.img {
+  width: 60rpx; 
+  height: 60rpx; 
+}
+
+.name_btn{
+  height: 20%;
+  font-size: 30rpx;
+  color: #777;
+  margin-bottom: 5rpx;
+}
+
+.moment{
+  border-bottom: #777 1rpx solid;
+  border-left: #777 1rpx solid;
+  border-top: #777 1rpx solid;
+  border-right: #777 1rpx solid;
+  margin-bottom: 20rpx;
+  margin-top: 20rpx;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+  border-radius: 3%;
+  display: flex;
+  flex-direction: column;
+}
+
+.moment .userNameAndImg{
+  height: 120rpx;
+  width:100%;
+  display: flex;
+  flex-direction: row;
+  /* border-bottom: #777 1rpx dotted; */
+}
+
+.moment .userNameAndImg .momentsImgView{
+  margin-left: 15rpx;
+  margin-top: 15rpx;
+  height: 100rpx;
+  width:100rpx;
+}
+
+.moment .userNameAndImg .momentsImgView .momentsUserAvator{
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+}
+
+.moment .userNameAndImg .right_side{
+  display: flex;
+  flex-direction: column;
+}
+.moment .userNameAndImg .right_side .momentsUserName{
+  font-size: 45rpx;
+  margin-left: 15rpx;
+  margin-top: 10rpx;
+}
+
+.moment .userNameAndImg .right_side .momentsTime{ 
+  font-size: 25rpx;
+  margin-left: 15rpx;
+  margin-top: 5rpx;
+}
+.moment .diary{
+  height: 60rpx;
+  margin-left: 50rpx;
+  margin-top:  15rpx;
+}
+
+.moment .dianzan{
+  height: 50rpx;
+  width: 100%;
+  display: flex;
+  
+  margin-bottom: 10rpx;
+}
+
+.moment .dianzan .dianzan_img_class {
+  height:50rpx;
+  width: 50rpx;
+  margin-left: 15rpx;
+}
+
+.moment .dianzan .dianzan_img_class .dianzan_img {
+  height:100%;
+  width:100%;
+}
+
+.moment .dianzan .dianzan_person_name{
+  margin-left: 15rpx;
+  
+  width: 80%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
