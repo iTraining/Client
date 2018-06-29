@@ -2,14 +2,13 @@
 
 
 <view class="userinfo">
-  <block wx:if="{{!hasUserInfo && canIUse}}">
+  <!-- <block wx:if="{{!hasUserInfo && canIUse}}">
     <button class="avatar" open-type="getUserInfo" bindgetuserinfo="getUserInfo"></button>
     <view class="warn">点击头像登录</view>
   </block>
-  <block wx:else>
+  <block wx:else> -->
     <image class="avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-    <view class="name">{{userInfo.nickName}}</view>
-  </block>
+    <view class="name">{{userInfo.nickName}}, </view>
 </view>
 
 

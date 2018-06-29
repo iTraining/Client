@@ -70,10 +70,8 @@ Page({
           mask: true
         })
         console.log(res.data)
-        that.setData({
-          list: res.data.data
-        })
-        wx.navigateTo({
+        
+        wx.switchTab({
           url: '../TrainingItemTodoList/TrainingItemTodoList'
         })
       },

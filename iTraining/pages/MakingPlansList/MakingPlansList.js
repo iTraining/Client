@@ -189,12 +189,12 @@ Page({
       return;
     } else {
       console.log('训练计划信息')
+      console.log(that.data)
       console.log(that.data.trainPlanData)
-
-
+      console.log(that.data.training_date.substring(0, 10))
       // 上传给服务器这一次的训练计划  
       wx.request({
-        url: 'https://itraining.zhanzy.xyz/api/v1/schedule/meta',
+        url: 'https://itraining.zhanzy.xyz/api/v1/schedule',
         method: "POST",
         header: {
           'Cookie': wx.getStorageSync("set-cookie")
@@ -205,11 +205,16 @@ Page({
           training_class: that.data.trainPlanData.training_class,
           description: that.data.trainPlanData.description,
           state:"发布",
-          training_date:that.data.trainPlanData.training_date,
+          training_date:that.data.training_date.substring(0,10),
           references: that.data.trainPlanData.references
         },
         success:function(res) {
           console.log(res)
+          that.showErrorToast("发布成功")
+          // 返回到个人中心页面
+          wx.navigateBack({
+            delta: 1
+          })
         },
         fail:function(res) {
           console.log(res)
@@ -217,25 +222,34 @@ Page({
       })
 
       //这里暂时用数据缓存来方便后面打卡取这个计划
-      wx.setStorageSync('single_trainPlanData', that.data.trainPlanData)
+      // wx.setStorageSync('single_trainPlanData', that.data.trainPlanData)
 
-      // 返回到个人中心页面
-      wx.navigateBack({
-        delta: 1
-      })
+      
     }
   },
   showErrorToast: function (message) {
     wx.showToast({
       title: message,
+      icon:'none',
       duration: 1000,
     })
   },
+  SaveToDrafts:function() {
+    console.log("暂存草稿")
+  },
   dataIsValid: function (trainPlanData) {
     var that = this
+    console.log("data is valid")
+    console.log(trainPlanData)
     if (that.data.indi_index == 0) {  // 如果训练项目数目为0
       that.showErrorToast("请添加训练项目")
       return false;
+    } else if(trainPlanData.description==""){
+      that.showErrorToast("计划简介不能为空")
+      return false
+    } else if(trainPlanData.title == "") {
+      that.showErrorToast("计划标题不能为空")
+      return false
     } else {
       if (trainPlanData.training_class == '测试') {
         // 如果是测试计划 那就只能有一个训练项目

@@ -13,7 +13,7 @@ Page({
     inputTeam_image:'',
     team_leader_id:'',
     is_leader:false,
-    team_members:{},
+    team_members:[],
   },
 
   /**
@@ -53,6 +53,9 @@ Page({
       success:function(res) {
         console.log("队伍成员： ")
         console.log(res.data.data)
+        that.setData({
+          team_members:res.data.data
+        })
       }
     })
     // 先得到邀请他人的信息

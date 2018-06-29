@@ -39,6 +39,12 @@
   border: 1px solid #ccc;
   border-radius: 50%;    
 }
+.team_member_img{
+  width: 100rpx;
+  height: 100rpx;
+  border: 1px solid #ccc;
+  /* border-radius: 50%;     */
+}
 .selectImg{
   margin-right: 40%;
 }

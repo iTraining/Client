@@ -51,6 +51,9 @@ Page({
 
   item_name_Change: function (e) {   // 用户从这个picker选了某个项目名称 那应该在下面展示出这个项目的关联指标，
     var that = this
+    console.log("meta list")
+  
+    console.log(that.data.meta_list)
     var item_name = that.data.train_item_list[e.detail.value]
     // 去meta_list里去找这个项目的关联指标
     for (var i = 0; i < that.data.amount_meta; i++) {
@@ -79,7 +82,7 @@ Page({
         console.log('当做背景的unit为：')
         console.log(the_indicator_unit_list)
         that.setData({
-          'train_item_info.meta_id': i,
+          'train_item_info.meta_id': that.data.meta_list[i].meta_id,
           'train_item_info.training_name': item_name,
           indicator_name_list: the_indicator_name_list,
           indicator_unit_list: the_indicator_unit_list,
@@ -241,7 +244,8 @@ Page({
         }
         that.setData({
           train_item_list:t_training_name_list,
-          meta_list:res.data.data
+          meta_list:res.data.data,
+          'train_item_info.meta_id':res.data.data[0].meta_id
         })
 
         // 应该通过team_id向从数据库获取，这里 暂时用全局变量的方式
@@ -370,7 +374,7 @@ Page({
             console.log('当做背景的unit为：')
             console.log(the_indicator_unit_list)
             that.setData({
-              'train_item_info.meta_id': i,
+              'train_item_info.meta_id': that.data.meta_list[i].meta_id,
               'train_item_info.training_name': item_name,
               indicator_name_list: the_indicator_name_list,
               indicator_unit_list: the_indicator_unit_list,

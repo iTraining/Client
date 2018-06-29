@@ -91,7 +91,9 @@
     <view>
       <button class='button_item' form-type='submit'>发布</button>
     </view>
-
+    <view>
+      <button class='button_item' bindtap='SaveToDrafts'>暂存草稿</button>
+    </view>
   </view>
 </form>
 </view>

@@ -12,7 +12,26 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+      wx.request({
+        url: 'https://itraining.zhanzy.xyz/api/v1/schedule',
+        data:{
+          option: 'private',
+          team_id: '-1',
+          b_date:'2017-01-01',  
+          e_date:'2019-12-30'
+        },
+        method:'GET',
+        header: {
+          'Cookie': wx.getStorageSync("set-cookie")
+        },
+        success:function(res) {
+          console.log(res)
+
+        },
+        fail:function(res) {
+          console.log(res)
+        }
+      })
   },
 
   /**
