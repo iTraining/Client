@@ -262,7 +262,7 @@ Page({
           that.setData({
             team_id_list:t_team_id_list,
             team_name_list:t_team_name_list,
-            // 'meta.team_id':t_team_name_list[0],
+            'meta.team_id':t_team_id_list[0],
             'selected_team_name': t_team_name_list[0],
           })
         }

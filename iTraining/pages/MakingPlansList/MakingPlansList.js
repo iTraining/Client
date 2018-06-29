@@ -15,7 +15,8 @@ Page({
       title: '',
       description: '',
       training_date: '2018-11-11',
-      indicators: [],
+      indicators:[],
+      references:[],
     },
     indi_index: 0, // indi_index是训练计划中项目的数目 用于检查数据的准确性
 
@@ -177,6 +178,8 @@ Page({
     })
   },
   formSubmit: function (e) {
+    console.log("提交")
+    console.log(e)
     var that = this
     //var c = "trainPlanData[1].indicators"
     //that.data.trainPlanData = that.data.trainPlanData.concat(e.detail.value)
@@ -190,6 +193,29 @@ Page({
 
 
       // 上传给服务器这一次的训练计划  
+      wx.request({
+        url: 'https://itraining.zhanzy.xyz/api/v1/schedule/meta',
+        method: "POST",
+        header: {
+          'Cookie': wx.getStorageSync("set-cookie")
+        },
+        data:{
+          team_id: that.data.trainPlanData.team_id,
+          title: that.data.trainPlanData.title,
+          training_class: that.data.trainPlanData.training_class,
+          description: that.data.trainPlanData.description,
+          state:"发布",
+          training_date:that.data.trainPlanData.training_date,
+          references: that.data.trainPlanData.references
+        },
+        success:function(res) {
+          console.log(res)
+        },
+        fail:function(res) {
+          console.log(res)
+        }
+      })
+
       //这里暂时用数据缓存来方便后面打卡取这个计划
       wx.setStorageSync('single_trainPlanData', that.data.trainPlanData)
 
@@ -247,9 +273,14 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    var that =this
     console.log('已经添加的训练项目数和项目信息')
     console.log(this.data.indi_index)
-    console.log(this.data.trainPlanData.indicators)
+    console.log(this.data.trainPlanData.references)
+    this.setData({
+      'trainPlanData.indicators': that.data.trainPlanData.references
+    })
+    console.log(this.data.trainPlanData.indicators)    
   },
 
   /**

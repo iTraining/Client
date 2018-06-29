@@ -15,7 +15,7 @@ Page({
     train_item_list: [],  // 项目名称列表，供用户选取其中一个项目作为计划之一 在onLoad函数中通过team_id向服务器索取
     index_name: 0,        // 供用户选取项目名称的picker下标
 
-    indicator_name_list: ['distance'],  // 与用户选择的项目关联的指标名称
+    indicator_name_list: [],  // 与用户选择的项目关联的指标名称
     test_indicator_index: 0,  // 用于测试指标的picker下标
     indicator_unit_list: [],  // 与用户选择的项目关联的指标单位
     indicator_value_list: [],  // 用户输入的指标数值
@@ -71,10 +71,6 @@ Page({
           }
         }
         // 确定这个项目关联指标的单位
-        /*
-        the_indicator_name_list代表跟这个项目关联的指标名称
-        that.data.indicator_nameMAPunit: { 'distance': 'km', 'time': 'min', 'weigh':'kg', 'frequency':'number/min', 'friction':'N', 'rest_time':'min', 'amount':'number'}
-        */
         var the_indicator_unit_list = []
         for (var t1 = 0; t1 < the_indicator_name_list.length; t1++) {
           var unit = that.data.indicator_nameMAPunit[the_indicator_name_list[t1]]
@@ -176,6 +172,11 @@ Page({
         var str_references = 'trainPlanData.references';
         var count = prevPage.data.indi_index + 1;
         prevPage.data.indi_index = count; // indi_index其实就是trainPlanData.indicators的length
+        console.log("prev page data train plan data")
+        console.log(prevPage.data.trainPlanData.references)
+        console.log("train item info ")
+        console.log(that.data.train_item_info)
+
         prevPage.data.trainPlanData.references = prevPage.data.trainPlanData.references.concat(that.data.train_item_info)
 
         prevPage.setData({
@@ -234,117 +235,158 @@ Page({
       success:function(res) {
         var t_training_name_list = that.data.train_item_list        
         console.log(res)
+        wx.setStorageSync('meta_data', res.data.data)
         for(var i=0;i<res.data.data.length;i++) {
           t_training_name_list.push(res.data.data[i].training_name)
         }
         that.setData({
-          train_item_list:t_training_name_list
+          train_item_list:t_training_name_list,
+          meta_list:res.data.data
         })
+
+        // 应该通过team_id向从数据库获取，这里 暂时用全局变量的方式
+        
+        var the_meta_list = res.data.data   // meta_list是team_id对应的项目信息列表
+        var the_amount_meta = res.data.data.length
+    
+        that.data.train_item_list = []
+        for (var i = 0; i < the_amount_meta; ++i) {
+          that.data.train_item_list = that.data.train_item_list.concat(the_meta_list[i].training_name)
+        }
+        that.setData({
+          amount_meta: the_amount_meta,
+          meta_list: the_meta_list,
+          train_item_list: that.data.train_item_list   // 用户可以选择的项目名称列表
+        })
+
+        if (options.flag == 'edit') {   // flag是'edit'就是要编辑项目信息  即修改或删除
+          /* 因此要显示修改前的该项目计划信息,包括：
+          indicator_name_list: [],  // 与用户之前选择的项目关联的指标名称
+          test_indicator_index: 0,  // 用于测试指标的picker下标
+          indicator_unit_list: [],  // 与用户之前选择的项目关联的指标单位
+          indicator_value_list: [],  // 用户之前输入的指标数值
+          training_class: 也要判断
+          */
+          that.data.old_item_info = wx.getStorageSync('want_edit_item')
+          console.log('要修改的项目信息')
+          console.log(that.data.old_item_info)
+          var old_item_name = that.data.old_item_info.training_name
+          var the_index_name = that.data.old_item_info.meta_id  // 这里的meta_id与该项目在meta列表里的序号相同
+          for (var i = 0; i < that.data.amount_meta; i++) {
+            if (that.data.meta_list[i].training_name == old_item_name) {  // 符合条件的i是这个项目在meta_list中的位置
+              //that.data.indicator_name_list 是这个项目关联指标的名称
+              //that.data.indicator_unit_list 是这个项目关联指标的单位
+              var index = []
+              index = index.concat(that.data.meta_list[i].index1)
+              index = index.concat(that.data.meta_list[i].index2)
+              index = index.concat(that.data.meta_list[i].index3)
+              index = index.concat(that.data.meta_list[i].index4)
+              index = index.concat(that.data.meta_list[i].index5)
+              index = index.concat(that.data.meta_list[i].index6)
+              var the_indicator_name_list = []
+              for (var j = 0; j < 6; ++j) {   // 6是用户在给项目关联指标的上限数目
+                if (index[j] != '无') {
+                  the_indicator_name_list = the_indicator_name_list.concat(index[j])
+                }
+              }
+              // 确定这个项目关联指标的单位
+              /*
+              the_indicator_name_list代表跟这个项目关联的指标名称
+              that.data.indicator_nameMAPunit: { 'distance': 'km', 'time': 'min', 'weigh':'kg', 'frequency':'number/min', 'friction':'N', 'rest_time':'min', 'amount':'number'}
+              */
+              var the_indicator_unit_list = []
+              for (var t1 = 0; t1 < the_indicator_name_list.length; t1++) {
+                var unit = that.data.indicator_nameMAPunit[the_indicator_name_list[t1]]
+                the_indicator_unit_list = the_indicator_unit_list.concat(unit)
+              }
+              console.log('当做背景的unit为：')
+              console.log(the_indicator_unit_list)
+              that.setData({
+                indicator_name_list: the_indicator_name_list,
+                indicator_unit_list: the_indicator_unit_list,
+              })
+            }
+          }
+          var the_indicator_value_list = []
+          the_indicator_value_list = the_indicator_value_list.concat(that.data.old_item_info.data1)
+          the_indicator_value_list = the_indicator_value_list.concat(that.data.old_item_info.data2)
+          the_indicator_value_list = the_indicator_value_list.concat(that.data.old_item_info.data3)
+          the_indicator_value_list = the_indicator_value_list.concat(that.data.old_item_info.data4)
+          the_indicator_value_list = the_indicator_value_list.concat(that.data.old_item_info.data5)
+          the_indicator_value_list = the_indicator_value_list.concat(that.data.old_item_info.data6)
+          that.setData({
+            old_item_info: that.data.old_item_info,
+            indicator_value_list: the_indicator_value_list,
+            index_name: the_index_name,
+            item_index: options.item_index,   // 要修改的项目的在references的下标
+            test_indicator_index: that.data.old_item_info.test_index,
+            edit: true,
+          })
+          if (options.training_class == '测试') {
+            that.setData({
+              training_class: 1,
+            })
+          }
+          console.log('要修改的项目信息')
+          console.log(that.data.old_item_info)
+          console.log('用户之前输入的指标数值为')
+          console.log(that.data.indicator_value_list)
+        } else if (options.flag == 'add') {
+          if (options.training_class == '测试') {
+            that.setData({
+              training_class: 1,
+            })
+          }
+          that.setData({
+            'old_item_info.training_name': ''
+          })
+        }
+        // 初始化项目指标
+        var item_name = that.data.train_item_list[0]
+        // 去meta_list里去找这个项目的关联指标
+        for (var i = 0; i < that.data.amount_meta; i++) {
+          if (that.data.meta_list[i].training_name == item_name) {  // 符合条件的i是这个项目在meta_list中的位置
+            //that.data.indicator_name_list 是这个项目关联指标的名称
+            //that.data.indicator_unit_list 是这个项目关联指标的单位
+            var index = []
+            index = index.concat(that.data.meta_list[i].index1)
+            index = index.concat(that.data.meta_list[i].index2)
+            index = index.concat(that.data.meta_list[i].index3)
+            index = index.concat(that.data.meta_list[i].index4)
+            index = index.concat(that.data.meta_list[i].index5)
+            index = index.concat(that.data.meta_list[i].index6)
+            var the_indicator_name_list = []
+            for (var j = 0; j < 6; ++j) {   // 6是用户在给项目关联指标的上限数目
+              if (index[j] != '无') {
+                the_indicator_name_list = the_indicator_name_list.concat(index[j])
+              }
+            }
+            // 确定这个项目关联指标的单位
+            var the_indicator_unit_list = []
+            for (var t1 = 0; t1 < the_indicator_name_list.length; t1++) {
+              var unit = that.data.indicator_nameMAPunit[the_indicator_name_list[t1]]
+              the_indicator_unit_list = the_indicator_unit_list.concat(unit)
+            }
+            console.log('当做背景的unit为：')
+            console.log(the_indicator_unit_list)
+            that.setData({
+              'train_item_info.meta_id': i,
+              'train_item_info.training_name': item_name,
+              indicator_name_list: the_indicator_name_list,
+              indicator_unit_list: the_indicator_unit_list,
+            })
+          }
+        }
+        that.setData({
+          index_name: 0,
+        })
+
       },
       fail:function(res) {
         console.log(res)
       }
     })
-    // 应该通过team_id向从数据库获取，这里 暂时用全局变量的方式
-    var the_amount_meta = app.globalData.amount_meta
-    var the_meta_list = app.globalData.meta_list   // meta_list是team_id对应的项目信息列表
-
-    console.log('全局目前的项目信息如下')
-    console.log(the_meta_list)
-    that.data.train_item_list = []
-    for (var i = 0; i < the_amount_meta; ++i) {
-      that.data.train_item_list = that.data.train_item_list.concat(the_meta_list[i].training_name)
-    }
-    that.setData({
-      amount_meta: the_amount_meta,
-      meta_list: the_meta_list,
-      train_item_list: that.data.train_item_list   // 用户可以选择的项目名称列表
-    })
     
-    console.log("接受到的参数是");
-    console.log(options)
-    if (options.flag == 'edit') {   // flag是'edit'就是要编辑项目信息  即修改或删除
-      /* 因此要显示修改前的该项目计划信息,包括：
-      indicator_name_list: [],  // 与用户之前选择的项目关联的指标名称
-      test_indicator_index: 0,  // 用于测试指标的picker下标
-      indicator_unit_list: [],  // 与用户之前选择的项目关联的指标单位
-      indicator_value_list: [],  // 用户之前输入的指标数值
-      training_class: 也要判断
-      */
-      that.data.old_item_info = wx.getStorageSync('want_edit_item')
-      console.log('要修改的项目信息')
-      console.log(that.data.old_item_info)
-      var old_item_name = that.data.old_item_info.training_name
-      var the_index_name = that.data.old_item_info.meta_id  // 这里的meta_id与该项目在meta列表里的序号相同
-      for (var i = 0; i < that.data.amount_meta; i++) {
-        if (that.data.meta_list[i].training_name == old_item_name) {  // 符合条件的i是这个项目在meta_list中的位置
-          //that.data.indicator_name_list 是这个项目关联指标的名称
-          //that.data.indicator_unit_list 是这个项目关联指标的单位
-          var index = []
-          index = index.concat(that.data.meta_list[i].index1)
-          index = index.concat(that.data.meta_list[i].index2)
-          index = index.concat(that.data.meta_list[i].index3)
-          index = index.concat(that.data.meta_list[i].index4)
-          index = index.concat(that.data.meta_list[i].index5)
-          index = index.concat(that.data.meta_list[i].index6)
-          var the_indicator_name_list = []
-          for (var j = 0; j < 6; ++j) {   // 6是用户在给项目关联指标的上限数目
-            if (index[j] != '无') {
-              the_indicator_name_list = the_indicator_name_list.concat(index[j])
-            }
-          }
-          // 确定这个项目关联指标的单位
-          /*
-          the_indicator_name_list代表跟这个项目关联的指标名称
-          that.data.indicator_nameMAPunit: { 'distance': 'km', 'time': 'min', 'weigh':'kg', 'frequency':'number/min', 'friction':'N', 'rest_time':'min', 'amount':'number'}
-          */
-          var the_indicator_unit_list = []
-          for (var t1 = 0; t1 < the_indicator_name_list.length; t1++) {
-            var unit = that.data.indicator_nameMAPunit[the_indicator_name_list[t1]]
-            the_indicator_unit_list = the_indicator_unit_list.concat(unit)
-          }
-          console.log('当做背景的unit为：')
-          console.log(the_indicator_unit_list)
-          that.setData({
-            indicator_name_list: the_indicator_name_list,
-            indicator_unit_list: the_indicator_unit_list,
-          })
-        }
-      }
-      var the_indicator_value_list = []
-      the_indicator_value_list = the_indicator_value_list.concat(that.data.old_item_info.data1)
-      the_indicator_value_list = the_indicator_value_list.concat(that.data.old_item_info.data2)
-      the_indicator_value_list = the_indicator_value_list.concat(that.data.old_item_info.data3)
-      the_indicator_value_list = the_indicator_value_list.concat(that.data.old_item_info.data4)
-      the_indicator_value_list = the_indicator_value_list.concat(that.data.old_item_info.data5)
-      the_indicator_value_list = the_indicator_value_list.concat(that.data.old_item_info.data6)
-      that.setData({  
-        old_item_info: that.data.old_item_info,
-        indicator_value_list: the_indicator_value_list,
-        index_name: the_index_name,
-        item_index: options.item_index,   // 要修改的项目的在references的下标
-        test_indicator_index: that.data.old_item_info.test_index,
-        edit: true,
-      })
-      if (options.training_class == '测试') {
-        that.setData({
-          training_class: 1,
-        })
-      }
-      console.log('要修改的项目信息')
-      console.log(that.data.old_item_info)
-      console.log('用户之前输入的指标数值为')
-      console.log(that.data.indicator_value_list)
-    } else if (options.flag == 'add') {
-      if (options.training_class == '测试') {
-        that.setData({
-          training_class: 1,
-        })
-      }
-      that.setData({
-        'old_item_info.training_name': ''
-      })
-    }
   },
 
   /**

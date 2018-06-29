@@ -67,10 +67,10 @@
             <!--content-->
             <view class="section_cont" bindtap="navigateDetail" data-aid="{{item.name}}">
               <view class="section_cont_sub">
-                <text>{{item.name}}</text>
+                <text>{{item.training_name}}</text>
               </view>
               <view class="section_cont_price">
-                {{item.totalGroup}} 组 {{' '+item.train_model}} {{item.require_perGroup}} {{item.units}}*{{item.num_perGroup}}个
+                {{item.group_number}} 组 {{' '+item.data1}}*{{item.data2}} 
               </view>
             </view>
             <view class="section_book" data-index="{{index}}" data-item="{{item}}"bindtap="edit_item">
