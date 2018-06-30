@@ -15,6 +15,7 @@ Page({
     duration: 1000,
     navSectionItems: fileData.getHistroyScheduleListData(),
     curNavId: 1,
+    schedule_list:[],
   },
 
   /**
@@ -24,6 +25,37 @@ Page({
     var that = this
     that.setData({
       list: that.data.navSectionItems
+    })
+
+    wx.request({
+      url: 'https://itraining.zhanzy.xyz/api/v1/schedule',
+      data: {
+        option: 'created',
+        team_id: '1',
+        b_date: '2012-01-01',
+        e_date: '2020-12-30'
+      },
+      method: 'GET',
+      header: {
+        'Cookie': wx.getStorageSync("set-cookie")
+      },
+      success: function (res) {
+        console.log(res)
+        that.setData({
+          schedule_list:res.data.data
+        })
+      },
+      fail: function (res) {
+        console.log(res)
+      }
+    })
+  },
+
+  navigateDetail:function(e) {
+    console.log(e.currentTarget.dataset.data)
+    wx.setStorageSync('schedule_to_punch',e.currentTarget.dataset.data)
+    wx.navigateTo({
+      url: '../PunchSchedule/PunchSchedule'
     })
   },
 
