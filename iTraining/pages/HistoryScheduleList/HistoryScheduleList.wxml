@@ -1,6 +1,6 @@
 <view class="container">
 <scroll-view  scroll-y="true"  class="page-body" >
-  <view class="nav_section_items" wx:for="{{list}}" wx:key="item.id" data-data="{{item}}">
+  <view class="nav_section_items" wx:for="{{schedule_list}}" wx:key="item.id" data-data="{{item}}" bindtap="navigateDetail">
     <!-- image -->
     <!-- <view class="section_image" bindtap="navigateDetail" data-aid="{{item.id}}">
       <block wx:if="{{item.coverpath}}">
@@ -12,12 +12,12 @@
     </view> -->
 
     <!--content-->
-    <view class="section_cont" bindtap="navigateDetail" data-aid="{{item.id}}">
+    <view class="section_cont"  data-aid="{{item.id}}">
       <view class="section_cont_sub">
-        <text>{{item.team_id}}</text>
+        <text>{{item.id}}训练名称：{{item.title}}</text>
       </view>
-      <view class="section_cont_info">训练名称{{item.training_name}}</view>
-      <view class="section_cont_num">{{item.date}}</view>
+      <view class="section_cont_info">简介：{{item.description}}</view>
+      <view class="section_cont_num">时间：{{item.training_date}}</view>
       
     </view>   
     <!--book-->

@@ -1,20 +1,21 @@
 <view class="container edit_wrap">
 <form bindsubmit="formSubmit" id="123">
+    <view class='selectImg'bindtap="selectImage">
+        <image class='team_img' placeholder="队伍头像" src="{{imagePath}}" ></image>
+    </view>
     <view class="form_group">
         <text>队伍名称：</text>
-        <input type="text" placeholder="请输入队伍名称" placeholder-class="placeholder_style" name="name" />
+        <input type="text" placeholder="一个霸气的名称" placeholder-class="placeholder_style" name="name" />
     </view>
     <view class="form_group">
         <text>队伍简介：</text>
-        <input type="text" placeholder="请输入队伍简介" placeholder-class="placeholder_style" name="bio"/>
+                   <!-- <textarea class="team-info"  placeholder="请输入队伍简介(´･_･`)"maxlength="140" cursor-spacing="0"></textarea>          -->
+        <input type="text" placeholder="" placeholder-class="placeholder_style" name="bio"/>
     </view>
-    <view class="form_group">
-        <text>队伍头像：</text>
-        <view bindtap='selectImage' class='selectImg'>
-        <image class='team_img' placeholder="队伍头像" src="{{imagePath}}"></image>
-        </view>
+    <view class="tips" >╰(￣▽￣)╭ 点击图片可选择队伍头像</view>
+    <view class="save_btn_class">
+        <button class="save_btn"  formType="submit">提交</button>
     </view>
-    <button class="save_btn"  formType="submit">提交</button>
 </form>
 </view>
 <view class="view-community">

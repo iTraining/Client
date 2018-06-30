@@ -1,52 +1,50 @@
-<view class='plan_title'>
-  <text class='title'>打卡界面</text>
-</view>
+
 <view class="container">
 <form class="form-book" bindsubmit="formSubmit" bindreset="formReset">
   <view class='header'>
       <view class="field field-forTeam">
-        <text>目标队伍：</text>
-        <input type="text" placeholder="中大long" name="title" disabled="true"></input>
+        <text>目标队伍(team_id)：</text>
+        <input type="text" placeholder='{{schedule_to_punch.team_id}}' name="title" disabled='true'></input>
       </view>
 
       <view class="field field-trainingClass">
         <text>计划类型：</text>
-        <input type="text" placeholder="训练" name="title" disabled="true"></input>
+        <input type="text" placeholder='{{schedule_to_punch.training_class}}' name="title" disabled='true'></input>
+        <!-- <text type="text" name="title">{{schedule_to_punch.training_class}}</text> -->
       </view>
 
       <view class="field field-title">
         <text>计划标题：</text>
-        <input type="text" placeholder="周日搞一波" name="title" disabled="true"></input>
+        <input type="text" placeholder='{{schedule_to_punch.title}}' name="title" disabled='true'></input>
       </view>
 
       <view class="field field-description">
         <text>计划简介：</text>
-        <textarea maxlength="300" name="description" value='今天不能虚'></textarea>
+        <textarea maxlength="300" name="description" value='{{schedule_to_punch.description}}'></textarea>
       </view>
 
       <view class="field field-trainingTime">
         <text>执行时间：</text>
-        <text >2018-6-25</text>
+        <input type="text" placeholder='{{schedule_to_punch.training_date}}' name="title" disabled='true'></input>
+        
       </view>
   </view>
   <scroll-view scroll-y="true" class="page-body" bindscrolltolower="loadMore">
     <!--list-->
     <view class="nav_section">
    
-      <view wx:if="{{trainPlanData.indicators}}">
-        <block wx:for="{{trainPlanData.indicators}}" wx:key="item">
+      <view wx:if="{{schedule_to_punch.references}}">
+        <block wx:for="{{schedule_to_punch.references}}" wx:key="item">
           <view class="nav_section_items">
             <view class="section_cont" bindtap="navigateDetail" data-aid="{{item.name}}">
               <view class="section_cont_sub">
-                <text>{{item.name}}</text>
+                <text>meta_id: {{item.meta_id}}</text>
               </view>
-              <view class="section_cont_price">
-                {{item.totalGroup}} 组 {{' '+item.train_model}} {{item.require_perGroup}} {{item.units}}*{{item.num_perGroup}}个
+              <view class="section_cont_price">{{item.group_number}}组 
+                {{item.data1}}*{{item.date2}}
               </view>
             </view>
-            <view class="section_book" data-index="{{index}}" data-item="{{item}}"bindtap="edit_item">
-              <text>修改</text>
-            </view>
+            
           </view>
 
         </block>
@@ -57,17 +55,16 @@
   <view class="section section_gap">
   <text class="section__title">自定义训练完成度</text>
   <view class="body-view">
-    <slider bindchange="slider3change" show-value/>
+    <slider bindchange="sliderchange" show-value/>
   </view>
 </view>
 
-<view class="section section_gap">
-  <!-- <text class="section__title">输入测试成绩</text> -->
+<!-- <view class="section section_gap">
   <view class="body-view">
     <input type="text" placeholder="输入测试成绩" name="title"></input>
   </view>
-</view>
+</view> -->
 
-  <button class='punch_btn' form-type='submit'>打卡</button>
+  <button class='punch_btn' bindtap='punch'>完成打卡</button>
 </form>
 </view>

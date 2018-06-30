@@ -1,4 +1,6 @@
 /* pages/TrainingItemTodoList/TrainingItemTodoList.wxss */
+
+
 .active_red{
     color:#e5004f;
 }
@@ -30,7 +32,8 @@
   margin-left:35%;
   padding-top:20rpx;
   position: absolute;
-  color:white;
+  color:white; 
+  /* color: black; */
   font-size:15px;
   font-weight: bold;
   font-family: 微软雅黑;
@@ -38,9 +41,6 @@
 
 .header{
     font-size:30rpx;
-    padding:55rpx 0rpx 18rpx;
-    /*top: 0;*/
-    /*position: fixed;*/
 }
 
 .field {

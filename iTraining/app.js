@@ -130,5 +130,13 @@ App({
     //训练项目数据
     amount_meta: 1,
     meta_list: [],  // eg. [{team_id, training_name,index1..]},{team_id, training_name,index1..]}]
+    defaultCity: '',
+    defaultCounty: '',
+    weatherData: '',
+    air: '',
+    day: '',
+    heWeatherBase: "https://free-api.heweather.com",
+    heWeatherKey: "4a817b4338e04cc59bdb92da7771411e",
+    tencentMapKey: "4HYBZ-EB23D-SLC42-HQ5R3-LP3LQ-OZFU5",
   }
 })

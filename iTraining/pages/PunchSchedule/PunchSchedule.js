@@ -5,35 +5,49 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+      schedule_to_punch:{},
+      completion:0,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      wx.request({
-        url: 'https://itraining.zhanzy.xyz/api/v1/schedule',
-        data:{
-          option: 'private',
-          team_id: '-1',
-          b_date:'2017-01-01',  
-          e_date:'2019-12-30'
-        },
-        method:'GET',
-        header: {
-          'Cookie': wx.getStorageSync("set-cookie")
-        },
-        success:function(res) {
-          console.log(res)
-
-        },
-        fail:function(res) {
-          console.log(res)
-        }
-      })
+    var that=this
+    var t_schedule=wx.getStorageSync('schedule_to_punch')
+    console.log(t_schedule)
+    that.setData({
+      schedule_to_punch:t_schedule
+    })
   },
-
+  punch:function() {
+    var that=this
+    wx.request({
+      url: 'https://itraining.zhanzy.xyz/api/v1/punch',
+      method:'POST',
+      data:{
+        schedule_id: that.data.schedule_to_punch.schedule_id,
+        completion: that.data.completion,
+      },
+      header: {
+        'Cookie': wx.getStorageSync("set-cookie")
+      },
+      success:function(res) {
+        console.log(res)
+        wx.showToast({
+          title: '打卡成功',
+          icon: 'success',
+          duration: 1000
+        })
+        wx.navigateBack({
+          delta: 1
+        })
+      },
+      fail:function(res) {
+      
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -81,5 +95,12 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  sliderchange:function(e) {
+    var that=this
+    console.log(e)
+    that.setData({
+      completion:e.detail.value
+    })
   }
 })

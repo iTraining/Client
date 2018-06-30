@@ -1,0 +1,102 @@
+<!--pages/SquarePage/square.wxml-->
+
+<view class="swiper-tab">
+  <view class="swiper-tab-list {{currentNavTab==idx ? 'on' : ''}}" wx:for="{{navTab}}" wx:for-index="idx" wx:for-item="itemName" data-idx="{{idx}}" bindtap="switchNav">
+  {{itemName}}
+  </view>
+</view>
+
+
+
+
+<swiper autoplay="false" class="wx-swiper" indicator-dots="True" hidden="{{currentNavTab!=0}}" >
+    <swiper-item>
+      <image bindtap="swiper-click1" class="wx-image" mode="aspectFill" src="https://avatars.mds.yandex.net/get-pdb/69339/e71e5ab9-632c-4640-8adc-b88aa91a52ab/s1200"></image>
+    </swiper-item>
+
+    <swiper-item>
+      <image bindtap="swiper-click2"class="wx-image"  mode="aspectFill" src="http://sinutreener.ee/wp-content/uploads/2014/10/shutterstock_311106017-1200x600.jpg"></image>
+    </swiper-item>
+
+    <swiper-item>
+      <image bindtap="swiper-click3" class="wx-image" mode="aspectFill" src="https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/08/07/ChMkJlagRwyIBmixADZOiN6GK0MAAHg4gCs09UANk6g147.jpg"></image>
+    </swiper-item>
+
+    <swiper-item>
+      <image bindtap="tap_d5808da6" class="wx-image" mode="aspectFill" src="https://www.t-nation.com/system/publishing/articles/10005823/original/The-Combo-Exercise-Thats-Just-Plain-Silly.png?1516126325"></image>
+    </swiper-item>
+</swiper>
+
+
+<view class="button_lies" hidden="{{currentNavTab!=0}}">
+
+  <view class="button_lie1" bindtap="TurnToTrainingItemList">
+    <view class="img_class">
+      <image class="img" src="../../image/icon_tab/items.png" mode="aspectFill"> </image>
+    </view>
+    <view class="name_btn"> 训练项目</view>
+  </view>  
+    
+  
+  <view class="button_lie2" bindtap="TurnToInjuryArticlesList">
+    <view class="img_class">
+        <image class="img" src="../../image/icon_tab/injury.png" mode="aspectFill"> </image>
+    </view>
+    <view class="name_btn"> 运动损伤</view>
+  </view>
+
+  <view class="button_lie3" bindtap="TurnToFoodArticlesList">
+    <view class="img_class">
+      <image class="img" src="../../image/icon_tab/food.png" mode="aspectFill"> </image>
+    </view>
+    <view class="name_btn"> 饮食指南</view>
+  </view>
+</view>
+
+<view class="moment" hidden="{{currentNavTab!=1}}">
+    <view class="userNameAndImg">
+      <view class="momentsImgView">
+        <image class="momentsUserAvator" src="../../image/icon_tab/food.png"></image>
+      </view>
+      <view class="right_side">
+        <view class="momentsUserName">棍哥最厉害 </view>
+        <view class="momentsTime">April 20 19:00</view>    
+      </view>
+    </view>
+    <view class="diary">    棍哥真的很严格</view>
+    <view class="imgs_class"> 
+        <image class="img"> </image>
+    </view>
+    <view class="dianzan">
+      <view class="dianzan_img_class">
+        <image class ="dianzan_img" wx:if="{{collection}}" src="../../image/icon_tab/dianzan.png"  bindtap="toCollect"></image>
+        <image class ="dianzan_img" wx:else src="../../image/icon_tab/dianzan.png" bindtap="toCollect"></image>
+      </view>
+      <view class="dianzan_person_name">zzy牛逼,yh牛逼</view>
+    </view>
+</view>
+    
+
+
+<view hidden="{{currentNavTab!=0}}">
+  <view class="hotcity-common" style="display:inline;">当前位置: </view>
+  <view class="thisCityName">{{location}}{{county}}</view>
+  <view class="weatherwrap" bindtap='gotoWeather'>
+      <!--显示当天的天气信息-->
+    <view class="info">
+      <!--城市名称 当前日期-->
+      <view class="city">{{location}} ({{today}})</view>
+      <!--当天温度-->
+      <view class="temp">{{weatherData.tmp}}℃</view>
+      <!--其他描述-->
+      <view class="weather">
+        <view>{{weatherData.cond_txt}}</view>
+        <view>{{weatherData.wind_dir}}</view>
+        <view>{{weatherData.wind_sc}}</view>
+        <view>PM2.5: {{air.pm25}}</view>
+        <view>{{air.qlty}}</view>
+      </view>
+      <view class="life" style='text-indent:1em;'>{{dress.txt}}</view>
+    </view>
+  </view>
+</view>

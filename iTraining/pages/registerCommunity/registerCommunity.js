@@ -8,13 +8,15 @@ Page({
      * 确认提交
      */
   data: {
-    imagePath: "/image/icon_tab/add.png",
+    imagePath: "/image/icon_tab/dianzan1.png",
     imagePathfromServer:'/image/icon_tab/add.png',
-    reset: false    // 再次添加队伍，后续精进
+    reset: false,    // 再次添加队伍，后续精进
+    isSelected: false
   },
 
   selectImage: function (e) {
     let that = this;
+    that.isSelected= true;
     wx.chooseImage({
       count: 1,
       sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
