@@ -35,9 +35,9 @@
     flex-direction: row;
     overflow: hidden;
     justify-content: space-between;
-    border-bottom:2rpx solid #ddd;
+    
+    border-top:2rpx solid #ddd;
     position: relative;
-    margin-bottom: 10rpx;
 }
 
 .nav_section_items:active{
@@ -74,11 +74,13 @@
     color:#000;
     font-weight: 400;
     font-family: Microsoft YaHei;
+    margin-top: 10rpx;
 }
 
 .nav_section_items .section_cont .block1{
-    height:50rpx;
+    height:45rpx;
     display: flex;
+    align-content: center;
 }
 .nav_section_items .section_cont .block1 .img1{
     height:30rpx;
@@ -105,4 +107,10 @@
     text-align: center;
     margin-top:50rpx;
     margin-right: 50rpx;
+}
+
+.container .page_body .img3 image{
+  height:50rpx;
+  width: 100%;
+  
 }

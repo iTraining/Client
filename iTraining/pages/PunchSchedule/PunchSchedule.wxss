@@ -1,4 +1,6 @@
 /* pages/TrainingItemTodoList/TrainingItemTodoList.wxss */
+
+
 .active_red{
     color:#e5004f;
 }
@@ -39,9 +41,6 @@
 
 .header{
     font-size:30rpx;
-    padding:55rpx 0rpx 18rpx;
-    /*top: 0;*/
-    /*position: fixed;*/
 }
 
 .field {

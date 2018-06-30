@@ -32,7 +32,8 @@
 
 .view-community .form-community .field-submit .btn {
   margin: 10rpx;
-  width: 200rpx;
+  width: 80rpx;
+  border-radius: 25%;
 }
 
 .view-community .form-community textarea,
@@ -49,11 +50,12 @@
     flex-direction: row;
     justify-content:space-between;
     margin:18rpx;
-    line-height: 60rpx;
+    line-height: 80rpx;
 }
 .form_group text{
     text-align: right;
     width:160rpx;
+    font-size: 32rpx;
 }
 .form_group input,
 .form_group picker{
@@ -83,20 +85,33 @@
     font-family:'微软雅黑';
     color:#adadad;
 }
+.tips{
+  font-size: 30rpx;
+  margin-left: 30rpx;
+}
+.save_btn_class{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
 .save_btn{
-    width:90%;
-    background:#d24a58;
+    width:130rpx;
+    height: 80rpx;
+    /* background:#d24a58; */
     font-size: 32rpx;
-    color:#fff;
-    border-radius: 0rpx;
+    border-radius: 10rpx;
     margin:40rpx 0rpx 10rpx;
+    align-content: center;
 }
 .team_img{
-  width: 200rpx;
-  height: 200rpx;
+  width: 120rpx;
+  height: 120rpx;
   border: 1px solid #ccc;
   border-radius: 50%;    
+  
 }
+
 .selectImg{
-  margin-right: 40%;
+  display: flex;
+  justify-content: center;
 }
