@@ -242,12 +242,13 @@ Page({
         for(var i=0;i<res.data.data.length;i++) {
           t_training_name_list.push(res.data.data[i].training_name)
         }
-        that.setData({
-          train_item_list:t_training_name_list,
-          meta_list:res.data.data,
-          'train_item_info.meta_id':res.data.data[0].meta_id
+        if(res.data.data.length!=0) {
+          that.setData({
+            train_item_list:t_training_name_list,
+            meta_list:res.data.data,
+           'train_item_info.meta_id':res.data.data[0].meta_id
         })
-
+        }
         // 应该通过team_id向从数据库获取，这里 暂时用全局变量的方式
         
         var the_meta_list = res.data.data   // meta_list是team_id对应的项目信息列表

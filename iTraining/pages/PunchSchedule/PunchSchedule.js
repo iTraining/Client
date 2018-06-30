@@ -37,11 +37,17 @@ Page({
         wx.showToast({
           title: '打卡成功',
           icon: 'success',
-          duration: 1000
-        })
-        wx.navigateBack({
-          delta: 1
-        })
+          duration: 1000,
+          complete:function(){
+            wx.switchTab({
+              url: '../PersonalCenter/PersonalCenter',
+            })
+          }
+          })
+        // wx.navigateBack({
+        //   delta: 1
+        // })
+        
       },
       fail:function(res) {
       

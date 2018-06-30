@@ -14,7 +14,7 @@ Page({
       training_class: '训练',  // 其实是training_class_list的下标 0表示训练 1表示测试
       title: '',
       description: '',
-      training_date: '2018-11-11',
+      training_date: '2018-6-30',
       indicators:[],
       references:[],
     },
@@ -70,6 +70,9 @@ Page({
   executeTimeChange: function (e) {
     var that = this
     var str_training_date = 'trainPlanData.training_date'
+    // var t_date=new Date(e.detail.value).toLocaleString
+    console.log(e.detail.value)
+    // console.log(t_date)
     that.setData({
       [str_training_date]: e.detail.value
     })
@@ -191,7 +194,6 @@ Page({
       console.log('训练计划信息')
       console.log(that.data)
       console.log(that.data.trainPlanData)
-      console.log(that.data.training_date.substring(0, 10))
       // 上传给服务器这一次的训练计划  
       wx.request({
         url: 'https://itraining.zhanzy.xyz/api/v1/schedule',
@@ -205,7 +207,7 @@ Page({
           training_class: that.data.trainPlanData.training_class,
           description: that.data.trainPlanData.description,
           state:"发布",
-          training_date:that.data.training_date.substring(0,10),
+          training_date: that.data.trainPlanData.training_date,
           references: that.data.trainPlanData.references
         },
         success:function(res) {

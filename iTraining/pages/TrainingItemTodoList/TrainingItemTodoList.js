@@ -20,17 +20,21 @@ Page({
     // navTopItems: fileData.getIndexNavData(),
     navSectionItems: fileData.getIndexNavSectionData(),
     curNavId: 1,
-    //curIndex: 0
+    schedule_list:[],
+    schedule_to_punch:[]
   },
-
+  navigateDetail: function (e) {
+    console.log(e)
+    wx.setStorageSync('schedule_to_punch', e.currentTarget.dataset.data)
+    wx.navigateTo({
+      url: '../PunchSchedule/PunchSchedule'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this
-    that.setData({
-      list: that.data.navSectionItems
-    })
+    
   },
 
   // 加载更多
@@ -57,7 +61,40 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    var that = this
+    // that.setData({
+    //   list: that.data.navSectionItems
+    // })
+
+    wx.request({
+      url: 'https://itraining.zhanzy.xyz/api/v1/schedule',
+      data: {
+        option: 'created',
+        team_id: '1',
+        b_date: '2012-01-01',
+        e_date: '2020-12-30'
+      },
+      method: 'GET',
+      header: {
+        'Cookie': wx.getStorageSync("set-cookie")
+      },
+      success: function (res) {
+        console.log(res)
+        var t_schedule_list=res.data.data
+        for(var i=0;i<t_schedule_list.length;i++) {
+          var t_date = t_schedule_list[i].training_date
+          console.log(t_date)
+          t_schedule_list[i].training_date=t_date.substring(0,10)
+        }
+        that.setData({
+          // schedule_to_punch: res.data.data
+          schedule_list: t_schedule_list
+        })
+      },
+      fail: function (res) {
+        console.log(res)
+      }
+    })
   },
 
   /**
