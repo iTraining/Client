@@ -132,7 +132,7 @@ Page({
 
   TurnToFoodArticlesList:function(){
     wx.navigateTo({
-      url: '/pages/foodArticleList/foodArticleList',
+      url: '/pages/trainingPlanPage/trainingPlanPage',
     })
   },
   /**

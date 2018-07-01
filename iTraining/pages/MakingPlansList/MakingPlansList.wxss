@@ -133,13 +133,18 @@
 }
 
 .button_items{
-  position: fixed;
   display: flex;
-  bottom: 0px;
   flex-direction: row;
   justify-content: space-between;
+  font-size: 11pt;
 }
-.button_item .button_add {
+
+.btn_hover {
+  background-color: #b2b2b2;
+}
+
+
+  /* .button_item .button_add {
   width: 300rpx;
 }
 .button_item .button_draft {
@@ -147,7 +152,7 @@
 }
 .button_item .button_submit {
   width: 150rpx;
-}
+}   */
 .no_plan {
   text-align:center;
   font-size:20px;

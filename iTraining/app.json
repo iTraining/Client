@@ -19,7 +19,8 @@
     "pages/PunchSchedule/PunchSchedule",
     "pages/HistoryScheduleList/HistoryScheduleList",
     "pages/injuryArticleList/injuryArticleList",
-    "pages/foodArticleList/foodArticleList"
+    "pages/foodArticleList/foodArticleList",
+    "pages/trainingPlanPage/trainingPlanPage"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -39,14 +40,12 @@
         "iconPath": "image/icon_tab/one.png",
         "selectedIconPath": "image/icon_tab/one.png"
       },
-
       {
         "pagePath": "pages/TrainingItemTodoList/TrainingItemTodoList",
         "text": "打卡",
         "iconPath": "image/icon_tab/two1.png",
         "selectedIconPath": "image/icon_tab/two1.png"
       },
-      
       {
         "pagePath": "pages/PersonalCenter/PersonalCenter",
         "text": "我的",

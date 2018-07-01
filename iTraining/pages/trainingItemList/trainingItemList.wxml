@@ -1,7 +1,5 @@
 
-<view class='item_title'>
-  <text class='title'>训练项目专栏</text>
-</view>
+
 <view class="container">
 <form class="form-book" bindsubmit="formSubmit" bindreset="formReset">
   <scroll-view scroll-y="true" class="page-body" bindscrolltolower="loadMore">
