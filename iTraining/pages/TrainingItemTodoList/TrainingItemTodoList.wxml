@@ -4,6 +4,7 @@
 <view class="container">
 
 <scroll-view  scroll-y="true"  class="page-body" bindscrolltolower="pullUpLoad">
+   <view class='today'>{{today}}</view> 
   <view class="nav_section_items" wx:for="{{schedule_list}}" wx:key="item.id" data-data="{{item}}" bindtap="navigateDetail">
     <!--image-->
     <view class="section_image"  data-aid="{{item.id}}">
@@ -34,9 +35,9 @@
     </view>
             
     <!--book-->
-    <view class="section_book" bindtap="bookTap" data-aid="{{item.id}}">
+    <!-- <view class="section_book" bindtap="bookTap" data-aid="{{item.id}}">
       <text>打卡</text>
-    </view>
+    </view> -->
       
   </view>
   

@@ -21,7 +21,8 @@ Page({
     navSectionItems: fileData.getIndexNavSectionData(),
     curNavId: 1,
     schedule_list:[],
-    schedule_to_punch:[]
+    schedule_to_punch:[],
+    today:'',
   },
   navigateDetail: function (e) {
     console.log(e)
@@ -62,15 +63,21 @@ Page({
    */
   onShow: function () {
     var that = this
-    // that.setData({
-    //   list: that.data.navSectionItems
-    // })
+    var t_date=new Date()
+    var weekday = ['星期日', '星期一', '星期二', '星期三', '星期四','星期五','星期六']
+    var t_show_date = t_date.getFullYear() + ' ' + (t_date.getMonth()+1) + '月' + (t_date.getDay()+1) + '日 ' + weekday[t_date.getDay()]
+    // t_date=t_date.
+    console.log(t_show_date)
+    that.setData({
+      today: t_show_date
+    })
 
     wx.request({
       url: 'https://itraining.zhanzy.xyz/api/v1/schedule',
       data: {
         option: 'created',
-        team_id: '1',
+        // option: 'private',
+        team_id: '-1',
         b_date: '2012-01-01',
         e_date: '2020-12-30'
       },

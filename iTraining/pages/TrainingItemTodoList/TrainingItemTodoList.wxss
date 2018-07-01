@@ -114,3 +114,10 @@
   width: 100%;
   
 }
+.today{
+  color: green;
+  display: flex;
+  /* margin-left:50%; 
+  margin-right: 50%; */
+  justify-content: center;
+}
