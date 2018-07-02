@@ -1,6 +1,8 @@
   <!--pages/TrainingItemTodoList/TrainingItemTodoList.wxml-->
 <!-- <text>pages/TrainingItemTodoList/TrainingItemTodoList.wxml</text> -->
-
+<view class='plan_title'>
+  <text class='title'>制定训练计划</text>
+</view>
 <view class="container">
 <form class="form-book" bindsubmit="formSubmit" bindreset="formReset">
   <view class='header'>
@@ -84,13 +86,13 @@
   
   <view class='button_items'>
     <view>
-      <button class='button_item' bindtap='ToAddorEditPlans' hover-class='btn_hover'>添加项目</button>
+      <button class='button_item' bindtap='ToAddorEditPlans'>添加项目</button>
     </view>
     <view>
-      <button class='button_item' form-type='submit' hover-class='btn_hover'>发布</button>
+      <button class='button_item' form-type='submit'>发布</button>
     </view>
     <view>
-      <button class='button_item' bindtap='SaveToDrafts' hover-class='btn_hover'>暂存草稿</button>
+      <button class='button_item' bindtap='SaveToDrafts'>暂存草稿</button>
     </view>
   </view>
 </form>

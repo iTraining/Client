@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    timeNow:"2018 7月1日 星期日",
+    timeNow:"",
     todayPlan:[],
     NextDayPlan:false,
   },
@@ -14,7 +14,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that= this;
+    var that = this
+    var t_date = new Date()
+    var weekday = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
+    var t_show_date = t_date.getFullYear() + ' ' + (t_date.getMonth() + 1) + '月' + (t_date.getDay() + 1) + '日 ' + weekday[t_date.getDay()]
+    // t_date=t_date.
+    console.log(t_show_date)
+    that.setData({
+      timeNow: t_show_date
+    })
     
     var today_plan=[
       {
