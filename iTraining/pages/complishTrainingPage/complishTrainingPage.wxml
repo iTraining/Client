@@ -31,7 +31,7 @@
   <view class="section_body">
     <slider  class='slider' bindchange="sliderchange" show-value activeColor='#009688'/>
   </view>
-  <text class="section__pert">%</text>
+  <text class="section__pert">分</text>
 </view>
 
 <view class='punch_btn' bindtap='punch'>打卡</view>

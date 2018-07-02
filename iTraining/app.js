@@ -135,8 +135,9 @@ App({
     weatherData: '',
     air: '',
     day: '',
-    heWeatherBase: "https://free-api.heweather.com",
-    heWeatherKey: "4a817b4338e04cc59bdb92da7771411e",
+    heWeatherBase: "https://free-api.heweather.com/",
+    heWeatherKey: "9c2b8a213d6243d080bd40bba541a323",
     tencentMapKey: "4HYBZ-EB23D-SLC42-HQ5R3-LP3LQ-OZFU5",
+    //CN101280102 | panyu | 番禺| CN | China  | 中国 | guangdong | 广东| guangzhou | 广州| 22.938581 | 113.36462 
   }
 })
