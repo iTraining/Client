@@ -114,7 +114,7 @@ Page({
 
   TurnToTrainingItemList:function() {
     wx.navigateTo({
-      url: '/pages/trainingItemList/trainingItemList',
+      url: '/pages/complishTrainingPage/complishTrainingPage',
       success: function(res) {},
       fail: function(res) {},
       complete: function(res) {},

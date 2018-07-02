@@ -20,7 +20,8 @@
     "pages/HistoryScheduleList/HistoryScheduleList",
     "pages/injuryArticleList/injuryArticleList",
     "pages/foodArticleList/foodArticleList",
-    "pages/trainingPlanPage/trainingPlanPage"
+    "pages/trainingPlanPage/trainingPlanPage",
+    "pages/complishTrainingPage/complishTrainingPage"
   ],
   "window": {
     "backgroundTextStyle": "light",
