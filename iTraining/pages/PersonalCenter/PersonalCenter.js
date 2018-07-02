@@ -172,5 +172,10 @@ Page({
     wx.navigateTo({
       url: '../HistoryScheduleList/HistoryScheduleList',
     })
+  },
+  ToComplishTrainingPage:function() {
+    wx.navigateTo({
+      url: '../complishTrainingPage/complishTrainingPage',
+    })
   }
 })

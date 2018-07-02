@@ -9,32 +9,85 @@ Page({
     plan_time:"6月30日 18:00",
     plan_info:"今天有菜鸟入队，老鸟帮忙带一带",
     plan_items:[],
+    schedule_to_punch:[],
+    meta_map:{},
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
-    var plan_items = [
-      {
-        id: 1,
-        name: "4x卧推",
-        num_of_once: "20个",
-        weight_of_once:"20kg",
-      },
-      {
-        id: 2,
-        name: "4x深蹲",
-        num_of_once: "20个",
-        weight_of_once: "20kg",
-      }
-    ]
-    that.setData({ plan_items: plan_items });
-    var temp= that.right_title;
-    wx.setNavigationBarTitle({
-      title: that.temp
+    var that = this
+    var t_schedule = wx.getStorageSync('schedule_to_punch')
+    console.log(t_schedule)
+    that.setData({
+      schedule_to_punch: t_schedule
     })
+    
+    wx.request({
+      url: 'https://itraining.zhanzy.xyz/api/v1/schedule/meta',
+      header: {
+        'Cookie': wx.getStorageSync("set-cookie")
+      },
+      data: {
+        team_id: that.data.schedule_to_punch.team_id,
+      },
+      method: "GET",
+      success: function (res) {
+        var t_team_map = new Map()
+        console.log(res)
+        for(var i=0;i<res.data.data.length;i++) {
+          t_team_map.set(res.data.data[i].meta_id,res.data.data[i])
+        }
+        console.log(t_team_map)
+        that.setData({
+          meta_map:t_team_map
+        })
+        console.log(that.data.meta_map)
+
+        var t_references = that.data.schedule_to_punch.references
+        // 匹配到训练项目的名称和单位
+        for (var i = 0; i < t_references.length;i++) {
+// that.data.meta_map.get(that.data.schedule_to_punch.references[i].meta_id)
+          t_references[i].meta_details=that.data.meta_map.get(t_references[i].meta_id)
+        }
+
+        that.setData({
+          'schedule_to_punch.references':t_references
+        })
+        console.log(that.data.schedule_to_punch)
+      }
+    })
+    // wx.request({
+    //   url: 'https://itraining.zhanzy.xyz/api/v1/schedule/meta',
+    //   header: {
+    //     'Cookie': wx.getStorageSync("set-cookie")
+    //   },
+    //   data: {
+    //     team_id: createdTeam[i].team_id,
+    //   },
+    //   method: "GET",
+    //   success: function (res) {
+
+    // var plan_items = [
+    //   {
+    //     id: 1,
+    //     name: "4x卧推",
+    //     num_of_once: "20个",
+    //     weight_of_once:"20kg",
+    //   },
+    //   {
+    //     id: 2,
+    //     name: "4x深蹲",
+    //     num_of_once: "20个",
+    //     weight_of_once: "20kg",
+    //   }
+    // ]
+    // that.setData({ plan_items: plan_items });
+    // var temp= that.right_title;
+    // wx.setNavigationBarTitle({
+    //   title: that.temp
+    // })
   },
 
   /**
@@ -84,5 +137,39 @@ Page({
    */
   onShareAppMessage: function () {
   
-  }
+  },
+  punch: function () {
+    var that = this
+    wx.request({
+      url: 'https://itraining.zhanzy.xyz/api/v1/punch',
+      method: 'POST',
+      data: {
+        schedule_id: that.data.schedule_to_punch.schedule_id,
+        completion: that.data.completion,
+      },
+      header: {
+        'Cookie': wx.getStorageSync("set-cookie")
+      },
+      success: function (res) {
+        console.log(res)
+        wx.showToast({
+          title: '打卡成功',
+          icon: 'success',
+          duration: 1000,
+          complete: function () {
+            wx.switchTab({
+              url: '../PersonalCenter/PersonalCenter',
+            })
+          }
+        })
+        // wx.navigateBack({
+        //   delta: 1
+        // })
+
+      },
+      fail: function (res) {
+
+      }
+    })
+  },
 })

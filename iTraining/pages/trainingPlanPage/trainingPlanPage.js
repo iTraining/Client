@@ -8,6 +8,8 @@ Page({
     timeNow:"",
     todayPlan:[],
     NextDayPlan:false,
+    schedule_list:[],
+    completion:0,
   },
 
   /**
@@ -23,7 +25,60 @@ Page({
     that.setData({
       timeNow: t_show_date
     })
-    
+    var t_team_map=new Map()  
+    wx.request({
+      url: 'https://itraining.zhanzy.xyz/api/v1/team',
+      data: {
+        option: 'joined'
+        // option:'created'
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        // 'content-type': 'application/json',
+        'Cookie': wx.getStorageSync("set-cookie")
+      },
+      method: "GET",
+      success: function (res) {
+        console.log(res.data.data)
+        var team=res.data.data
+        for(var i=0;i<team.length;i++) {
+          t_team_map.set(team[i].team_id,team[i].image_url)
+        }
+        console.log(t_team_map)
+
+        wx.request({
+          url: 'https://itraining.zhanzy.xyz/api/v1/schedule',
+          data: {
+            option: 'created',
+            team_id: '-1',
+            b_date: '2012-01-01',
+            e_date: '2020-12-30'
+          },
+          method: 'GET',
+          header: {
+            'Cookie': wx.getStorageSync("set-cookie")
+          },
+          success: function (res) {
+            console.log(res)
+            var t_schedule = res.data.data
+            console.log(t_team_map)
+            console.log(t_team_map.get(1))
+            for (var i = 0; i < t_schedule.length; i++) {
+              t_schedule[i].image_url = t_team_map.get(t_schedule[i].team_id)
+            }
+            console.log(t_schedule)
+            that.setData({
+              schedule_list: t_schedule
+            })
+
+          },
+          fail: function (res) {
+            console.log(res)
+          }
+        })
+      },
+    })    
+
     var today_plan=[
       {
         id:1,
@@ -90,5 +145,19 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  navigateDetail: function (e) {
+    console.log(e)
+    wx.setStorageSync('schedule_to_punch', e.currentTarget.dataset.data)
+    wx.navigateTo({
+      url: '../complishTrainingPage/complishTrainingPage'
+    })
+  },
+  sliderchange: function (e) {
+    var that = this
+    console.log(e)
+    that.setData({
+      completion: e.detail.value
+    })
   }
 })
