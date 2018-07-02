@@ -42,7 +42,7 @@
         "selectedIconPath": "image/icon_tab/one.png"
       },
       {
-        "pagePath": "pages/TrainingItemTodoList/TrainingItemTodoList",
+        "pagePath": "pages/trainingPlanPage/trainingPlanPage",
         "text": "打卡",
         "iconPath": "image/icon_tab/two1.png",
         "selectedIconPath": "image/icon_tab/two1.png"

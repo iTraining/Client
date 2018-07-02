@@ -73,6 +73,28 @@ Page({
     })
 
     wx.request({
+      url: 'https://itraining.zhanzy.xyz/api/v1/team',
+      data: {
+        option: 'all'
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        // 'content-type': 'application/json',
+        'Cookie': wx.getStorageSync("set-cookie")
+      },
+      method: "GET",
+      success: function (res) {
+        console.log(res.data)
+        that.setData({
+          list: res.data.data
+        })
+      },
+      fail:function(res) {
+        console.log(res)
+      }
+    })
+
+    wx.request({
       url: 'https://itraining.zhanzy.xyz/api/v1/schedule',
       data: {
         option: 'created',
