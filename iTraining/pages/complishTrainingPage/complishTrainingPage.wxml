@@ -1,0 +1,37 @@
+<!--pages/complishTrainingPage/complishTrainingPage.wxml-->
+<view class="plan_time_info">
+  <view class='right_side'>
+    <view class="lie1">
+      <view class="img_class">
+        <image class="img"src="../../image/icon_tab/clock _accomplish.png" mode='widthFix'> </image>
+      </view>
+      <view class="plan_time">{{schedule_to_punch.training_date}} </view>
+    </view>
+
+    <view class="lie2">
+      <view class="img_class">
+        <image class="img1"src="../../image/icon_tab/info.png" mode='widthFix'> </image>
+      </view>
+      <view class="plan_info"> {{schedule_to_punch.description}}</view>
+    </view>
+  </view>
+  
+</view>
+
+
+<scroll-view class="scroll_view" scroll-y="true">
+  <view class="plan_item" wx:for="{{schedule_to_punch.references}}" wx:key="{{item.id}}">
+     <view class="plan_item_name">{{item.meta_details.training_name}}*{{item.group_number}}组 </view> 
+    <view class="plan_item_detail">每组：{{item.data1}} {{item.meta_details.indic1}} {{item.data2}}{{item.meta_details.indic2}}</view>
+  </view>
+</scroll-view>
+
+<view class="section_gap">
+  <text class="section__title">满意度</text>
+  <view class="section_body">
+    <slider  class='slider' bindchange="sliderchange" show-value activeColor='#009688'/>
+  </view>
+  <text class="section__pert">%</text>
+</view>
+
+<view class='punch_btn' bindtap='punch'>打卡</view>

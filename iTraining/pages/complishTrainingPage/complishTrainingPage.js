@@ -1,4 +1,5 @@
 // pages/complishTrainingPage/complishTrainingPage.js
+var fileData = require('../../utils/data.js')
 Page({
 
   /**
@@ -11,6 +12,7 @@ Page({
     plan_items:[],
     schedule_to_punch:[],
     meta_map:{},
+    indicator_map:fileData.getIndicatorMap(),
   },
 
   /**
@@ -36,8 +38,15 @@ Page({
       success: function (res) {
         var t_team_map = new Map()
         console.log(res)
-        for(var i=0;i<res.data.data.length;i++) {
-          t_team_map.set(res.data.data[i].meta_id,res.data.data[i])
+        var t_meta_data=res.data.data
+        for (var i=0;i<t_meta_data.length;i++ ){
+          t_meta_data[i].indic1 = fileData.getIndicatorMap().get(t_meta_data[i].index1)
+          t_meta_data[i].indic2 = fileData.getIndicatorMap().get(t_meta_data[i].index2)
+          t_meta_data[i].indic3 = fileData.getIndicatorMap().get(t_meta_data[i].index3)
+          t_meta_data[i].indic4 = fileData.getIndicatorMap().get(t_meta_data[i].index4)
+        }
+        for (var i = 0; i < t_meta_data.length;i++) {
+          t_team_map.set(t_meta_data[i].meta_id, t_meta_data[i])
         }
         console.log(t_team_map)
         that.setData({
@@ -47,17 +56,24 @@ Page({
 
         var t_references = that.data.schedule_to_punch.references
         // 匹配到训练项目的名称和单位
+
         for (var i = 0; i < t_references.length;i++) {
 // that.data.meta_map.get(that.data.schedule_to_punch.references[i].meta_id)
           t_references[i].meta_details=that.data.meta_map.get(t_references[i].meta_id)
         }
 
         that.setData({
-          'schedule_to_punch.references':t_references
+          'schedule_to_punch.references':t_references,
+          indicator_map: fileData.getIndicatorMap()
         })
+        console.log('indicator', that.data.indicator_map.get(t_references[0].meta_details.index1))
+
+        console.log(that.data.meta_map)
+        console.log(that.data.indicator_map)
         console.log(that.data.schedule_to_punch)
       }
     })
+    
     // wx.request({
     //   url: 'https://itraining.zhanzy.xyz/api/v1/schedule/meta',
     //   header: {

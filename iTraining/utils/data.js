@@ -13,6 +13,17 @@ function getDefaultIndicator() {
   ]
   return arr
 }
+
+function getIndicatorMap() {
+  var indicator_name= ['distance', 'time', 'weigh', 'frquency', 'friction', 'rest_time', 'amount']
+  var indicator_unit= ['km', 'min', 'kg', 'number/min', '风阻', 'min', 'number']
+  var t_indicator=new Map()
+  for(var i=0;i<indicator_name.length;i++) {
+    t_indicator.set(indicator_name[i],indicator_unit[i])
+  }
+  console.log(t_indicator)
+  return t_indicator
+}
 function getBannerData() {
   var arr = ['../../images/banner_01.png', '../../images/banner_02.png', '../../images/banner_03.png', '../../images/banner_04.png']
   return arr
@@ -131,5 +142,6 @@ module.exports = {
   getDate:getDate,
   getBannerData: getBannerData,
   getIndexNavSectionData: getIndexNavSectionData,
-  getHistroyScheduleListData: getHistroyScheduleListData
+  getHistroyScheduleListData: getHistroyScheduleListData,
+  getIndicatorMap: getIndicatorMap,
 }

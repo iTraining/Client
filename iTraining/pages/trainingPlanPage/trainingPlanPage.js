@@ -16,6 +16,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+  
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
     var that = this
     var t_date = new Date()
     var weekday = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
@@ -25,7 +39,7 @@ Page({
     that.setData({
       timeNow: t_show_date
     })
-    var t_team_map=new Map()  
+    var t_team_map = new Map()
     wx.request({
       url: 'https://itraining.zhanzy.xyz/api/v1/team',
       data: {
@@ -40,9 +54,9 @@ Page({
       method: "GET",
       success: function (res) {
         console.log(res.data.data)
-        var team=res.data.data
-        for(var i=0;i<team.length;i++) {
-          t_team_map.set(team[i].team_id,team[i].image_url)
+        var team = res.data.data
+        for (var i = 0; i < team.length; i++) {
+          t_team_map.set(team[i].team_id, team[i].image_url)
         }
         console.log(t_team_map)
 
@@ -78,38 +92,6 @@ Page({
         })
       },
     })    
-
-    var today_plan=[
-      {
-        id:1,
-        img:"https://attach.s.op.gg/forum/20170801215759_139022.png",
-        name:"6点健身房训练",
-        time:"18:00",
-        introduction:"4x卧推 4x深蹲"
-      },
-      {
-        id:2,
-        img: "https://attach.s.op.gg/forum/20170801215759_139022.png",
-        name: "9点操场测功仪训练",
-        time: "21:00",
-        introduction: "1x测功仪"
-      }
-    ]
-    that.setData({ todayPlan:today_plan});
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
   },
 
   /**
