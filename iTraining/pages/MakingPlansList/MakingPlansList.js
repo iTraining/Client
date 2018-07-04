@@ -226,6 +226,7 @@ Page({
           wx.navigateBack({
             delta: 1
           })
+          
         },
         fail:function(res) {
           console.log(res)

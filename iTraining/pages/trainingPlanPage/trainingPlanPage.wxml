@@ -2,7 +2,8 @@
 <view class="timeNow">{{timeNow}}</view>
 
 <scroll-view class = "today_plan" >
-  <view  class="plan_block" wx:for="{{schedule_list}}" wx:key="{{item.id}}" bindtap='navigateDetail' data-data="{{item}}">
+<view wx:if="{{schedule_list_today}}"> 
+  <view  class="plan_block" wx:for="{{schedule_list_today}}" wx:key="{{item.id}}" bindtap='navigateDetail' data-data="{{item}}">
     
     <view class="left_info">
       <view class="item_img_class">
@@ -22,11 +23,42 @@
     </view>
     <!-- <view class="border-bottom"></view> -->
   </view>
-
+  </view>
+  <view wx:else> 
+  <view class="no_plan_tip">今天没有计划哦,</view>
+<view class="no_plan_tip1">好好放松一下吧</view>
+  </view>
   <!-- <view class="border-bottom" wx:for="{{todayPlan}}" wx:key="{{item.id}}"></view> -->
 </scroll-view>
 
 <view class="timeNow">明天计划</view>
 
-<view class="no_plan_tip" hidden="{{NextDayPlan}}">明天没有计划哦,</view>
-<view class="no_plan_tip1"hidden="{{NextDayPlan}}">好好放松一下吧</view>
+<scroll-view class = "today_plan" >
+<view wx:if="{{schedule_list_tomorrow}}"> 
+  <view  class="plan_block" wx:for="{{schedule_list_tomorrow}}" wx:key="{{item.id}}" bindtap='navigateDetail' data-data="{{item}}">
+    
+    <view class="left_info">
+      <view class="item_img_class">
+        <image class='item_img' src="https://itraining.zhanzy.xyz/{{item.image_url}}" mode="aspectFill"></image>
+      </view>
+    </view>
+    
+    <view class="right_info">
+      <view class='lie1'>
+        <view class="item_name">{{item.title}} ({{item.training_class}})</view>
+        <!-- <view class="item_end_time">{{item.time}}</view> -->
+        <view class="arrow_img">
+          <image class="to_detail" bindtap='to_detail' src="../../image/icon_tab/arrow_right.png"></image>
+        </view> 
+      </view>
+      <view class="item_introduction">{{item.description}}</view>
+    </view>
+    <!-- <view class="border-bottom"></view> -->
+  </view>
+  </view>
+  <view wx:else> 
+  <view class="no_plan_tip">明天没有计划哦,</view>
+<view class="no_plan_tip1">好好放松一下吧</view>
+  </view>
+  <!-- <view class="border-bottom" wx:for="{{todayPlan}}" wx:key="{{item.id}}"></view> -->
+</scroll-view>

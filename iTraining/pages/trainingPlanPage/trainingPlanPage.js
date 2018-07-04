@@ -8,7 +8,8 @@ Page({
     timeNow:"",
     todayPlan:[],
     NextDayPlan:false,
-    schedule_list:[],
+    schedule_list_today:[],
+    schedule_list_tomorrow:[],
     completion:0,
   },
 
@@ -100,27 +101,39 @@ Page({
             console.log(res)
             // 今天的日期
             var t_date=new Date()
-            console.log(t_date.toDateString())
-            var t_schedule=[]
+            // console.log(t_date.toLocaleString())
+            // console.log(t_date.toLocaleDateString())
+            // console.log(t_date.toLocaleTimeString())
+            var t_schedule_today=[]
+            var t_schedule_tomorrow=[]
             for(var i=0;i<res.data.data.length;i++) {
-              res.data.data[i].training_date = res.data.data[i].training_date.substring(0,10)
+              // res.data.data[i].training_date = res.data.data[i].training_date.substring(0,10)
               // console.log(res.data.data[i].training_date)
-              var t_training_date = new Date(res.data.data[i].training_date)
-              console.log(t_training_date.toDateString())
-              if (t_training_date.toDateString() == t_date.toDateString()) {
-                t_schedule.push(res.data.data[i])
+              var t_training_date = new Date(res.data.data[i].training_date.toLocaleString())
+              console.log(t_training_date)
+              // 加入今日计划
+              if (t_training_date.getFullYear() == t_date.getFullYear() && t_training_date.getDay() == t_date.getDay() && t_training_date.getMonth() == t_date.getMonth()) {
+                t_schedule_today.push(res.data.data[i])
+              }
+              // 加入明日计划
+              if (t_training_date.getFullYear() == t_date.getFullYear() && t_training_date.getDay() == (t_date.getDay()+1) && t_training_date.getMonth() == t_date.getMonth()) {
+                t_schedule_tomorrow.push(res.data.data[i])
               }
             }
             
             console.log(t_team_map)
             console.log(t_team_map.get(1))
-            for (var i = 0; i < t_schedule.length; i++) {
-              t_schedule[i].image_url = t_team_map.get(t_schedule[i].team_id)
+            for (var i = 0; i < t_schedule_today.length; i++) {
+              t_schedule_today[i].image_url = t_team_map.get(t_schedule_today[i].team_id)
             }
-            console.log(t_schedule)
+
+            for (var i = 0; i < t_schedule_tomorrow.length; i++) {
+              t_schedule_tomorrow[i].image_url = t_team_map.get(t_schedule_tomorrow[i].team_id)
+            }
 
             that.setData({
-              schedule_list: t_schedule
+              schedule_list_today: t_schedule_today,
+              schedule_list_tomorrow: t_schedule_tomorrow,
             })
 
           },
