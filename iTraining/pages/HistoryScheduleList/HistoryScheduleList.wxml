@@ -1,17 +1,6 @@
-<view class="container">
+ <!-- <view class="container">
 <scroll-view  scroll-y="true"  class="page-body" >
   <view class="nav_section_items" wx:for="{{schedule_list}}" wx:key="item.id" data-data="{{item}}" bindtap="navigateDetail">
-    <!-- image -->
-    <!-- <view class="section_image" bindtap="navigateDetail" data-aid="{{item.id}}">
-      <block wx:if="{{item.coverpath}}">
-        <image src="{{item.coverpath}}" mode="aspectFill"></image>
-      </block>
-      <block wx:else>
-        <image src="../../images/default_pic.png" mode="aspectFill"></image>
-      </block>
-    </view> -->
-
-    <!--content-->
     <view class="section_cont"  data-aid="{{item.id}}">
       <view class="section_cont_sub">
         <text>{{item.id}}训练名称：{{item.title}}</text>
@@ -20,10 +9,38 @@
       <view class="section_cont_num">时间：{{item.training_date}}</view>
       
     </view>   
-    <!--book-->
-    <!-- <view class="section_book" bindtap="bookTap" data-aid="{{item.id}}">
-      <text>打卡</text>
-    </view> -->
   </view>
 </scroll-view>
-</view>
+</view>  -->
+
+<!--pages/trainingPlanPage/trainingPlanPage.wxml-->
+<!-- <view class="timeNow">{{timeNow}}</view> -->
+
+<scroll-view class = "today_plan" >
+  <view  class="plan_block" wx:for="{{schedule_list}}" wx:key="{{item.id}}" bindtap='navigateDetail' data-data="{{item}}">
+    
+    <view class="left_info">
+      <view class="item_img_class">
+        <image class='item_img' src="https://itraining.zhanzy.xyz/{{item.image_url}}" mode="aspectFill"></image>
+      </view>
+    </view>
+    
+    <view class="right_info">
+      <view class='lie1'>
+        <view class="item_name">{{item.title}} ({{item.training_class}})</view>
+        <!-- <view class="item_end_time">{{item.time}}</view> -->
+        <view class="arrow_img">
+          <image class="to_detail" bindtap='to_detail' src="../../image/icon_tab/arrow_right.png"></image>
+        </view> 
+      </view>
+      <view class="item_introduction">{{item.description}}</view>
+    </view>
+    <!-- <view class="border-bottom"></view> -->
+  </view>
+
+  <!-- <view class="border-bottom" wx:for="{{todayPlan}}" wx:key="{{item.id}}"></view> -->
+</scroll-view>
+
+<!-- <view class="timeNow">明天计划</view>
+<view class="no_plan_tip" hidden="{{NextDayPlan}}">明天没有计划哦,</view>
+<view class="no_plan_tip1"hidden="{{NextDayPlan}}">好好放松一下吧</view> -->

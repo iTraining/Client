@@ -6,6 +6,8 @@ Page({
 
   
   data: {
+    //punch_list: []  // 每一个元素都是每个用户的打卡内容呀（心得+若干张图片）
+
     navTab: ["干货", "动态"],
     currentNavTab:"0",
     location: '',

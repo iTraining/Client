@@ -9,10 +9,6 @@
   line-height: 35px;
 }
 
-
-.today_plan{
-  
-}
 .plan_block{
   height:76px;
   display: flex;

@@ -141,6 +141,15 @@ Page({
     console.log('训练项目信息')
     console.log(that.data.indi_index)
     console.log(that.data.trainPlanData.indicators)
+
+    // 设置时间选择器为今日时间
+    var t_date = new Date()
+    console.log(t_date)
+    var t_date_string = t_date.getFullYear() + '-' + (t_date.getMonth()+1) + '-' + (t_date.getDay()+1)
+    console.log("今日时间"+t_date_string)
+    that.setData({
+      ['trainPlanData.training_date']:t_date_string
+    })
   },
   ToAddorEditPlans:function() {
     var that = this
