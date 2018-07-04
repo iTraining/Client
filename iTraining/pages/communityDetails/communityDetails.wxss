@@ -1,7 +1,6 @@
 .main {
   width: 100%;
   display: flex; 
-  flex-wrap: wrap;
   /* justify-content: space-around;  */
   background-color: antiquewhite;
 }
@@ -33,52 +32,48 @@
   font-size: 30rpx;
 }
 
-.team_img{
-  width: 200rpx;
-  height: 200rpx;
-  border: 1px solid #ccc;
-  border-radius: 50%;    
-}
+
 .team_member_img{
-  width: 100rpx;
-  height: 100rpx;
+  width: 80rpx;
+  height: 80rpx;
   border: 1px solid #ccc;
   /* border-radius: 50%;     */
 }
-.selectImg{
-  margin-right: 40%;
-}
+
 .invite_btn{
-    width:90%;
-    background:gainsboro;
+    margin-top:50rpx; 
+    width:60%;
+    background:rgba(0, 150, 136, 0.46);
     font-size: 32rpx;
     color:#fff;
-    border-radius: 0rpx;
-    margin:40rpx 0rpx 10rpx;
+     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .delete_btn{
-    width:90%;
-    background:#d24a58;
+    margin-top: 40rpx;
+    width:60%;
+    background:	#F08080;
     font-size: 32rpx;
     color:#fff;
-    border-radius: 0rpx;
-    margin:40rpx 0rpx 10rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /*-------------------------  */
 .edit_wrap{
     font-size:30rpx;
-    padding:55rpx 0rpx 18rpx;
+    padding:40rpx 0rpx 18rpx;
+    display: flex;
 }
 .form_group{
     display: flex;
     flex-direction: row;
-    justify-content:space-between;
-    margin:18rpx;
-    line-height: 60rpx;
+    line-height: 80rpx;
+    margin-top: 20rpx;
 }
 .form_group text{
-    text-align: right;
     width:160rpx;
 }
 .form_group input,
@@ -106,7 +101,7 @@
     color:#000;
 }
 .placeholder_style{
-    font-family:'微软雅黑';
+    font-family:Arial;
     color:#adadad;
 }
 .save_btn{
@@ -118,11 +113,34 @@
     margin:40rpx 0rpx 10rpx;
 }
 .team_img{
-  width: 200rpx;
-  height: 200rpx;
-  border: 1px solid #ccc;
+  height: 100%;
+  width: 100%;
   border-radius: 50%;    
 }
 .selectImg{
-  margin-right: 40%;
+  height:120rpx;
+  width: 120rpx;
+}
+.edit_tip{
+  height:120rpx;
+}
+
+.form_group1{
+  display: flex;
+  flex-direction: row;
+  align-content: left;
+  position: relative;
+
+  flex-wrap: wrap;
+}
+
+.form_group1 .team_compo{
+  align-content: left;
+  width:160rpx;
+  display: flex;
+  margin-left: 5%;
+}
+
+.nav_section_items{
+  line-height: 120
 }

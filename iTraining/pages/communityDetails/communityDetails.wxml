@@ -1,6 +1,6 @@
 <view class="container edit_wrap">
- <view class="form_group"> 
-        <text>队伍成员：</text>
+ <view class="form_group1"> 
+        <view class="team_compo">队伍成员：</view>
         <view class="nav_section_items" wx:for="{{team_members}}" wx:key="item.id" data-data="{{item}}">
         <!-- {{item.nickname}} -->
         <image class='team_member_img' placeholder="队伍头像" src="{{item.image_url}}"></image>

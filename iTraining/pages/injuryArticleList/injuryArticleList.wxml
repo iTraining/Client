@@ -3,17 +3,8 @@
 <scroll-view class='scroll_view' scroll-y="true">
   <view class="title"> 紧急处理方法 </view>
 
-  <view class='article1' bindtap='article1Click1' hover-class='grey_active'> 
-      <view class='miaoshu'>食物噎住</view>
-      <view class="img_class">
-        <image class="img" src ="../../image/icon_tab/arrow_right.png"></image>
-      </view>
-  </view>
 
-  <view class="article1_detail" >
-    <view class="text_should">首先是用力且频繁地眨眼，用泪水将异物冲刷出去。如果不奏效，就将眼皮捏起，然后在水龙头下冲洗眼睛。注意一定要将隐形眼镜摘掉。</view>
-    <view class="text_shouldnot">绝对禁止:揉眼睛，无论多么细小的异物都会划伤眼角膜并导致感染。如果异物进入眼部较深的位置，那么务必立即就医，请医生来处理。</view>
-  </view>
+  
   
 
   <view class='article1' bindtap='article1Click1' hover-class='grey_active'> 
@@ -22,42 +13,65 @@
         <image class="img" src ="../../image/icon_tab/arrow_right.png"></image>
       </view>
   </view>
-  <view class='article1' bindtap='article1Click1' hover-class='grey_active'> 
+  <view class="article1_detail"  hidden="{{!isClick1}}">
+    <view class="text_should"> 固定刺入物体，不要让其乱动，并用纱布捆好,然后迅速送医</view>
+    <view class="text_shouldnot">绝对禁止:如果刺入的东西不是小木刺之类的，不要自己拔出任何刺入皮肤的东西！</view>
+  </view>
+
+  <view class='article1' bindtap='article1Click2' hover-class='grey_active'> 
       <view class='miaoshu'>异物入眼</view>
       <view class="img_class">
         <image class="img" src ="../../image/icon_tab/arrow_right.png"></image>
       </view>
   </view>  
-  <view class='article1' bindtap='article1Click1' hover-class='grey_active'> 
+
+  <view class="article1_detail" hidden="{{!isClick2}}">
+    <view class="text_should">首先是用力且频繁地眨眼，用泪水将异物冲刷出去。如果不奏效，就将眼皮捏起，然后在水龙头下冲洗眼睛。</view>
+    <view class="text_shouldnot">绝对禁止:揉眼睛，无论多么细小的异物都会划伤眼角膜并导致感染。如果异物进入眼部较深的位置，那么务必立即就医，请医生来处理。</view>
+  </view>
+
+  <view class='article1' bindtap='article1Click3' hover-class='grey_active'> 
       <view class='miaoshu'>关节扭伤</view>
       <view class="img_class">
         <image class="img" src ="../../image/icon_tab/arrow_right.png"></image>
       </view>
   </view> 
-  <view class='article1' bindtap='article1Click1' hover-class='grey_active'> 
+  <view class="article1_detail" hidden="{{!isClick3}}">
+    <view class="text_should">急救办法：在扭伤发生的24小时之内，尽量做到每隔一小时用冰袋冷敷一次，每次半小时。将受伤处用弹性压缩绷带包好，并将受伤部位垫高。24小时之后，开始给患处换为热敷，促进受伤部位的血液流通。</view>
+    <view class="text_shouldnot">绝对禁止：不能随意活动受伤的关节，否则容易造成韧带撕裂，恢复起来相对比较困难。      </view>
+  </view>
+
+  <view class='article1' bindtap='article1Click4' hover-class='grey_active'> 
       <view class='miaoshu'>流鼻血</view>
       <view class="img_class">
         <image class="img" src ="../../image/icon_tab/arrow_right.png"></image>
       </view>
   </view>   
+  <view class="article1_detail" hidden="{{!isClick4}}">
+    <view class="text_should">急救办法：身体微微前倾，并用手指捏住鼻梁下方的软骨部位，持续约5-15分钟。如果有条件的话，放一个小冰袋在鼻梁上也有迅速止血的效果。</view>
+    <view class="text_shouldnot">绝对禁止：不能随意活动受伤的关节，否则容易造成韧带撕裂，恢复起来相对比较困难。     </view>
+  </view>
 
+  <view class='article1' bindtap='article1Click5' hover-class='grey_active'> 
+      <view class='miaoshu'>心脏骤停（猝死）</view>
+      <view class="img_class">
+        <image class="img" src ="../../image/icon_tab/arrow_right.png"></image>
+      </view>
+  </view>
+  <view class="article1_detail" hidden="{{!isClick5}}">
+    <view class="text_should">判断：若呼唤病人无回应，压眶上、眶下无反应，即可确定病人已处于昏迷状态。再注意观察病人胸腹部有无起伏呼吸运动。如触颈动脉和股动脉无搏动，心前区听不到心跳声，可判定病有已有心跳骤停。</view>
+    <view class="text_shouldnot">急救方法：胸外心脏按压。让病人背垫一块硬板，同时做口对口人工呼吸。观察病人的瞳孔，若瞳孔缩小（是最 灵敏、最有意义的生命征象），颜面、口唇转红润，说明抢救有效。迅速掏出咽部呕吐物，头敷冰袋降温。急送医院救治。</view>
+  </view>
 
-  <view class='article1' bindtap='article1Click1' hover-class='grey_active'> 
-      <view class='miaoshu'>心脏骤停</view>
+  <view class='article1' bindtap='article1Click6' hover-class='grey_active'> 
+      <view class='miaoshu'>小腿肚抽筋</view>
       <view class="img_class">
         <image class="img" src ="../../image/icon_tab/arrow_right.png"></image>
       </view>
   </view>
-  <view class='article1' bindtap='article1Click1'  hover-class='grey_active'> 
-      <view class='miaoshu'>脑溢血</view>
-      <view class="img_class">
-        <image class="img" src ="../../image/icon_tab/arrow_right.png"></image>
-      </view>
+  <view class="article1_detail" hidden="{{!isClick6}}">
+    <view class="text_should">急救方法：紧紧抓住抽筋一侧的脚大拇趾，使劲向上扳折，同时用力伸直膝关节，即可缓解.</view>
+    <view class="text_shouldnot"></view>
   </view>
-  <view class='article1' bindtap='article1Click1'  hover-class='grey_active'> 
-      <view class='miaoshu'>酒精中毒</view>
-      <view class="img_class">
-        <image class="img" src ="../../image/icon_tab/arrow_right.png"></image>
-      </view>
-  </view>
+ 
 </scroll-view>
