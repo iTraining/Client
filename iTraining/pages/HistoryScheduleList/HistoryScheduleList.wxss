@@ -1,4 +1,4 @@
-.active_red{
+/* .active_red{
     color:#e5004f;
 }
 .active_orange{
@@ -14,8 +14,6 @@
     color:#aa2adf;
 }
 
-
-/* 导航对应内容项 */
 .container scroll-view{
   position: absolute;  
   bottom: 0;  
@@ -89,4 +87,127 @@
     color:#fff;
     text-align: center;
     margin-top:35rpx;
+} */
+
+/* pages/trainingPlanPage/trainingPlanPage.wxss */
+.timeNow{
+  color: #009688;
+  text-align: center;
+  font-size: 14px;
+  font-family: Arial;
+  background-color: #ECE9E9 ;
+  height:35px;
+  line-height: 35px;
+}
+
+.plan_block{
+  height:76px;
+  display: flex;
+  flex-direction: row;
+  border-top:  1rpx solid #ECE9E9; 
+  text-align: center;
+  justify-content: center;
+  margin-left:3%; 
+}
+
+.left_info{
+  width: 25%;
+  align-items: center;
+  line-height: 100%;
+  display: flex;
+  height:100%;
+  justify-content: center;
+}
+.item_img_class{
+  height:50px;
+  width: 50px; 
+}
+
+.item_img{
+  height:100%;
+  width:100%;
+  border: 1rpx solid ;
+  border-radius: 50%;
+}
+.right_info{
+  display: flex;
+  height:100%;
+  width: 75%;
+  flex-direction: column;
+}
+
+.lie1{
+  height: 70%;
+  display: flex;
+  flex-direction: row; 
+}
+
+.item_name{
+  font-size: 17px;
+  line-height: 100%;
+  width: 70%;
+  text-overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.item_end_time{
+  display: flex;
+  align-items: center;
+  font-family: Arial;
+  width: 20%;
+  font-size:15px;
+  color: rgb(143, 142,148);
+}
+
+.arrow_img{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 13px;
+}
+
+.arrow_img .to_detail{
+  height:13px;
+  width: 13px;
+}
+.item_introduction{
+  height: 50%;
+  display: flex;
+  font-size: 12px;
+  font-family: Arial;
+  color:rgb(156, 155, 162);
+}
+
+ /* .border-bottom{
+  background: black;
+  height:1rpx;
+  margin-left:5%; 
+  opacity: 0.5;
+}  */
+
+.timeNextDay{
+  color: #009688;
+  text-align: center;
+  font-size: 14px;
+  font-family: Arial;
+  background-color: #ECE9E9 ;
+  height:35px;
+  line-height: 35px;
+}
+
+.no_plan_tip{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50rpx;
+  color: #B9B8BF;
+  font-size: 14px;
+}
+.no_plan_tip1{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #B9B8BF;
+  font-size: 14px;
 }

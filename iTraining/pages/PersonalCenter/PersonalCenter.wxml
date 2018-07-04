@@ -46,9 +46,12 @@
   <view class="weui_cell_bd_p">查看历史训练计划</view>
 </view>
 
-<view class="weui_cell" bindtap='ToComplishTrainingPage' hover-class='grey_active'>
+
+
+<!-- <view class="weui_cell" bindtap='ToComplishTrainingPage'>
+>>>>>>> 5649ea56570273f5ca4b1c361fce1e4af3c0b749
   <image class="img" src="../../image/myPageIcon/clockIn.png"> </image>
   <view class="weui_cell_bd_p">complishTrainingPage</view>
-</view>
+</view> -->
 
 </view>
