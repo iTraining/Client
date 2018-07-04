@@ -12,22 +12,22 @@
 </view>
 
 
-<view class="weui_cell" bindtap='ToCommunityList'>
+<view class="weui_cell" bindtap='ToCommunityList' hover-class='grey_active'>
   <image class="img" src="../../image/myPageIcon/team1.png"> </image>
   <view class="weui_cell_bd_p"> 我的队伍 </view>
 </view>
 
-<view class="weui_cell" bindtap='RegisterCommunity'>
+<view class="weui_cell" bindtap='RegisterCommunity' hover-class='grey_active'>
   <image class="img" src="../../image/myPageIcon/team2.png"> </image>
   <view class="weui_cell_bd_p"> 创建队伍 </view>
 </view>
 
-<view class="weui_cell" bindtap='ToTrainingItemList'>
+<view class="weui_cell" bindtap='ToTrainingItemList' hover-class='grey_active'>
   <image class="img" src="../../image/myPageIcon/training.png"> </image>
   <view class="weui_cell_bd_p"> 训练项目专栏 </view>
 </view>
 
-<view class="weui_cell" bindtap='ToMakePlans'>
+<view class="weui_cell" bindtap='ToMakePlans' hover-class='grey_active'>
   <image class="img" src="../../image/myPageIcon/weplan.png"> </image>
   <view class="weui_cell_bd_p"> 制定训练计划 </view>
 </view>
@@ -41,12 +41,12 @@
   <view class="weui_cell_bd_p">打卡</view>
 </view> -->
 
-<view class="weui_cell" bindtap='ToHistoryScheduleList'>
+<view class="weui_cell" bindtap='ToHistoryScheduleList' hover-class='grey_active'>
   <image class="img" src="../../image/myPageIcon/history.png"> </image>
   <view class="weui_cell_bd_p">查看历史训练计划</view>
 </view>
 
-<view class="weui_cell" bindtap='ToComplishTrainingPage'>
+<view class="weui_cell" bindtap='ToComplishTrainingPage' hover-class='grey_active'>
   <image class="img" src="../../image/myPageIcon/clockIn.png"> </image>
   <view class="weui_cell_bd_p">complishTrainingPage</view>
 </view>

@@ -2,34 +2,39 @@
 
 <scroll-view class='scroll_view' scroll-y="true">
   <view class="title"> 紧急处理方法 </view>
-  <view class='article1' bindtap='article1Click1'> 
+
+  <view class='article1' bindtap='article1Click1' hover-class='grey_active'> 
       <view class='miaoshu'>食物噎住</view>
       <view class="img_class">
         <image class="img" src ="../../image/icon_tab/arrow_right.png"></image>
       </view>
   </view>
 
+  <view class="article1_detail" >
+    <view class="text_should">首先是用力且频繁地眨眼，用泪水将异物冲刷出去。如果不奏效，就将眼皮捏起，然后在水龙头下冲洗眼睛。注意一定要将隐形眼镜摘掉。</view>
+    <view class="text_shouldnot">绝对禁止:揉眼睛，无论多么细小的异物都会划伤眼角膜并导致感染。如果异物进入眼部较深的位置，那么务必立即就医，请医生来处理。</view>
+  </view>
   
 
-  <view class='article1' bindtap='article1Click1'> 
+  <view class='article1' bindtap='article1Click1' hover-class='grey_active'> 
       <view class='miaoshu'>异物刺入皮肤</view>
       <view class="img_class">
         <image class="img" src ="../../image/icon_tab/arrow_right.png"></image>
       </view>
   </view>
-  <view class='article1' bindtap='article1Click1'> 
+  <view class='article1' bindtap='article1Click1' hover-class='grey_active'> 
       <view class='miaoshu'>异物入眼</view>
       <view class="img_class">
         <image class="img" src ="../../image/icon_tab/arrow_right.png"></image>
       </view>
   </view>  
-  <view class='article1' bindtap='article1Click1'> 
+  <view class='article1' bindtap='article1Click1' hover-class='grey_active'> 
       <view class='miaoshu'>关节扭伤</view>
       <view class="img_class">
         <image class="img" src ="../../image/icon_tab/arrow_right.png"></image>
       </view>
   </view> 
-  <view class='article1' bindtap='article1Click1'> 
+  <view class='article1' bindtap='article1Click1' hover-class='grey_active'> 
       <view class='miaoshu'>流鼻血</view>
       <view class="img_class">
         <image class="img" src ="../../image/icon_tab/arrow_right.png"></image>
@@ -37,19 +42,19 @@
   </view>   
 
 
-  <view class='article1' bindtap='article1Click1'> 
+  <view class='article1' bindtap='article1Click1' hover-class='grey_active'> 
       <view class='miaoshu'>心脏骤停</view>
       <view class="img_class">
         <image class="img" src ="../../image/icon_tab/arrow_right.png"></image>
       </view>
   </view>
-  <view class='article1' bindtap='article1Click1'> 
+  <view class='article1' bindtap='article1Click1'  hover-class='grey_active'> 
       <view class='miaoshu'>脑溢血</view>
       <view class="img_class">
         <image class="img" src ="../../image/icon_tab/arrow_right.png"></image>
       </view>
   </view>
-  <view class='article1' bindtap='article1Click1'> 
+  <view class='article1' bindtap='article1Click1'  hover-class='grey_active'> 
       <view class='miaoshu'>酒精中毒</view>
       <view class="img_class">
         <image class="img" src ="../../image/icon_tab/arrow_right.png"></image>

@@ -39,7 +39,6 @@
 .item_img{
   height:100%;
   width:100%;
-  border: 1rpx solid ;
   border-radius: 50%;
 }
 .right_info{

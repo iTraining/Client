@@ -28,7 +28,8 @@ page {
 .miaoshu{
   width: 87%;
   margin-left: 30rpx;
-  font-size: 13pt;
+  font-size: 12pt;
+  font-family: Arial;
 }
 .img_class{
   height:50rpx;
@@ -42,3 +43,6 @@ page {
   height: 100%;
 }
 
+.grey_active{
+  background-color: #f7f7f7;
+}

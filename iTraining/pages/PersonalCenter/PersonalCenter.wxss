@@ -60,3 +60,7 @@ page {
   vertical-align: middle;
   font-size: 80%;
 }
+
+.grey_active{
+  background-color: #f7f7f7;
+}

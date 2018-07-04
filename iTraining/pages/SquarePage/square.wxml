@@ -30,7 +30,7 @@
 
 <view class="button_lies" hidden="{{currentNavTab!=0}}">
 
-  <view class="button_lie1" bindtap="TurnToTrainingItemList">
+  <view class="button_lie1" bindtap="TurnToTrainingItemList" hover-class='grey_active'>
     <view class="img_class">
       <image class="img" src="../../image/icon_tab/items.png" mode="aspectFill"> </image>
     </view>
@@ -38,14 +38,14 @@
   </view>  
     
   
-  <view class="button_lie2" bindtap="TurnToInjuryArticlesList">
+  <view class="button_lie2" bindtap="TurnToInjuryArticlesList" hover-class='grey_active'>
     <view class="img_class">
         <image class="img" src="../../image/icon_tab/injury.png" mode="aspectFill"> </image>
     </view>
     <view class="name_btn"> 运动损伤</view>
   </view>
 
-  <view class="button_lie3" bindtap="TurnToFoodArticlesList">
+  <view class="button_lie3" bindtap="TurnToFoodArticlesList" hover-class='grey_active'>
     <view class="img_class">
       <image class="img" src="../../image/icon_tab/food.png" mode="aspectFill"> </image>
     </view>
