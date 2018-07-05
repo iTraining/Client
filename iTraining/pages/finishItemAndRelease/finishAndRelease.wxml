@@ -1,0 +1,25 @@
+<!--pages/finishItemAndRelease/finishAndRelease.wxml-->
+<view class="today_do" hidden='false'>今天完成了:</view>
+<scroll-view class="scroll_view" hidden='false'>
+  <view class="items" wx:for="{{training_data}}" wx:key="{{item.id}}">
+    <view class="item_name"> {{item.name}}</view>
+    <view class='item_do'> (每组: {{item.num}}、{{item.weight}})</view>
+  </view>
+</scroll-view>
+
+
+<!-- 输入区  -->
+<view class="ideas"> 
+  <input placeholder="这一刻的想法..."> </input>
+</view>
+
+<!-- 输入图片  -->
+<view class='image_class'>
+  <image class="img_1" src="{{src}}" mode='aspectFill' bindtap='img_change' bindlongtap='img_delete'></image>
+</view>
+
+
+
+<view class='btn' bindtap='punch'>
+ <button class='punch_btn' >Punch</button>
+</view>

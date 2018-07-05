@@ -21,7 +21,8 @@
     "pages/injuryArticleList/injuryArticleList",
     "pages/foodArticleList/foodArticleList",
     "pages/trainingPlanPage/trainingPlanPage",
-    "pages/complishTrainingPage/complishTrainingPage"
+    "pages/complishTrainingPage/complishTrainingPage",
+    "pages/finishItemAndRelease/finishAndRelease"
   ],
   "window": {
     "backgroundTextStyle": "light",

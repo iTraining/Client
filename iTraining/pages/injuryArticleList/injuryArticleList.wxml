@@ -49,7 +49,7 @@
   </view>   
   <view class="article1_detail" hidden="{{!isClick4}}">
     <view class="text_should">急救办法：身体微微前倾，并用手指捏住鼻梁下方的软骨部位，持续约5-15分钟。如果有条件的话，放一个小冰袋在鼻梁上也有迅速止血的效果。</view>
-    <view class="text_shouldnot">绝对禁止：不能随意活动受伤的关节，否则容易造成韧带撕裂，恢复起来相对比较困难。     </view>
+    <view class="text_shouldnot">用力将头向后仰起的姿势会使鼻血流进口中，慌乱中势必还会有一部分血液被吸进肺里，这样做既不安全也不卫生 </view>
   </view>
 
   <view class='article1' bindtap='article1Click5' hover-class='grey_active'> 
