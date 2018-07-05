@@ -3,9 +3,27 @@ var util = require('../../utils/util.js');
 
 const app = getApp()
 Page({
-
-  
   data: {
+    account_moment: 0,        // 动态的条数
+    moment_list: [],       // 动态列表
+    punch_date_list: [],      // 与动态信息列表相对应
+    /*
+    moment_list: [
+      {avator: '', nickname: '', title: '', description: '',
+      image_url: '', punch_date: '2018-06-06'},
+      {avator: '', nickname: '', title: '', description: '',
+      image_url: '', punch_date: '2018-06-06'},
+      ...
+    ]
+    */
+    indi_index: 0,            // indi_index是动态的数目 用于检查数据的准确性
+    //imageList: [],
+    userInfo: {},
+
+
+
+
+
     //punch_list: []  // 每一个元素都是每个用户的打卡内容呀（心得+若干张图片）
 
     navTab: ["干货", "动态"],
@@ -17,17 +35,55 @@ Page({
     air: '',
     dress: ''
   },
-
   // 切换
-  switchNav: function (e) {
+  switchNav: function (e) {  // 向服务器获取动态信息前需要传起始和截止日期的时间
+  var that = this
     console.log(e);
     this.setData({
       currentNavTab: e.currentTarget.dataset.idx
     });
+    var now_date = util.getNowDate()
+    var ee_date = util.getOtherDate(now_date, 1)
+    var bb_date = util.getOtherDate(ee_date, -3)
+    console.log("明天是", ee_date)
+    console.log("明天的三天前是", bb_date )
+    // 要在这里向服务器获取moment数据
+    wx.request({
+      url: 'https://itraining.zhanzy.xyz/api/v1/moment',
+      data: {
+        b_date: bb_date,
+        e_date: ee_date,
+      },
+      header: {
+        'Cookie': wx.getStorageSync("set-cookie")
+      },
+      method: "GET",
+      success: function (res) {
+        console.log("动态信息：")
+        console.log(res.data.data)
+        that.setData({
+          moment_list: res.data.data,
+          account_moment: res.data.data.length,
+        })
+        // 调整一下时间格式
+        for (var i = 0; i < that.data.account_moment; ++i) {
+          var date = that.data.moment_list[i].punch_date
+          var punch_date = (new Date(date)).toLocaleString()
+          that.data.punch_date_list = that.data.punch_date_list.concat(punch_date)
+        }
+        that.setData({
+          punch_date_list: that.data.punch_date_list
+        })
+        console.log("调整时间格式后的动态发布时间")
+        console.log(that.data.punch_date_list)
+      },
+       fail: function (res) {
+        console.log("错误获取动态信息", res)
+      }
+    })
   },
-
-  
   onLoad: function (options) {
+
     //更新当前日期
     app.globalData.day = util.formatTime(new Date()).split(' ')[0];
     this.setData({
@@ -36,7 +92,16 @@ Page({
     //定位当前城市
     this.getLocation();
   },
-
+  loadMore: function (e) {
+    console.log('加载更多')
+    var curid = this.data.indi_index
+    if (this.data.moment_list[curid].length === 0) return
+    var that = this
+    that.data.moment_list[curid] = that.data.moment_list[curid].concat(that.data.moment_list[curid])
+    that.setData({
+      moment_list: moment_list,
+    })
+  },
   getLocation: function () {
     var that = this;
     wx.getLocation({
@@ -147,7 +212,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    
   },
 
   /**
