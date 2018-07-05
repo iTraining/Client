@@ -130,7 +130,8 @@ Page({
             for (var i = 0; i < t_schedule_tomorrow.length; i++) {
               t_schedule_tomorrow[i].image_url = t_team_map.get(t_schedule_tomorrow[i].team_id)
             }
-
+            console.log("明天的计划")
+            console.log(t_schedule_tomorrow)
             that.setData({
               schedule_list_today: t_schedule_today,
               schedule_list_tomorrow: t_schedule_tomorrow,
