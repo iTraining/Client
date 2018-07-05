@@ -250,6 +250,7 @@ Page({
       success: function (res) {
         if (res.confirm) {
           console.log('用户点击确定')
+          console.log(that.data.team_id)
           wx.request({
             url: 'https://itraining.zhanzy.xyz/api/v1/team',
             data: {
@@ -264,6 +265,7 @@ Page({
             method: "DELETE",
             success: function (res) {
               // 从链接中获取到teamid 和token
+              console.log(res)
               console.log("删除成功")
               wx.showToast({
                 title: '删除成功',

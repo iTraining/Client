@@ -22,6 +22,7 @@ Page({
     var that = this
     var t_schedule = wx.getStorageSync('schedule_to_punch')
     console.log(t_schedule)
+    t_schedule.training_date = t_schedule.training_date.substring(0,10)
     that.setData({
       schedule_to_punch: t_schedule
     })

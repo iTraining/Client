@@ -34,7 +34,7 @@
 <view class="timeNow">明天计划</view>
 
 <scroll-view class = "today_plan" >
-<view wx:if="{{schedule_list_tomorrow}}"> 
+<view wx:if="{{schedule_list_tomorrow.length}}"> 
   <view  class="plan_block" wx:for="{{schedule_list_tomorrow}}" wx:key="{{item.id}}" bindtap='navigateDetail' data-data="{{item}}">
     
     <view class="left_info">
