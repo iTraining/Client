@@ -243,33 +243,45 @@ Page({
     // })
   },
   deleteCommunity:function() {
-    var that=this
-    wx.request({
-      url: 'https://itraining.zhanzy.xyz/api/v1/team',
-      data: {
-        team_id: that.data.team_id
-        // option:'created'
-      },
-      header: {
-        'content-type': 'application/x-www-form-urlencoded',
-        // 'content-type': 'application/json',
-        'Cookie': wx.getStorageSync("set-cookie")
-      },
-      method: "DELETE",
+    var that=this;
+    wx.showModal({
+      title: '提示',
+      content: '你的队员将无家可归o(╥﹏╥)o',
       success: function (res) {
-        // 从链接中获取到teamid 和token
-        console.log("删除成功")
-        wx.showToast({
-          title: '删除成功',
-          icon: 'succes',
-          duration: 1000,
-          mask: true
-        })
-        wx.navigateBack({
-            delta: 1
-        })
-      },
+        if (res.confirm) {
+          console.log('用户点击确定')
+          wx.request({
+            url: 'https://itraining.zhanzy.xyz/api/v1/team',
+            data: {
+              team_id: that.data.team_id
+              // option:'created'
+            },
+            header: {
+              'content-type': 'application/x-www-form-urlencoded',
+              // 'content-type': 'application/json',
+              'Cookie': wx.getStorageSync("set-cookie")
+            },
+            method: "DELETE",
+            success: function (res) {
+              // 从链接中获取到teamid 和token
+              console.log("删除成功")
+              wx.showToast({
+                title: '删除成功',
+                icon: 'succes',
+                duration: 1000,
+                mask: true
+              })
+              wx.navigateBack({
+                delta: 1
+              })
+            },
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
     })
+    
   },
   selectImage: function (e) {
     let that = this;
