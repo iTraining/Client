@@ -49,8 +49,8 @@
     </block>
     
     <view class="btn">
-        <button class='sure' bindtap='sure'>确定</button>
-        <button class='sure' bindtap='delete_item'>删除</button>
-        <button class='giveup' bindtap='giveup'>取消</button>
+        <view class='sure' bindtap='sure' hover-class='btn_hover'>确定</view>
+        <view class='sure' bindtap='delete_item'hover-class='btn_hover'>删除</view>
+        <view class='giveup' bindtap='giveup' hover-class='btn_hover'>取消</view>
     </view>
 </view>

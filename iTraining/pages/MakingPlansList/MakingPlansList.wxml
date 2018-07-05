@@ -85,15 +85,9 @@
   </scroll-view>
   
   <view class='button_items'>
-    <view>
-      <button class='button_item' bindtap='ToAddorEditPlans'>添加项目</button>
-    </view>
-    <view>
-      <button class='button_item' form-type='submit'>发布</button>
-    </view>
-    <view>
-      <button class='button_item' bindtap='SaveToDrafts'>暂存草稿</button>
-    </view>
+    <view class='button_item' bindtap='ToAddorEditPlans' hover-class='btn_hover'>添加项目</view>
+    <view class='button_item' form-type='submit' hover-class='btn_hover'>发布</view>
+    <view class='button_item3' bindtap='SaveToDrafts' hover-class='btn_hover'>暂存草稿</view>
   </view>
 </form>
 </view>

@@ -29,18 +29,42 @@
 }
 
 .btn {
+  width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  font-size: 12pt;
+  margin-top: 50rpx;
 }
 
 .btn .sure {
-  margin-left:5px;
-  float:left;
+  margin-right:20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: white;
+  color:black;
+  width:120rpx;
+  height: 90rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.btn giveup {
-  margin-right:5px;
-  float:right;
+.btn .giveup {
+  border: 1px solid #ddd;
+  background: white;
+  color:black;
+  width:120rpx;
+  height: 90rpx;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn_hover {
+  background-color: #f7f7f7;
 }
