@@ -24,35 +24,50 @@ Page({
     var that=this
     wx.request({
       url: 'https://itraining.zhanzy.xyz/api/v1/punch',
-      method:'POST',
-      data:{
+      filePath: "...",
+      name: 'file',
+      formData: {
         schedule_id: that.data.schedule_to_punch.schedule_id,
         completion: that.data.completion,
+        description:"完成打卡",
       },
-      header: {
-        'Cookie': wx.getStorageSync("set-cookie")
-      },
-      success:function(res) {
-        console.log(res)
-        wx.showToast({
-          title: '打卡成功',
-          icon: 'success',
-          duration: 1000,
-          complete:function(){
-            wx.switchTab({
-              url: '../PersonalCenter/PersonalCenter',
-            })
-          }
-          })
-        // wx.navigateBack({
-        //   delta: 1
-        // })
-        
-      },
-      fail:function(res) {
-      
+      success: function (res) {
+        var data = res.data
+        //do something
       }
     })
+    // wx.request({
+    //   url: 'https://itraining.zhanzy.xyz/api/v1/punch',
+    //   method:'POST',
+    //   data:{
+    //     schedule_id: that.data.schedule_to_punch.schedule_id,
+    //     completion: that.data.completion,
+    //     description:"完成打卡",q
+    //   },
+    //   header: {
+    //     'Cookie': wx.getStorageSync("set-cookie")
+    //   },
+    //   success:function(res) {
+    //     console.log(res)
+    //     wx.showToast({
+    //       title: '打卡成功',
+    //       icon: 'success',
+    //       duration: 1000,
+    //       complete:function(){
+    //         wx.switchTab({
+    //           url: '../PersonalCenter/PersonalCenter',
+    //         })
+    //       }
+    //       })
+    //     // wx.navigateBack({
+    //     //   delta: 1
+    //     // })
+        
+    //   },
+    //   fail:function(res) {
+      
+    //   }
+    // })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
