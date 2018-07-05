@@ -1,13 +1,9 @@
 <!--pages/SquarePage/square.wxml-->
-
 <view class="swiper-tab">
   <view class="swiper-tab-list {{currentNavTab==idx ? 'on' : ''}}" wx:for="{{navTab}}" wx:for-index="idx" wx:for-item="itemName" data-idx="{{idx}}" bindtap="switchNav">
   {{itemName}}
   </view>
 </view>
-
-
-
 
 <swiper autoplay="false" class="wx-swiper" indicator-dots="True" hidden="{{currentNavTab!=0}}" >
     <swiper-item>
@@ -26,7 +22,6 @@
       <image bindtap="tap_d5808da6" class="wx-image" mode="aspectFill" src="https://www.t-nation.com/system/publishing/articles/10005823/original/The-Combo-Exercise-Thats-Just-Plain-Silly.png?1516126325"></image>
     </swiper-item>
 </swiper>
-
 
 <view class="button_lies" hidden="{{currentNavTab!=0}}">
 
@@ -53,31 +48,6 @@
   </view>
 </view>
 
-<view class="moment" hidden="{{currentNavTab!=1}}">
-    <view class="userNameAndImg">
-      <view class="momentsImgView">
-        <image class="momentsUserAvator" src="../../image/icon_tab/food.png"></image>
-      </view>
-      <view class="right_side">
-        <view class="momentsUserName">棍哥最厉害 </view>
-        <view class="momentsTime">April 20 19:00</view>    
-      </view>
-    </view>
-    <view class="diary">    棍哥真的很严格</view>
-    <view class="imgs_class"> 
-        <image class="img"> </image>
-    </view>
-    <view class="dianzan">
-      <view class="dianzan_img_class">
-        <image class ="dianzan_img" wx:if="{{collection}}" src="../../image/icon_tab/dianzan.png"  bindtap="toCollect"></image>
-        <image class ="dianzan_img" wx:else src="../../image/icon_tab/dianzan.png" bindtap="toCollect"></image>
-      </view>
-      <view class="dianzan_person_name">zzy牛逼,yh牛逼</view>
-    </view>
-</view>
-    
-
-
 <view hidden="{{currentNavTab!=0}}">
   <view class="hotcity-common" style="display:inline;">当前位置: </view>
   <view class="thisCityName">{{location}}{{county}}</view>
@@ -100,3 +70,32 @@
     </view>
   </view>
 </view>
+
+<view class="moment" hidden="{{currentNavTab!=1}}">
+    <view class="userNameAndImg">
+      <view class="momentsImgView">
+        <image class="momentsUserAvator" src="../../image/icon_tab/food.png"></image>
+      </view>
+      <view class="right_side">
+        <view class="momentsUserName">棍哥最厉害 </view>
+        <view class="momentsTime">April 20 19:00</view>    
+      </view>
+    </view>
+    <view class="diary">    棍哥真的很严格</view>
+    <view class="imgs_class"> 
+        <image class="img"> </image>
+    </view>
+    <view class="dianzan">
+      <view class="dianzan_img_class">
+        <image class ="dianzan_img" wx:if="{{collection}}" src="../../image/icon_tab/dianzan.png"  bindtap="toCollect"></image>
+        <image class ="dianzan_img" wx:else src="../../image/icon_tab/dianzan.png" bindtap="toCollect"></image>
+      </view>
+      <view class="dianzan_person_name">zzy牛逼,yh牛逼</view>
+    </view>
+</view>
+
+<scroll-view scroll-y="true" class="page-body" bindscrolltolower="loadMore">
+  <view class='single_moment'>
+  
+  </view>
+</scroll-view>

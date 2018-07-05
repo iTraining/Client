@@ -44,7 +44,6 @@
   <scroll-view scroll-y="true" class="page-body" bindscrolltolower="loadMore">
     <!--list-->
     <view class="nav_section">
-   
       <view wx:if="{{trainPlanData.indicators}}">
         <block wx:for="{{trainPlanData.indicators}}" wx:key="item">
           <view class="nav_section_items">
@@ -62,7 +61,6 @@
 
       <viewdata-index="{{index}}"bindtap
  = "delItem"class="inner del">删除</view>
-
             -->
             <!--content-->
             <view class="section_cont" bindtap="navigateDetail" data-aid="{{item.name}}">

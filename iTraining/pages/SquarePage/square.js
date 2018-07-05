@@ -113,7 +113,6 @@ Page({
     })
   },
 
-
   TurnToTrainingItemList:function() {
     wx.navigateTo({
       url: '/pages/complishTrainingPage/complishTrainingPage',

@@ -83,8 +83,12 @@ Page({
     if (num > that.data.Max_number_Indicator) {
       that.showErrorToast("指标数最多为6")
     } else {
+      for (var i = 0; i < e.detail.value; ++i) {
+        that.data.havedIndicator_list[i] = 'distance';
+      }
       that.setData({
         number_Indicator: e.detail.value,
+        havedIndicator_list: that.data.havedIndicator_list,
       })
       console.log('默认关联指标列表为')
       console.log(that.data.objArray)

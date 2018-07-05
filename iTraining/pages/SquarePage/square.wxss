@@ -89,6 +89,79 @@ page {
   margin-bottom: 5rpx;
 }
 
+.thisCityName {
+  display: inline-block;
+  border: 1rpx solid #2a579a;
+  border-radius: 8rpx;
+  padding: 10rpx 10rpx;
+  font-size: 30rpx;
+  color: #2a579a;
+  text-align: center;
+  min-width: 149.5rpx;
+  margin: 16rpx;
+}
+
+.hotcity-common {
+  font-size: 30rpx;
+  color: d4d5e0;
+  padding-bottom: 0;
+  margin: 8rpx 0;
+  margin-left: 16rpx;
+}
+.weatherwrap{
+  height: 100%;
+  display:flex;
+  flex-direction:column;
+  box-sizing:border-box;
+  padding:15rpx 15rpx;
+  margin-left: 15rpx;
+  margin-right: 15rpx;
+  margin-top: 10rpx;
+  color:  #666;
+  font-size:15px;
+  background-color:#EEE9E9;
+}
+/*当天天气信息*/
+.info{
+  margin-top:10rpx;
+  width:100%;
+  height:170px;
+}
+
+/*城市名称*/
+.city{
+  margin: 20rpx;
+  margin-top: 10rpx;
+  border-bottom:1px solid #2a579a;
+}
+
+/*当天温度*/
+.temp{
+  font-size: 70rpx;
+  line-height: 100rpx;
+  text-align: center;
+  color:#2a579a;
+}
+
+/*天气描述*/
+.weather{
+  line-height: 22px;
+  margin: 10rpx;
+  padding: 0 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+}
+.life{
+  line-height: 22px;
+  margin: 5px 0;
+}
+
+.grey_active{
+  background-color: #f7f7f7;
+}
+
+
 .moment{
   /* border-bottom: #777 1rpx solid;
   border-left: #777 1rpx solid;
@@ -174,77 +247,4 @@ page {
   width: 80%;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-
-.thisCityName {
-  display: inline-block;
-  border: 1rpx solid #2a579a;
-  border-radius: 8rpx;
-  padding: 10rpx 10rpx;
-  font-size: 30rpx;
-  color: #2a579a;
-  text-align: center;
-  min-width: 149.5rpx;
-  margin: 16rpx;
-}
-
-.hotcity-common {
-  font-size: 30rpx;
-  color: d4d5e0;
-  padding-bottom: 0;
-  margin: 8rpx 0;
-  margin-left: 16rpx;
-}
-.weatherwrap{
-  height: 100%;
-  display:flex;
-  flex-direction:column;
-  box-sizing:border-box;
-  padding:15rpx 15rpx;
-  margin-left: 15rpx;
-  margin-right: 15rpx;
-  margin-top: 10rpx;
-  color:  #666;
-  font-size:15px;
-  background-color:#EEE9E9;
-}
-/*当天天气信息*/
-.info{
-  margin-top:10rpx;
-  width:100%;
-  height:170px;
-}
-
-/*城市名称*/
-.city{
-  margin: 20rpx;
-  margin-top: 10rpx;
-  border-bottom:1px solid #2a579a;
-}
-
-/*当天温度*/
-.temp{
-  font-size: 70rpx;
-  line-height: 100rpx;
-  text-align: center;
-  color:#2a579a;
-}
-
-/*天气描述*/
-.weather{
-  line-height: 22px;
-  margin: 10rpx;
-  padding: 0 10px;
-  display: flex;
-  flex-direction: row;
-  justify-content:space-around;
-}
-.life{
-  line-height: 22px;
-  margin: 5px 0;
-}
-
-.grey_active{
-  background-color: #f7f7f7;
 }
