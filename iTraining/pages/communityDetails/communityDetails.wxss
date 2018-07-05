@@ -5,21 +5,7 @@
   background-color: antiquewhite;
 }
 
-.item {
-  height: 110rpx;
-  width: 110rpx;
-  margin-top: 22rpx;
-  margin-left: 22rpx;
-  margin-right: 22rpx;
-}
 
-.item1 {
-  background-color: white;
-}
-.title{
-
-  font-weight: bold;
-}
 .img{
   width: 110rpx;
   height: 110rpx;
@@ -112,35 +98,56 @@
     border-radius: 0rpx;
     margin:40rpx 0rpx 10rpx;
 }
-.team_img{
-  height: 100%;
-  width: 100%;
-  border-radius: 50%;    
-}
-.selectImg{
-  height:120rpx;
-  width: 120rpx;
-}
-.edit_tip{
-  height:120rpx;
-}
+
+
 
 .form_group1{
   display: flex;
   flex-direction: row;
   align-content: left;
-  position: relative;
-
   flex-wrap: wrap;
+  width: 100%;
+  height:120rpx;
+  margin-top: 20rpx;
 }
 
 .form_group1 .team_compo{
   align-content: left;
-  width:160rpx;
   display: flex;
-  margin-left: 5%;
+  width: 165rpx;
+  margin-left: 45rpx;
+  font-size:30rpx;
 }
 
-.nav_section_items{
-  line-height: 120
+
+
+.form_group2{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  height:180rpx;
+}
+.form_group2 text{
+    width:160rpx;
+}
+.team_img{
+  height: 140rpx;
+  width: 140rpx;
+  border-radius: 50%;    
+}
+.selectImg{
+  height:160rpx;
+  width: 20%;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.edit_tip{
+  height:160rpx;
+  font-size:8pt;
+  display: flex;
+  flex-direction: column-reverse;
+  color: #a9a9a9;
 }

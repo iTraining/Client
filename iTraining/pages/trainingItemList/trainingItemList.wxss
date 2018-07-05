@@ -1,32 +1,32 @@
-
-
-.item_title {
+.form-book{
   width: 100%;
-  height: 90rpx;
-  background:#339966;
-  position: relative;
 }
 
-.title{
-  margin-left:35%;
-  padding-top:20rpx;
-  position: absolute;
-  color:white;
-  font-size:15px;
-  font-weight: bold;
-  font-family: 微软雅黑;
-}
+
 
 .page-body{
     width:100%;
     height:100%;
-    margin-bottom: 5px;
 }
 
-.btn {
-  display: flex;
-  bottom: 0px;
-  flex-direction: row;
-  justify-content: space-between;
+.nav_section_items{
+  border-bottom: 1rpx solid #f7f7f7;
+  height: 45px;
   align-items: center;
+  display: flex;
+
+}
+.nav_section_items text{
+  font-family: Arial;
+  color:#030303;
+  margin-left: 40rpx;
+}
+.add_button{
+  float: right;
+  background: #ffffff;
+  position: fixed;
+  bottom: 30px;
+  right:20px;
+  width: 40px;
+  height:40px;
 }
