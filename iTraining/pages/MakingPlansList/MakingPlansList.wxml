@@ -84,7 +84,9 @@
   
   <view class='button_items'>
     <view class='button_item' bindtap='ToAddorEditPlans' hover-class='btn_hover'>添加项目</view>
-    <view class='button_item' form-type='submit' hover-class='btn_hover'>发布</view>
+    <view class='button_item' hover-class='btn_hover'>
+    <button form-type='submit'>发布</button>
+    </view>
     <view class='button_item3' bindtap='SaveToDrafts' hover-class='btn_hover'>暂存草稿</view>
   </view>
 </form>

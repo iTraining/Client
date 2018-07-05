@@ -12,7 +12,10 @@ Page({
     plan_items:[],
     schedule_to_punch:[],
     meta_map:{},
+    imagePath: "/image/icon_tab/dianzan1.png",
     indicator_map:fileData.getIndicatorMap(),
+    description:'',
+    completion:0,
   },
 
   /**
@@ -114,6 +117,11 @@ Page({
   
   },
 
+  inputDescription:function(e) {
+    this.setData({
+      description: e.detail.value
+    })
+  },
   /**
    * 生命周期函数--监听页面显示
    */
@@ -155,38 +163,83 @@ Page({
   onShareAppMessage: function () {
   
   },
+  sliderchange:function(e) {
+    var that=this
+    that.setData({
+      completion:e.detail.value
+    })
+  },
   punch: function () {
     var that = this
-    wx.request({
+
+    console.log(that.data.imagePath)
+    console.log(that.data.completion)
+    wx.uploadFile({
       url: 'https://itraining.zhanzy.xyz/api/v1/punch',
-      method: 'POST',
-      data: {
+      filePath: that.data.imagePath,
+      name: "avatar",
+      formData: {
         schedule_id: that.data.schedule_to_punch.schedule_id,
         completion: that.data.completion,
+        description: that.data.description,
       },
       header: {
         'Cookie': wx.getStorageSync("set-cookie")
       },
       success: function (res) {
         console.log(res)
-        wx.showToast({
-          title: '打卡成功',
-          icon: 'success',
-          duration: 1000,
-          complete: function () {
-            wx.switchTab({
-              url: '../PersonalCenter/PersonalCenter',
-            })
-          }
+        wx.switchTab({
+          url: '../trainingPlanPage/trainingPlanPage',
         })
-        // wx.navigateBack({
-        //   delta: 1
-        // })
-
       },
-      fail: function (res) {
+      fail:function(res) {
 
       }
+    })
+
+    // wx.request({
+    //   url: 'https://itraining.zhanzy.xyz/api/v1/punch',
+    //   method: 'POST',
+    //   data: {
+    //     schedule_id: that.data.schedule_to_punch.schedule_id,
+    //     completion: that.data.completion,
+    //   },
+    //   header: {
+    //     'Cookie': wx.getStorageSync("set-cookie")
+    //   },
+    //   success: function (res) {
+    //     console.log(res)
+    //     wx.showToast({
+    //       title: '打卡成功',
+    //       icon: 'success',
+    //       duration: 1000,
+    //       complete: function () {
+    //         wx.switchTab({
+    //           url: '../PersonalCenter/PersonalCenter',
+    //         })
+    //       }
+    //     })
+    //   },
+    //   fail: function (res) {
+
+    //   }
+    // })
+  },
+  selectImage: function (e) {
+    let that = this;
+    that.isSelected = true;
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+      success: function (res) {
+        var tempFilePaths = res.tempFilePaths
+        that.setData({
+          imagePath: res.tempFilePaths[0],
+        })
+        console.log(res.tempFilePaths[0])
+      },
+
     })
   },
 })
