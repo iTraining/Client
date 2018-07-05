@@ -171,31 +171,10 @@ Page({
   },
   punch: function () {
     var that = this
-
-    console.log(that.data.imagePath)
-    console.log(that.data.completion)
-    wx.uploadFile({
-      url: 'https://itraining.zhanzy.xyz/api/v1/punch',
-      filePath: that.data.imagePath,
-      name: "avatar",
-      formData: {
-        schedule_id: that.data.schedule_to_punch.schedule_id,
-        completion: that.data.completion,
-        description: that.data.description,
-      },
-      header: {
-        'Cookie': wx.getStorageSync("set-cookie")
-      },
-      success: function (res) {
-        console.log(res)
-        wx.switchTab({
-          url: '../trainingPlanPage/trainingPlanPage',
-        })
-      },
-      fail:function(res) {
-
-      }
+    wx.navigateTo({
+      url: '../finishItemAndRelease/finishAndRelease?schedule_id=' + that.data.schedule_to_punch.schedule_id + '&completion=' + that.data.completion,
     })
+    
 
     // wx.request({
     //   url: 'https://itraining.zhanzy.xyz/api/v1/punch',
@@ -225,21 +204,5 @@ Page({
     //   }
     // })
   },
-  selectImage: function (e) {
-    let that = this;
-    that.isSelected = true;
-    wx.chooseImage({
-      count: 1,
-      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
-      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
-      success: function (res) {
-        var tempFilePaths = res.tempFilePaths
-        that.setData({
-          imagePath: res.tempFilePaths[0],
-        })
-        console.log(res.tempFilePaths[0])
-      },
-
-    })
-  },
+  
 })

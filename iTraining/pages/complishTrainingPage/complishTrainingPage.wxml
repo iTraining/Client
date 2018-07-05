@@ -33,12 +33,12 @@
   </view>
   <text class="section__pert">%</text>
 </view>
-<view class='selectImg'bindtap="selectImage">
+<!-- <view class='selectImg'bindtap="selectImage">
         <image class='team_img' placeholder="队伍头像" src="{{imagePath}}" ></image>
-    </view>
-
+    </view> -->
+<!-- 
 <view class="form_group">
         <text>输入感想</text>
         <input type="text" placeholder="今天好虚啊" placeholder-class="placeholder_style" bindinput='inputDescription' name="name" />
-    </view>
-<view class='punch_btn' bindtap='punch'>打卡</view>
+    </view> -->
+<view class='punch_btn' bindtap='punch'>去打卡</view>
