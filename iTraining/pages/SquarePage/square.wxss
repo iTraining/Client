@@ -222,7 +222,7 @@ page {
 
 .cover_data {
   display: flex;
-  
+  flex-direction: column;
 }
 
 .title {
@@ -238,6 +238,15 @@ page {
   height:200rpx;
   line-height: 60rpx;
   padding:0rpx 20rpx;
+}
+.display_show{
+  
+  border: 1px solid;
+  border-color: beige;
+  padding: 10px;
+}
+.display_none{
+  display: none;
 }
 .friend_description{
     margin-bottom: 20rpx; 

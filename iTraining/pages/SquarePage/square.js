@@ -5,9 +5,11 @@ const app = getApp()
 Page({
   data: {
     account_moment: 0,        // 动态的条数
-    moment_list: [],       // 动态列表
+    moment_list: [],          // 动态列表
     punch_date_list: [],      // 与动态信息列表相对应
-    /*
+    punch_data_list: [],      // 动态内容 用于用户点击动态内容中的title显示下拉列表（内容为打卡的数据）
+    open_list: [],            // 用于弹窗显示打卡的数据
+    /*  moment_list格式如下:
     moment_list: [
       {avator: '', nickname: '', title: '', description: '',
       image_url: '', punch_date: '2018-06-06'},
@@ -17,8 +19,7 @@ Page({
     ]
     */
     indi_index: 0,            // indi_index是动态的数目 用于检查数据的准确性
-    //imageList: [],
-    userInfo: {},
+
 
 
 
@@ -45,8 +46,8 @@ Page({
     var now_date = util.getNowDate()
     var ee_date = util.getOtherDate(now_date, 1)
     var bb_date = util.getOtherDate(ee_date, -3)
-    console.log("明天是", ee_date)
-    console.log("明天的三天前是", bb_date )
+   // console.log("明天是", ee_date)
+   // console.log("明天的三天前是", bb_date )
     // 要在这里向服务器获取moment数据
     wx.request({
       url: 'https://itraining.zhanzy.xyz/api/v1/moment',
@@ -59,11 +60,10 @@ Page({
       },
       method: "GET",
       success: function (res) {
-        console.log("动态信息：")
-        console.log(res.data.data)
+        var reversed_moment_list = res.data.data.reverse()
         that.setData({
-          moment_list: res.data.data,
-          account_moment: res.data.data.length,
+          moment_list: reversed_moment_list,
+          account_moment: reversed_moment_list.length,
         })
         // 调整一下时间格式
         for (var i = 0; i < that.data.account_moment; ++i) {
@@ -74,8 +74,21 @@ Page({
         that.setData({
           punch_date_list: that.data.punch_date_list
         })
-        console.log("调整时间格式后的动态发布时间")
-        console.log(that.data.punch_date_list)
+        console.log("调整时间格式后的动态信息：")
+        console.log(that.data.moment_list)
+        // 获取动态列表中每条动态的打卡数据punch_data_list
+        var the_punch_data_list = []
+        for (var i = 0; i < that.data.account_moment; ++i) {
+          the_punch_data_list = the_punch_data_list.concat(that.data.moment_list[i].references)
+          that.data.open_list = that.data.open_list.concat(false)
+        }
+        that.setData({
+          punch_data_list: the_punch_data_list,
+          open_list: that.data.open_list
+        })
+        console.log("动态中打卡数据的list: ")
+        console.log(that.data.punch_data_list)
+        console.log('初始不显示状态列表', that.data.open_list)
       },
        fail: function (res) {
         console.log("错误获取动态信息", res)
@@ -101,6 +114,22 @@ Page({
     that.setData({
       moment_list: moment_list,
     })
+  },
+  showPunchData:function(e) {
+    var that = this
+    // e携带的自定义属性current来标记objArray里每个one_obj所对应的下标
+    const curindex = e.target.dataset.current
+    //console.log('参数为想要点击查看打卡数据的动态在动态列表中的索引')
+    //console.log(curindex)
+
+    that.data.open_list[curindex] = !that.data.open_list[curindex]
+    that.setData({
+      open_list: that.data.open_list
+    })
+    if (that.data.open_list[curindex]) {
+      console.log("要显示的打卡信息如下")
+      console.log(that.data.punch_data_list[curindex])
+    }
   },
   getLocation: function () {
     var that = this;

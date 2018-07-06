@@ -80,8 +80,12 @@
           <view class="list_right">
             <view class="friend_nickname">{{item.nickname}}</view>
             <view class='cover_data'>
-              <view class='cover_data title'>{{"#" + item.title + "弹框打卡内容"}}</view>
-              
+              <view class='cover_data title' bindtap='showPunchData' data-current="{{idx}}">{{"#" + item.title}}{{open_list[idx]?"▲":"▼"}}</view>
+              <view class="{{open_list[idx]?'display_show':'display_none'}}">
+                <view class="punch_data" wx:key='data_item'>
+                  <view class="punch_data_number">这里是当时打卡的数据信息{{punch_data_list[idx].group_number}}组 </view> 
+                </view>
+              </view>
             </view>
             <view class="friend_description">{{item.description}}</view>
             <!--<block wx:for="{{imageList}}" wx:for-item="image"> -->

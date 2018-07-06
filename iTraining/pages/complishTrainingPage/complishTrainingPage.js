@@ -60,20 +60,20 @@ Page({
 
         var t_references = that.data.schedule_to_punch.references
         // 匹配到训练项目的名称和单位
-
         for (var i = 0; i < t_references.length;i++) {
 // that.data.meta_map.get(that.data.schedule_to_punch.references[i].meta_id)
           t_references[i].meta_details=that.data.meta_map.get(t_references[i].meta_id)
         }
-
         that.setData({
           'schedule_to_punch.references':t_references,
           indicator_map: fileData.getIndicatorMap()
         })
         console.log('indicator', that.data.indicator_map.get(t_references[0].meta_details.index1))
 
-        console.log(that.data.meta_map)
+        console.log("meta的映射",that.data.meta_map)
         console.log(that.data.indicator_map)
+        console.log(that.data.schedule_to_punch)
+        console.log("打卡数据显示如下")
         console.log(that.data.schedule_to_punch)
       }
     })
