@@ -245,7 +245,8 @@ Page({
 
   TurnToTrainingItemList:function() {
     wx.navigateTo({
-      url: '/pages/finishItemAndRelease/finishAndRelease',
+      // url: '/pages/finishItemAndRelease/finishAndRelease',
+      url: '/pages/trainingItemList/trainingItemList',
       success: function(res) {},
       fail: function(res) {},
       complete: function(res) {},
