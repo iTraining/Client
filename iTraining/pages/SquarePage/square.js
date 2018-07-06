@@ -161,9 +161,11 @@ Page({
     console.log("要查看的图片是在动态列表中的下标是")
     console.log(e)
     var url = that.data.image_url_list[curindex]
+    var singleFriend_url_list = [url]
+    singleFriend_url_list.push()
     wx.previewImage({
       current: url,
-      urls: that.data.image_url_list,
+      urls: singleFriend_url_list,
     })
   },
   onLoad: function (options) {
