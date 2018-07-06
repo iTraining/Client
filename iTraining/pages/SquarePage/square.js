@@ -20,8 +20,8 @@ Page({
     ]
     */
     indi_index: 0,            // indi_index是动态的数目 用于检查数据的准确性
-    two_dim_show_data = [],
-    two_dim_show_unit = [],
+    all_punchData_value: [],
+    all_punchData_unit: [],
 
 
 
@@ -41,7 +41,7 @@ Page({
   },
   // 切换
   switchNav: function (e) {  // 向服务器获取动态信息前需要传起始和截止日期的时间
-  var that = this
+    var that = this
     console.log(e);
     this.setData({
       currentNavTab: e.currentTarget.dataset.idx
@@ -76,11 +76,16 @@ Page({
         console.log("动态数目为")
         console.log(the_account_moment)
         // 获取动态列表中每条动态的打卡数据punch_data_list
+        
         var the_punch_data_list = []
         var the_open_list = []
         for (var i = 0; i < the_account_moment; ++i) {
-          the_punch_data_list = the_punch_data_list.concat(the_moment_list[i].references)
+          var single_friend_data_list = []
+          for (var j = 0; j < the_moment_list[i].references.length; ++j) {
+            single_friend_data_list.push(the_moment_list[i].references[j])
+          }
           the_open_list = the_open_list.concat(false)
+          the_punch_data_list.push(single_friend_data_list)
         }
         that.setData({
           moment_list: the_moment_list,
@@ -92,46 +97,54 @@ Page({
         console.log("动态中打卡数据的list: ")
         console.log(that.data.punch_data_list)
         console.log('初始不显示状态列表', that.data.open_list)
-
-        // 数据可视化
-        var the_two_dim_show_data = []
-        var the_two_dim_show_unit = []
-        for (var index = 0; index < that.data.account_moment; ++index) {
-          var punch_data = that.data.punch_data_list[index]
-          var indicator_data = ['data1', 'data2', 'data3', 'data4', 'data5', 'data6']
-          var indicator_index = ['index1', 'index2', 'index3', 'index4', 'index5', 'index6']
-          var show_data = []   // 要求指标的数值列表
-          var show_index = []  // 要求指标的名称列表
-          var show_unit = []   // 要求指标的单位列表
-          for (var i = 0; i < 6; ++i) {
-            if (punch_data[indicator_data[i]] != 0) {
-              show_data = show_data.concat(punch_data[indicator_data[i]])
-              show_index = show_index.concat(punch_data[indicator_index[i]])
-            }
-          }
-          var indicator_map = fileData.getIndicatorMap()
-          console.log("指标数据和单位信息")
-          for (var i = 0; i < show_data.length; ++i) {
-            console.log(show_data[i])
-            console.log(indicator_map.get(show_index[i]))
-
-            show_unit = show_unit.concat(indicator_map.get(show_index[i]))
-          }
-          the_two_dim_show_data = the_two_dim_show_data.concat(show_data)
-          the_two_dim_show_unit = the_two_dim_show_unit.concat(show_unit)
-        }
-        that.setData({
-          two_dim_show_data: the_two_dim_show_data,
-          two_dim_show_unit: the_two_dim_show_unit
-        })
+        that.convertAllPunchDataToShow()   // 将动态中的打卡数据convert为可视化内容
       },
        fail: function (res) {
         console.log("错误获取动态信息", res)
       }
     })
   },
+  convertAllPunchDataToShow: function () {
+    console.log("开始进行数据可视化转变")
+    var that = this
+    //all_punchData_value: [],
+    //all_punchData_unit: [],
+    var the_data = ['data1', 'data2', 'data3', 'data4', 'data5', 'data6']
+    var the_index = ['index1', 'index2', 'index3', 'index4', 'index5', 'index6']
+    var indicator_map = fileData.getIndicatorMap()
+    var allFriend_data_value_list = []
+    var allFriend_data_unit_list = []
+    for (var i = 0; i < that.data.account_moment; ++i) {
+      var singleFriend_data = that.data.punch_data_list[i]
+      var singleFriend_data_value_list = []
+      var singleFriend_data_unit_list = []
+      for (var j = 0; j < singleFriend_data.length; ++j) {
+        var single_trainData_oneFriend = singleFriend_data[j]
+        var singleFriend_data_value = []
+        var singleFriend_data_unit = []
+        for (var k = 0; k < 6; ++k) {
+          if (single_trainData_oneFriend[the_data[k]] != 0) {
+            singleFriend_data_value.push(single_trainData_oneFriend[the_data[k]])
+            singleFriend_data_unit.push(indicator_map.get(single_trainData_oneFriend[the_index[k]]))
+          }
+        }
+        singleFriend_data_value_list.push(singleFriend_data_value)
+        singleFriend_data_unit_list.push(singleFriend_data_unit)
+      }
+      allFriend_data_value_list.push(singleFriend_data_value_list)
+      allFriend_data_unit_list.push(singleFriend_data_unit_list)
+    }
+    that.setData({
+      all_punchData_value: allFriend_data_value_list,
+      all_punchData_unit: allFriend_data_unit_list
+    })
+    console.log("动态信息中打卡内容的指标数值为")
+    console.log(that.data.all_punchData_value)
+    console.log("动态信息中打卡内容的指标单位为")
+    console.log(that.data.all_punchData_unit)
+  },
   onLoad: function (options) {
-
+    console.log("成功加载页面")
     //更新当前日期
     app.globalData.day = util.formatTime(new Date()).split(' ')[0];
     this.setData({
@@ -278,7 +291,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+    console.log("hellllllllll")
   },
 
   /**
