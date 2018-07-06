@@ -25,8 +25,8 @@
     <view class="plan_item_detail">每组：{{item.data1}} {{item.meta_details.indic1}} {{item.data2}}{{item.meta_details.indic2}}</view>
   </view>
 </scroll-view>
-
-<view class="section_gap">
+<view wx:if="{{schedule_to_punch.is_punched}}"></view>
+<view class="section_gap" wx:else >
   <text class="section__title">满意度</text>
   <view class="section_body">
     <slider  class='slider' bindchange="sliderchange" show-value activeColor='#009688'/>
@@ -41,4 +41,5 @@
         <text>输入感想</text>
         <input type="text" placeholder="今天好虚啊" placeholder-class="placeholder_style" bindinput='inputDescription' name="name" />
     </view> -->
-<view class='punch_btn' bindtap='punch'>去打卡</view>
+<view class='punch_btn' wx:if="{{schedule_to_punch.is_punched}}" >您已经打过卡了</view>
+<view class='punch_btn' wx:else bindtap='punch'>去打卡</view>
