@@ -222,12 +222,16 @@ Page({
                     if (t_schedule[i].schedule_id = t_punch_list[j].schedule_id) {
                       isFindinPunchList = true
                     }
+                    }
+                  console.log(t_schedule[i].schedule_id)
                     if (isFindinPunchList == false) {
+                      console.log("un punched ")
                       t_schedule[i].is_punched = false
+                      
                     } else {
+                      console.log("is punched")
                       t_schedule[i].is_punched = true
                     }
-                  }
                 }
 
                 console.log(t_team_map)
