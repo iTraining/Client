@@ -82,15 +82,23 @@
             <view class='cover_data'>
               <view class='cover_data title' bindtap='showPunchData' data-current="{{idx}}">{{"#" + item.title}}{{open_list[idx]?"▲":"▼"}}</view>
               <view class="{{open_list[idx]?'display_show':'display_none'}}">
-                <view class="punch_data" wx:key='data_item'>
-                  <view class="punch_data_number">这里是当时打卡的数据信息{{punch_data_list[idx].group_number}}组 </view> 
+                <view class='singleFriend_punch_data' wx:for="{{all_punchData_value[idx]}}" wx:for-index='idx1' wx:key='item1'>
+                  <view class='singleFriend_punch_data training_name'>
+                    {{punch_data_list[idx][idx1].training_name}}{{punch_data_list[idx][idx1].group_number}}组(
+                  </view>
+                  <view class='singleFriend_punch_data details'>
+                    <view class='training_details' wx:for="{{all_punchData_value[idx][idx1]}}" wx:for-index='idx2' wx:key='item2'>
+                    <view class='value_unit'>{{all_punchData_value[idx][idx1][idx2]}}{{all_punchData_unit[idx][idx1][idx2]}}<text decode="{{true}}" space="{{true}}">&nbsp;</text></view>
+                    </view>
+                    <view>)</view>
+                  </view>
                 </view>
               </view>
             </view>
             <view class="friend_description">{{item.description}}</view>
             <!--<block wx:for="{{imageList}}" wx:for-item="image"> -->
             <view class='friend_img'>
-              <image class="weui-uploader__img" src="{{'https://itraining.zhanzy.xyz/' + item.image_url}}"> </image>
+              <image class="weui-uploader__img" src="{{'https://itraining.zhanzy.xyz/' + item.image_url}}" mode="widthFix"> </image>
             </view>
             <view class="publist_time">{{punch_date_list[idx]}}</view>
           </view>

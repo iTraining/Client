@@ -240,14 +240,28 @@ page {
   padding:0rpx 20rpx;
 }
 .display_show{
-  
+  float:left;
+  margin-bottom:10rpx;
+  font-size:24rpx;
+  color:#c2c2c2;
   border: 1px solid;
   border-color: beige;
-  padding: 10px;
+  padding: 5px;
 }
 .display_none{
   display: none;
 }
+
+.singleFriend_punch_data {
+  display: flex;
+  flex-direction: row;
+}
+.details {
+  display: flex;
+  flex-direction: row;
+  inline-size: 4rem;
+}
+
 .friend_description{
     margin-bottom: 20rpx; 
     width:95%
@@ -267,4 +281,8 @@ page {
   margin-bottom:20rpx;
   font-size:20rpx;
   color:#c2c2c2;
+}
+
+.weui-uploader__img {
+  width: 100%
 }
