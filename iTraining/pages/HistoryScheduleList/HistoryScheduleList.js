@@ -203,7 +203,7 @@ Page({
             wx.request({
               url: 'https://itraining.zhanzy.xyz/api/v1/schedule',
               data: {
-                option: 'created',
+                option: 'private',
                 team_id: '-1',
                 b_date: '2012-01-01',
                 e_date: '2020-12-30'

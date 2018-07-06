@@ -7,7 +7,14 @@
   </view>
 </scroll-view> -->
 
-
+ <view wx:if="{{schedule_to_punch.is_punched}}"></view>
+<view class="section_gap" wx:else >
+    <text class="section__title">完成度</text>
+  <view class="section_body">
+    <slider  class='slider' bindchange="sliderchange" show-value activeColor='#009688'/>
+  </view> 
+  <text class="section__pert">%</text> 
+</view> 
 <!-- 输入区  -->
 <view class="ideas"> 
   <input placeholder="这一刻的想法..." bindinput='inputDescription'> </input>
@@ -21,5 +28,5 @@
 
 
 <view class='btn' bindtap='punch'>
- <button class='punch_btn' >Punch</button>
+ <button class='punch_btn' >发布动态</button>
 </view>

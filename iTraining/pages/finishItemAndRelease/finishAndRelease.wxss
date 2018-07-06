@@ -64,3 +64,32 @@
   margin-top: 20rpx;
 }
 
+/*完成度条  */
+.section_gap{
+  height: 100rpx;
+  color:rgba(0, 150, 136, 1);
+  line-height: 100rpx;
+  display: flex;
+  flex-direction:row;
+  margin-top: 70rpx;
+  justify-content: center;
+  align-items: center;
+}
+
+.section_title{
+  width: 20%;
+}  
+.section_body{
+  width: 500rpx;
+  height:100rpx;
+  line-height: 100rpx;
+  color: rgba(0, 150, 136, 1);
+  align-items: center;
+  display: flex;
+}
+
+.slider{
+  height:100%;
+  width: 100%;
+}
+

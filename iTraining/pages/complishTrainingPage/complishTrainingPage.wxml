@@ -25,14 +25,14 @@
     <view class="plan_item_detail">每组：{{item.data1}} {{item.meta_details.indic1}} {{item.data2}}{{item.meta_details.indic2}}</view>
   </view>
 </scroll-view>
-<view wx:if="{{schedule_to_punch.is_punched}}"></view>
+<!-- <view wx:if="{{schedule_to_punch.is_punched}}"></view>
 <view class="section_gap" wx:else >
-  <text class="section__title">满意度</text>
+    <text class="section__title">满意度</text>
   <view class="section_body">
     <slider  class='slider' bindchange="sliderchange" show-value activeColor='#009688'/>
-  </view>
-  <text class="section__pert">%</text>
-</view>
+  </view> 
+  <text class="section__pert">%</text> 
+</view> -->
 <!-- <view class='selectImg'bindtap="selectImage">
         <image class='team_img' placeholder="队伍头像" src="{{imagePath}}" ></image>
     </view> -->

@@ -12,7 +12,6 @@ Page({
     completion:'',
     description:'',
     schedule_id:'',
-    completion:'',
   },
 
   /**
@@ -23,7 +22,6 @@ Page({
     console.log(options)
     that.setData({
       schedule_id: options.schedule_id,
-      completion: options.completion,
     })
   },
   
@@ -145,5 +143,11 @@ Page({
 
     })
   }, 
+  sliderchange: function (e) {
+    var that = this
+    that.setData({
+      completion: e.detail.value
+    })
+  },
 
 })
