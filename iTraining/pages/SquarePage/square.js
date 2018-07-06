@@ -1,5 +1,6 @@
 // pages/SquarePage/square.js
 var util = require('../../utils/util.js');
+var fileData = require('../../utils/data.js');
 
 const app = getApp()
 Page({
@@ -19,6 +20,8 @@ Page({
     ]
     */
     indi_index: 0,            // indi_index是动态的数目 用于检查数据的准确性
+    two_dim_show_data = [],
+    two_dim_show_unit = [],
 
 
 
@@ -60,35 +63,67 @@ Page({
       },
       method: "GET",
       success: function (res) {
-        var reversed_moment_list = res.data.data.reverse()
-        that.setData({
-          moment_list: reversed_moment_list,
-          account_moment: reversed_moment_list.length,
-        })
+        var the_moment_list = res.data.data.reverse()
+        var the_account_moment = the_moment_list.length
         // 调整一下时间格式
-        for (var i = 0; i < that.data.account_moment; ++i) {
-          var date = that.data.moment_list[i].punch_date
+        for (var i = 0; i < the_account_moment; ++i) {
+          var date = the_moment_list[i].punch_date
           var punch_date = (new Date(date)).toLocaleString()
           that.data.punch_date_list = that.data.punch_date_list.concat(punch_date)
         }
-        that.setData({
-          punch_date_list: that.data.punch_date_list
-        })
-        console.log("调整时间格式后的动态信息：")
-        console.log(that.data.moment_list)
+        console.log("动态信息：")
+        console.log(the_moment_list)
+        console.log("动态数目为")
+        console.log(the_account_moment)
         // 获取动态列表中每条动态的打卡数据punch_data_list
         var the_punch_data_list = []
-        for (var i = 0; i < that.data.account_moment; ++i) {
-          the_punch_data_list = the_punch_data_list.concat(that.data.moment_list[i].references)
-          that.data.open_list = that.data.open_list.concat(false)
+        var the_open_list = []
+        for (var i = 0; i < the_account_moment; ++i) {
+          the_punch_data_list = the_punch_data_list.concat(the_moment_list[i].references)
+          the_open_list = the_open_list.concat(false)
         }
         that.setData({
+          moment_list: the_moment_list,
+          account_moment: the_account_moment,
           punch_data_list: the_punch_data_list,
-          open_list: that.data.open_list
+          punch_date_list: that.data.punch_date_list,
+          open_list: the_open_list
         })
         console.log("动态中打卡数据的list: ")
         console.log(that.data.punch_data_list)
         console.log('初始不显示状态列表', that.data.open_list)
+
+        // 数据可视化
+        var the_two_dim_show_data = []
+        var the_two_dim_show_unit = []
+        for (var index = 0; index < that.data.account_moment; ++index) {
+          var punch_data = that.data.punch_data_list[index]
+          var indicator_data = ['data1', 'data2', 'data3', 'data4', 'data5', 'data6']
+          var indicator_index = ['index1', 'index2', 'index3', 'index4', 'index5', 'index6']
+          var show_data = []   // 要求指标的数值列表
+          var show_index = []  // 要求指标的名称列表
+          var show_unit = []   // 要求指标的单位列表
+          for (var i = 0; i < 6; ++i) {
+            if (punch_data[indicator_data[i]] != 0) {
+              show_data = show_data.concat(punch_data[indicator_data[i]])
+              show_index = show_index.concat(punch_data[indicator_index[i]])
+            }
+          }
+          var indicator_map = fileData.getIndicatorMap()
+          console.log("指标数据和单位信息")
+          for (var i = 0; i < show_data.length; ++i) {
+            console.log(show_data[i])
+            console.log(indicator_map.get(show_index[i]))
+
+            show_unit = show_unit.concat(indicator_map.get(show_index[i]))
+          }
+          the_two_dim_show_data = the_two_dim_show_data.concat(show_data)
+          the_two_dim_show_unit = the_two_dim_show_unit.concat(show_unit)
+        }
+        that.setData({
+          two_dim_show_data: the_two_dim_show_data,
+          two_dim_show_unit: the_two_dim_show_unit
+        })
       },
        fail: function (res) {
         console.log("错误获取动态信息", res)
@@ -129,6 +164,7 @@ Page({
     if (that.data.open_list[curindex]) {
       console.log("要显示的打卡信息如下")
       console.log(that.data.punch_data_list[curindex])
+      
     }
   },
   getLocation: function () {
