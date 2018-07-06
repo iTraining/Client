@@ -50,10 +50,14 @@
 .ideas{
   margin-left: 50rpx;
   color: black;
-  width: 80%;
+  width: 87%;
   /* border:1rpx solid grey; */
   height: 240rpx;
   margin-top: 20rpx;
+}
+.ideas textarea{
+  width: 100%;
+  height: 240rpx;
 }
 .btn{
 
@@ -61,7 +65,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 20rpx;
+  margin-top: 70rpx;
 }
 
 /*完成度条  */
