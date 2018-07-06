@@ -117,39 +117,39 @@ Page({
     }
   },
 
-  // submit: function (e) {
-  //   var that = this;
-  //   console.log(wx.getStorageSync("set-cookie"))
+  submit: function (e) {
+    var that = this;
+    console.log(wx.getStorageSync("set-cookie"))
 
     
-  //   if (that.data.CommunityName == undefined || that.data.CommunityDescription == undefined || that.data.CommunityName == "" || that.data.CommunityDescription=="") {
-  //     console.log("队伍名称或队伍描述不能为空")
-  //     this.setData({
-  //       hint:"队伍名称或队伍描述不能为空"
-  //     })
-  //     return ;
-  //   }
-  //   wx.request({
-  //     url: 'https://itraining.zhanzy.xyz/api/v1/team',
-  //     data:Util.json2Form({
-  //       name: that.data.CommunityName,
-  //       bio: that.data.CommunityDescription,
-  //     }),
-  //     header:{
-  //       'content-type': 'application/x-www-form-urlencoded',
-  //       // 'content-type': 'application/json',
-  //       'Cookie':  wx.getStorageSync("set-cookie")
-  //     },
-  //     method: "POST",      
-  //     success:function(res){
-  //         console.log("确认成功" + that.data.CommunityName + "---------" + that.data.CommunityDescription);
-  //         console.log(res.data) 
-  //         that.setData({
-  //           hint: "创建成功"
-  //         })
-  //     },
-  //   })
-  // },
+    if (that.data.CommunityName == undefined || that.data.CommunityDescription == undefined || that.data.CommunityName == "" || that.data.CommunityDescription=="") {
+      console.log("队伍名称或队伍描述不能为空")
+      this.setData({
+        hint:"队伍名称或队伍描述不能为空"
+      })
+      return ;
+    }
+    wx.request({
+      url: 'https://itraining.zhanzy.xyz/api/v1/team',
+      data:Util.json2Form({
+        name: that.data.CommunityName,
+        bio: that.data.CommunityDescription,
+      }),
+      header:{
+        'content-type': 'application/x-www-form-urlencoded',
+        // 'content-type': 'application/json',
+        'Cookie':  wx.getStorageSync("set-cookie")
+      },
+      method: "POST",      
+      success:function(res){
+          console.log("确认成功" + that.data.CommunityName + "---------" + that.data.CommunityDescription);
+          console.log(res.data) 
+          that.setData({
+            hint: "创建成功"
+          })
+      },
+    })
+  },
 
   // data: {
   //   "CommunityName":'',

@@ -2,15 +2,10 @@
 
 <scroll-view class='scroll_view' scroll-y="true">
   <view class="title"> 紧急处理方法 </view>
-
-
-  
-  
-
   <view class='article1' bindtap='article1Click1' hover-class='grey_active'> 
       <view class='miaoshu'>异物刺入皮肤</view>
       <view class="img_class">
-        <image class="img" src ="../../image/icon_tab/arrow_right.png"></image>
+        <image class="img" src ="../../image/icon_tab/arrow_down.png"></image>
       </view>
   </view>
   <view class="article1_detail"  hidden="{{!isClick1}}">
@@ -21,7 +16,7 @@
   <view class='article1' bindtap='article1Click2' hover-class='grey_active'> 
       <view class='miaoshu'>异物入眼</view>
       <view class="img_class">
-        <image class="img" src ="../../image/icon_tab/arrow_right.png"></image>
+        <image class="img" src ="../../image/icon_tab/arrow_down.png"></image>
       </view>
   </view>  
 
@@ -33,7 +28,7 @@
   <view class='article1' bindtap='article1Click3' hover-class='grey_active'> 
       <view class='miaoshu'>关节扭伤</view>
       <view class="img_class">
-        <image class="img" src ="../../image/icon_tab/arrow_right.png"></image>
+        <image class="img" src ="../../image/icon_tab/arrow_down.png"></image>
       </view>
   </view> 
   <view class="article1_detail" hidden="{{!isClick3}}">
@@ -44,7 +39,7 @@
   <view class='article1' bindtap='article1Click4' hover-class='grey_active'> 
       <view class='miaoshu'>流鼻血</view>
       <view class="img_class">
-        <image class="img" src ="../../image/icon_tab/arrow_right.png"></image>
+        <image class="img" src ="../../image/icon_tab/arrow_down.png"></image>
       </view>
   </view>   
   <view class="article1_detail" hidden="{{!isClick4}}">
@@ -55,7 +50,7 @@
   <view class='article1' bindtap='article1Click5' hover-class='grey_active'> 
       <view class='miaoshu'>心脏骤停（猝死）</view>
       <view class="img_class">
-        <image class="img" src ="../../image/icon_tab/arrow_right.png"></image>
+        <image class="img" src ="../../image/icon_tab/arrow_down.png"></image>
       </view>
   </view>
   <view class="article1_detail" hidden="{{!isClick5}}">
@@ -66,7 +61,7 @@
   <view class='article1' bindtap='article1Click6' hover-class='grey_active'> 
       <view class='miaoshu'>小腿肚抽筋</view>
       <view class="img_class">
-        <image class="img" src ="../../image/icon_tab/arrow_right.png"></image>
+        <image class="img" src ="../../image/icon_tab/arrow_down.png"></image>
       </view>
   </view>
   <view class="article1_detail" hidden="{{!isClick6}}">

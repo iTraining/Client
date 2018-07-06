@@ -52,10 +52,6 @@
   margin-left: 25rpx;
 }
 
-.scroll_view{
-  
-}
-
 .plan_item{
   height:65px;
   margin-left: 50rpx;
@@ -101,8 +97,17 @@
   height:100%;
   width: 100%;
 }
-.section_pert{
+.team_img{
+  width: 120rpx;
+  height: 120rpx;
+  border: 1px solid #ccc;
+  border-radius: 50%;    
   
+}
+
+.selectImg{
+  display: flex;
+  justify-content: center;
 }
 
 

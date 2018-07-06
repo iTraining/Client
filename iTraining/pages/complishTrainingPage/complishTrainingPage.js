@@ -12,7 +12,10 @@ Page({
     plan_items:[],
     schedule_to_punch:[],
     meta_map:{},
+    imagePath: "/image/icon_tab/dianzan1.png",
     indicator_map:fileData.getIndicatorMap(),
+    description:'',
+    completion:0,
   },
 
   /**
@@ -57,20 +60,20 @@ Page({
 
         var t_references = that.data.schedule_to_punch.references
         // 匹配到训练项目的名称和单位
-
         for (var i = 0; i < t_references.length;i++) {
 // that.data.meta_map.get(that.data.schedule_to_punch.references[i].meta_id)
           t_references[i].meta_details=that.data.meta_map.get(t_references[i].meta_id)
         }
-
         that.setData({
           'schedule_to_punch.references':t_references,
           indicator_map: fileData.getIndicatorMap()
         })
         console.log('indicator', that.data.indicator_map.get(t_references[0].meta_details.index1))
 
-        console.log(that.data.meta_map)
+        console.log("meta的映射",that.data.meta_map)
         console.log(that.data.indicator_map)
+        console.log(that.data.schedule_to_punch)
+        console.log("打卡数据显示如下")
         console.log(that.data.schedule_to_punch)
       }
     })
@@ -114,6 +117,11 @@ Page({
   
   },
 
+  inputDescription:function(e) {
+    this.setData({
+      description: e.detail.value
+    })
+  },
   /**
    * 生命周期函数--监听页面显示
    */
@@ -155,38 +163,46 @@ Page({
   onShareAppMessage: function () {
   
   },
-  punch: function () {
-    var that = this
-    wx.request({
-      url: 'https://itraining.zhanzy.xyz/api/v1/punch',
-      method: 'POST',
-      data: {
-        schedule_id: that.data.schedule_to_punch.schedule_id,
-        completion: that.data.completion,
-      },
-      header: {
-        'Cookie': wx.getStorageSync("set-cookie")
-      },
-      success: function (res) {
-        console.log(res)
-        wx.showToast({
-          title: '打卡成功',
-          icon: 'success',
-          duration: 1000,
-          complete: function () {
-            wx.switchTab({
-              url: '../PersonalCenter/PersonalCenter',
-            })
-          }
-        })
-        // wx.navigateBack({
-        //   delta: 1
-        // })
-
-      },
-      fail: function (res) {
-
-      }
+  sliderchange:function(e) {
+    var that=this
+    that.setData({
+      completion:e.detail.value
     })
   },
+  punch: function () {
+    var that = this
+    wx.navigateTo({
+      url: '../finishItemAndRelease/finishAndRelease?schedule_id=' + that.data.schedule_to_punch.schedule_id + '&completion=' + that.data.completion,
+    })
+    
+
+    // wx.request({
+    //   url: 'https://itraining.zhanzy.xyz/api/v1/punch',
+    //   method: 'POST',
+    //   data: {
+    //     schedule_id: that.data.schedule_to_punch.schedule_id,
+    //     completion: that.data.completion,
+    //   },
+    //   header: {
+    //     'Cookie': wx.getStorageSync("set-cookie")
+    //   },
+    //   success: function (res) {
+    //     console.log(res)
+    //     wx.showToast({
+    //       title: '打卡成功',
+    //       icon: 'success',
+    //       duration: 1000,
+    //       complete: function () {
+    //         wx.switchTab({
+    //           url: '../PersonalCenter/PersonalCenter',
+    //         })
+    //       }
+    //     })
+    //   },
+    //   fail: function (res) {
+
+    //   }
+    // })
+  },
+  
 })

@@ -40,7 +40,7 @@
 .right_info{
   display: flex;
   height:100%;
-  width: 75%;
+  width: 100%;
   flex-direction: column;
 }
 
@@ -70,12 +70,13 @@
 
 .arrow_img{
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: center; 
+  margin-right: 0px;
+  justify-content: flex-end;
   width: 13px;
 }
 
-.arrow_img .to_detail{
+.to_detail{
   height:13px;
   width: 13px;
 }
