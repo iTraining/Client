@@ -16,7 +16,20 @@
   display: flex;
 
 }
-.nav_section_items text{
+
+.display_show{
+  border: 1px solid;
+  border-color: beige;
+  padding: 10px;
+  margin-bottom:20rpx;
+  font-size:30rpx;
+  color:#c2c2c2;
+}
+.display_none{
+  display: none;
+}
+
+.nav_section_items {
   font-family: Arial;
   color:#030303;
   margin-left: 40rpx;

@@ -6,10 +6,15 @@
     <!--list-->
     <view class="nav_section">
       <view wx:if="{{amount_meta}}">
-        <block wx:for="{{training_name_list}}" wx:key="item">
-          <view class="nav_section_items">
-            <text>{{item}}</text>
+        <block wx:for="{{training_name_list}}" wx:key="item" wx:for-index="idx">
+          <view class="nav_section_items" bindtap="showIndicator" data-current="{{idx}}">{{item}}{{open_list[idx]?"▲":"▼"}}
           </view>
+           <view class="{{open_list[idx]?'display_show':'display_none'}}">
+              <view class= 'indicatror_header'>相关指标名称</view>
+              <view class="indicatror_data" wx:for='{{index_list[idx]}}' wx:for-item='indicators' wx:for-index="two_index">
+                  <view class="indicatror_data_name">{{indicators}}</view> 
+              </view>
+            </view>
         </block>
       </view>
       <view wx:else class='no_plan'>暂无训练项目</view>
