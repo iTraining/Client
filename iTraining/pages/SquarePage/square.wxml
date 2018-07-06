@@ -98,7 +98,7 @@
             <view class="friend_description">{{item.description}}</view>
             <!--<block wx:for="{{imageList}}" wx:for-item="image"> -->
             <view class='friend_img'>
-              <image class="weui-uploader__img" src="{{'https://itraining.zhanzy.xyz/' + item.image_url}}" mode="widthFix"> </image>
+              <image class="weui-uploader__img" src="{{image_url_list[idx]}}" mode="widthFix" data-current='{{idx}}' bindtap='previewImg'> </image>
             </view>
             <view class="publist_time">{{punch_date_list[idx]}}</view>
           </view>

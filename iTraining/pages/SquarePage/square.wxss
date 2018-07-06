@@ -2,7 +2,7 @@
 
 page {
     height: 100%;
-    background-color: #f7f7f7;
+    background-color: white;
 }
 
 .swiper-tab {
@@ -284,5 +284,5 @@ page {
 }
 
 .weui-uploader__img {
-  width: 100%
+  width: 50%
 }
