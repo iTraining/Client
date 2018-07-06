@@ -70,15 +70,14 @@
 
 .arrow_img{
   display: flex;
-  align-items: center; 
-  margin-right: 0px;
-  justify-content: flex-end;
-  width: 13px;
+  flex-direction: row-reverse;
+  align-items: center;
+  width: 60px;
 }
 
 .to_detail{
-  height:13px;
-  width: 13px;
+  height:20px;
+  width: 20px;
 }
 .item_introduction{
   height: 50%;

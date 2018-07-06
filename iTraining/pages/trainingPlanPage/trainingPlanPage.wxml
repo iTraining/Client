@@ -28,7 +28,7 @@
   </view>
   <view wx:else> 
   <view class="no_plan_tip">今天没有计划哦,</view>
-<view class="no_plan_tip1">好好放松一下吧</view>
+  <view class="no_plan_tip1">好好放松一下吧</view>
   </view>
   <!-- <view class="border-bottom" wx:for="{{todayPlan}}" wx:key="{{item.id}}"></view> -->
 </scroll-view>

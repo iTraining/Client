@@ -7,6 +7,17 @@
   </view>
 </scroll-view> -->
 
+
+<!-- 输入区  -->
+<view class="ideas"> 
+  <textarea placeholder="这一刻的想法..." bindinput='inputDescription' > </textarea> 
+</view>
+
+<!-- 输入图片  -->
+<view class='image_class' bindtap="selectImage">
+  <image class="img_1" src="{{imagePath}}" bindlongtap='img_delete' mode='aspectFill'></image>
+</view>
+
  <view wx:if="{{schedule_to_punch.is_punched}}"></view>
 <view class="section_gap" wx:else >
     <text class="section__title">完成度</text>
@@ -15,16 +26,6 @@
   </view> 
   <text class="section__pert">%</text> 
 </view> 
-<!-- 输入区  -->
-<view class="ideas"> 
-  <input placeholder="这一刻的想法..." bindinput='inputDescription'> </input>
-</view>
-
-<!-- 输入图片  -->
-<view class='image_class' bindtap="selectImage">
-  <image class="img_1" src="{{imagePath}}" bindlongtap='img_delete' mode='aspectFill'></image>
-</view>
-
 
 
 <view class='btn' bindtap='punch'>
