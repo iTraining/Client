@@ -96,12 +96,13 @@ Page({
                   if (res.data.data[i].schedule_id = t_punch_list[j].schedule_id) {
                     isFindinPunchList=true
                   }
+                }
                   if (isFindinPunchList ==false) {
                     res.data.data[i].is_punched=false 
                   } else {
                     res.data.data[i].is_punched = true
                   }
-                }
+                
               }
               console.log(res.data.data)
                 // 今天的日期
