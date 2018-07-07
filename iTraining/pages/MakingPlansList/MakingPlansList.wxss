@@ -117,6 +117,7 @@
     margin-bottom:10rpx;
 }
 .nav_section_items .section_cont .section_cont_price{
+    display: flex;
     font-size:32rpx;
     color:#d24a58;
 }

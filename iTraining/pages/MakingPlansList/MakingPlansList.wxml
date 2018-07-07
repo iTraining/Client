@@ -66,10 +66,18 @@
                 <text>{{item.training_name}}</text>
               </view>
               <view class="section_cont_price">
-                {{item.group_number}} 组 {{' '+item.data1}}*{{item.data2}} 
+
+                {{item.group_number}} 组, 每组
+                
+                <view wx:if="{{item.meta_details.indic1}}">{{item.data1}}{{item.meta_details.indic1}} </view>
+    <view wx:if="{{item.meta_details.indic2}}">{{item.data2}}{{item.meta_details.indic2}} </view>
+    <view wx:if="{{item.meta_details.indic3}}">{{item.data3}}{{item.meta_details.indic3}} </view>
+    <view wx:if="{{item.meta_details.indic4}}">{{item.data4}}{{item.meta_details.indic4}} </view>
+    <view wx:if="{{item.meta_details.indic5}}">{{item.data5}}{{item.meta_details.indic5}} </view>
+    <view wx:if="{{item.meta_details.indic6}}">{{item.data6}}{{item.meta_details.indic6}}</view>
               </view>
             </view>
-            <view class="section_book" data-index="{{index}}" data-item="{{item}}"bindtap="edit_item">
+            <view class="section_book" data-index="{{index}}" data-item="{{item}}" bindtap="edit_item">
               <text>修改</text>
             </view>
           </view>

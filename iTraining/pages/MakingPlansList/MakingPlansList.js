@@ -159,13 +159,15 @@ Page({
     })
   },
   edit_item: function (event) {
+    var that=this
     console.log('点击修改某个项目')
     console.log('待修改的项目信息')
     var want_edit_item = event.currentTarget.dataset.item
     var item_index = event.currentTarget.dataset.index
     console.log(want_edit_item) 
+    wx.setStorageSync("want_edit_item", want_edit_item)
     wx.navigateTo({
-      url: '../AddorEditPlans/AddorEditPlans?flag=' + 'edit' + '&item_index=' + item_index + '&old_item_name=' +want_edit_item.name + '&index_name=' + want_edit_item.index_name+'&index_style='+want_edit_item.index_style+'&totalGroup='+want_edit_item.totalGroup+'&num_perGroup='+want_edit_item.num_perGroup+'&require_perGroup='+want_edit_item.require_perGroup,
+      url: '../AddorEditPlans/AddorEditPlans?flag=' + 'edit' + '&item_index=' + item_index + '&old_item_name=' + want_edit_item.name + '&index_name=' + want_edit_item.index_name + '&index_style=' + want_edit_item.index_style + '&totalGroup=' + want_edit_item.totalGroup + '&num_perGroup=' + want_edit_item.num_perGroup + '&require_perGroup=' + want_edit_item.require_perGroup + '&team_id=' + that.data.trainPlanData.team_id,
     })
   },
   set_trainPlanData: function (e) {
@@ -297,10 +299,58 @@ Page({
     console.log('已经添加的训练项目数和项目信息')
     console.log(this.data.indi_index)
     console.log(this.data.trainPlanData.references)
-    this.setData({
-      'trainPlanData.indicators': that.data.trainPlanData.references
+
+    wx.request({
+      url: 'https://itraining.zhanzy.xyz/api/v1/schedule/meta',
+      header: {
+        'Cookie': wx.getStorageSync("set-cookie")
+      },
+      data: {
+        team_id: that.data.trainPlanData.team_id,
+      },
+      method: "GET",
+      success: function (res) {
+        var t_team_map = new Map()
+        console.log(res)
+        var t_meta_data = res.data.data
+        for (var i = 0; i < t_meta_data.length; i++) {
+          t_meta_data[i].indic1 = fileData.getIndicatorMap().get(t_meta_data[i].index1)
+          t_meta_data[i].indic2 = fileData.getIndicatorMap().get(t_meta_data[i].index2)
+          t_meta_data[i].indic3 = fileData.getIndicatorMap().get(t_meta_data[i].index3)
+          t_meta_data[i].indic4 = fileData.getIndicatorMap().get(t_meta_data[i].index4)
+          t_meta_data[i].indic5 = fileData.getIndicatorMap().get(t_meta_data[i].index5)
+          t_meta_data[i].indic6 = fileData.getIndicatorMap().get(t_meta_data[i].index6)
+        }
+        console.log(t_meta_data)
+        for (var i = 0; i < t_meta_data.length; i++) {
+          t_team_map.set(t_meta_data[i].meta_id, t_meta_data[i])
+        }
+        console.log(t_team_map)
+        that.setData({
+          meta_map: t_team_map
+        })
+        console.log(that.data.meta_map)
+
+        var t_references = that.data.trainPlanData.references
+        // 匹配到训练项目的名称和单位
+        for (var i = 0; i < t_references.length; i++) {
+          // that.data.meta_map.get(that.data.schedule_to_punch.references[i].meta_id)
+          t_references[i].meta_details = that.data.meta_map.get(t_references[i].meta_id)
+        }
+        that.setData({
+          'trainPlanData.references': t_references,
+          'trainPlanData.indicators': t_references,
+          indicator_map: fileData.getIndicatorMap()
+        })
+        console.log(that.data.trainPlanData.indicators)
+        console.log('indicator', that.data.indicator_map.get(t_references[0].meta_details.index1))
+
+      }
     })
-    console.log(this.data.trainPlanData.indicators)    
+
+    // this.setData({
+    //   'trainPlanData.indicators': that.data.trainPlanData.references
+    // })
   },
 
   /**
