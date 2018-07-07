@@ -21,7 +21,7 @@
       </view>
       <view class="item_introduction">{{item.description}}</view>
       <view class="item_introduction" wx:if="{{item.is_punched}}">已打卡</view>
-      <view wx:else class="item_introduction">未打卡</view>
+      <view wx:else class="item_unpunched">未打卡</view>
     </view>
     <!-- <view class="border-bottom"></view> -->
   </view>
@@ -54,6 +54,8 @@
         </view> 
       </view>
       <view class="item_introduction">{{item.description}}</view>
+      <view class="item_introduction" wx:if="{{item.is_punched}}">已打卡</view>
+      <view wx:else class="item_unpunched">未打卡</view>
     </view>
     <!-- <view class="border-bottom"></view> -->
   </view>

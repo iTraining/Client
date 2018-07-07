@@ -119,10 +119,15 @@ Page({
                   console.log(t_training_date)
                   // 加入今日计划
                   if (t_training_date.getFullYear() == t_date.getFullYear() && t_training_date.getDay() == t_date.getDay() && t_training_date.getMonth() == t_date.getMonth()) {
+                    console.log("加入今日计划")
                     t_schedule_today.push(res.data.data[i])
                   }
                   // 加入明日计划
-                  if (t_training_date.getFullYear() == t_date.getFullYear() && t_training_date.getDay() == (t_date.getDay() + 1) && t_training_date.getMonth() == t_date.getMonth()) {
+                  var t_tomorrow_date=+new Date()
+                  t_tomorrow_date = t_tomorrow_date + 1000 * 60 * 60 * 24
+                  t_tomorrow_date = new Date(t_tomorrow_date)
+                  if (t_training_date.getFullYear() == t_tomorrow_date.getFullYear() && t_training_date.getDay() == t_tomorrow_date.getDay()&& t_training_date.getMonth() == t_tomorrow_date.getMonth()) {
+                    console.log("加入明日计划")
                     t_schedule_tomorrow.push(res.data.data[i])
                   }
                 }

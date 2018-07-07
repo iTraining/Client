@@ -66,6 +66,9 @@
   font-family: Arial,;
 }
 .plan_item_detail{
+  display: flex;
+  flex-wrap:nowrap;
+  /* justify-content:space-between; */
   font-size: 12px;
   line-height:17px;
   color: #8F8E94 ;
