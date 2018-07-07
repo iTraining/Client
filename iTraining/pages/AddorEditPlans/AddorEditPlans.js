@@ -275,6 +275,11 @@ Page({
           that.data.old_item_info = wx.getStorageSync('want_edit_item')
           console.log('要修改的项目信息')
           console.log(that.data.old_item_info)
+          // that.setData({
+          //   ['train_item_info.training_name']: that.data.old_item_info.training_name
+          // })
+          console.log("meta list")
+          console.log(that.data.meta_list)
           var old_item_name = that.data.old_item_info.training_name
           var the_index_name = that.data.old_item_info.meta_id  // 这里的meta_id与该项目在meta列表里的序号相同
           for (var i = 0; i < that.data.amount_meta; i++) {
@@ -307,6 +312,7 @@ Page({
               console.log('当做背景的unit为：')
               console.log(the_indicator_unit_list)
               that.setData({
+                // ['train_item_info.training_name']
                 indicator_name_list: the_indicator_name_list,
                 indicator_unit_list: the_indicator_unit_list,
               })

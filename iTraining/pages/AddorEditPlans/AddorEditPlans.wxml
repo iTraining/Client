@@ -14,7 +14,7 @@
         <input type="number" placeholder="组" bindinput="getTotalGroups" auto-focus></input>
       </view>
       <view wx:else>  
-        <input type="number " placeholder="{{old_item_info.group_number}}" bindinput="getTotalGroups"></input>
+        <input type="number " value="{{old_item_info.group_number}}" bindinput="getTotalGroups"></input>
       </view>
     </view>
 
@@ -26,7 +26,7 @@
           <input type="number" placeholder="{{indicator_unit_list[index]}}" bindinput="getIndicatorValue" data-current="{{index}}"></input>
         </view>
         <view wx:else>   <!-- 应该显示用户之前输入的数值-->
-          <input type="number" placeholder="{{indicator_unit_list[index]}}" bindinput="getIndicatorValue" data-current="{{index}}"></input>
+          <input type="number" value="{{indicator_value_list[index]}}" bindinput="getIndicatorValue" data-current="{{index}}"></input>
         </view>
       </view>
     </view>
