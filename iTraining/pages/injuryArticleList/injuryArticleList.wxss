@@ -53,3 +53,10 @@ page {
   color: #000;
 }
 
+.text_should {
+  float:left;
+  margin-bottom:10rpx;
+  border: 1px solid;
+  border-color: beige;
+  padding: 5px;
+}
