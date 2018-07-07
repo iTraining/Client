@@ -11,6 +11,12 @@ Page({
     isClick4:false,
     isClick5: false,
     isClick6: false,
+    imgSrc1: "../../image/icon_tab/arrow_down.png",
+    imgSrc2: "../../image/icon_tab/arrow_down.png",
+    imgSrc3: "../../image/icon_tab/arrow_down.png",
+    imgSrc4: "../../image/icon_tab/arrow_down.png",
+    imgSrc5: "../../image/icon_tab/arrow_down.png",
+    imgSrc6: "../../image/icon_tab/arrow_down.png",
   },
 
   /**
@@ -75,12 +81,15 @@ Page({
     console.log(temp);
     if(temp==false){
       that.setData({
-        isClick1: true
+        isClick1: true,
+        
+        imgSrc1: "../../image/icon_tab/arrow-up.png"
       })
 
     }else{
       that.setData({
-        isClick1: false
+        isClick1: false,
+        imgSrc1: "../../image/icon_tab/arrow_down.png"
       })
     }  
   },
@@ -90,12 +99,14 @@ Page({
     var that = this;
     if (temp == false) {
       that.setData({
-        isClick2: true
+        isClick2: true,
+        imgSrc2: "../../image/icon_tab/arrow-up.png"
       })
 
     } else {
       that.setData({
-        isClick2: false
+        isClick2: false,
+        imgSrc2: "../../image/icon_tab/arrow_down.png"
       })
     }
   },
@@ -106,12 +117,14 @@ Page({
     
     if (temp == false) {
       that.setData({
-        isClick3: true
+        isClick3: true,
+        imgSrc3: "../../image/icon_tab/arrow-up.png"
       })
 
     } else {
       that.setData({
-        isClick3: false
+        isClick3: false,
+        imgSrc3: "../../image/icon_tab/arrow_down.png"
       })
     }
   },
@@ -122,12 +135,14 @@ Page({
 
     if (temp == false) {
       that.setData({
-        isClick4: true
+        isClick4: true,
+        imgSrc4: "../../image/icon_tab/arrow-up.png"
       })
 
     } else {
       that.setData({
-        isClick4: false
+        isClick4: false,
+        imgSrc4: "../../image/icon_tab/arrow_down.png"
       })
     }
   },
@@ -138,12 +153,14 @@ Page({
 
     if (temp == false) {
       that.setData({
-        isClick5: true
+        isClick5: true,
+        imgSrc5: "../../image/icon_tab/arrow-up.png"
       })
 
     } else {
       that.setData({
-        isClick5: false
+        isClick5: false,
+        imgSrc5: "../../image/icon_tab/arrow_down.png"
       })
     }
   },
@@ -154,12 +171,14 @@ Page({
 
     if (temp == false) {
       that.setData({
-        isClick6: true
+        isClick6: true,
+        imgSrc6: "../../image/icon_tab/arrow-up.png"
       })
 
     } else {
       that.setData({
-        isClick6: false
+        isClick6: false,
+        imgSrc6: "../../image/icon_tab/arrow_down.png"
       })
     }
   },

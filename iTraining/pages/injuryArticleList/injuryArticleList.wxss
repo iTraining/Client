@@ -44,9 +44,7 @@ page {
   height: 100%;
 }
 
-.grey_active{
-  background-color: #f7f7f7;
-}
+
 .article1_detail{
   font-size: 11pt;
   background-color: ＃FBFBEA;
