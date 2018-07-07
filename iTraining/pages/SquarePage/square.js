@@ -39,6 +39,10 @@ Page({
     air: '',
     dress: ''
   },
+  sortMoment: function (a, b) {
+    var punch_date = 'punch_date'
+    return b[punch_date] - a[punch_date]
+  },
   requestMoment:function () {
     var that = this
     var now_date = util.getNowDate()
@@ -58,16 +62,25 @@ Page({
       },
       method: "GET",
       success: function (res) {
-        var the_moment_list = res.data.data.reverse()
+        var the_moment_list = res.data.data
         var the_account_moment = the_moment_list.length
+        console.log("动态信息：")
+        console.log(the_moment_list)
+        // 将传回来的动态按时间先后顺序排序重新调整  需要先调整时间的格式再排序
+        for (var i = 0; i < the_account_moment; ++i) {
+          var m_date = the_moment_list[i]['punch_date']
+          the_moment_list[i]['punch_date'] = new Date(m_date)
+        }
+        the_moment_list.sort(that.sortMoment)
+        console.log("按时间排序后的动态信息：")
+        console.log(the_moment_list)
         // 调整一下时间格式
         for (var i = 0; i < the_account_moment; ++i) {
           var date = the_moment_list[i].punch_date
           var punch_date = (new Date(date)).toLocaleString()
           that.data.punch_date_list = that.data.punch_date_list.concat(punch_date)
         }
-        console.log("动态信息：")
-        console.log(the_moment_list)
+        
         console.log("动态数目为")
         console.log(the_account_moment)
         // 获取动态列表中每条动态的打卡数据punch_data_list
@@ -172,10 +185,15 @@ Page({
     var that = this
      // 请求动态信息
     that.requestMoment()
-
-
-
     console.log("成功加载页面")
+    console.log("传进来的参数为")
+    console.log(options)
+    if (options.punched == 1) {
+      that.setData({
+        currentNavTab: options.punched.toString(),
+      })
+    }
+
     //更新当前日期
     app.globalData.day = util.formatTime(new Date()).split(' ')[0];
     this.setData({

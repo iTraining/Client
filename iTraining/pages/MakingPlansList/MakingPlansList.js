@@ -13,7 +13,7 @@ Page({
       team_id: 0, // 其实是team_list的下标
       training_class: '训练',  // 其实是training_class_list的下标 0表示训练 1表示测试
       title: '',
-      description: '',
+      description: '无',
       training_date: '2018-6-30',
       indicators:[],
       references:[],
@@ -58,6 +58,26 @@ Page({
       // 'meta.team_id': e.detail.value
        [str_team_id]:that.data.team_id_list[e.detail.value],
       selected_team_name: that.data.team_name_list[e.detail.value],
+    })
+    // 判断该队伍的训练项目数是否为0 如果为0跳转到自定义训练项目专栏页面
+    wx.request({
+      url: 'https://itraining.zhanzy.xyz/api/v1/schedule/meta',
+      data: {
+        team_id: that.data.trainPlanData.team_id
+      },
+      method: "GET",
+      header: {
+        'Cookie': wx.getStorageSync("set-cookie")
+      },
+      success: function (res) {
+        if (res.data.data.length == 0) {
+          that.showErrorToast("该队伍暂无训练项目")
+          var str='add'
+          wx.navigateTo({
+            url: '../AddorEditTrainItems/AddorEditTrainItems?flag=' + str + '&team_id=' + that.data.trainPlanData.team_id
+          })
+        }
+      }
     })
   },
   trainingClassChange: function (e) {
@@ -117,27 +137,6 @@ Page({
         }
       }
     })
-
-    /*  数据缓存的方式需要
-    try {
-      var train_item_info = wx.getStorageSync('train_item_info');
-      if (train_item_info) {
-        var count = that.data.indi_index +1;
-        that.data.indi_index = count;
-        that.data.indicators = that.data.indicators.concat(train_item_info)
-        that.setData({
-          indi_index: that.data.indi_index,
-          indicators: that.data.indicators
-        });
-      }
-    } catch (e) {
-      console.log('没有添加训练项目')
-    };
-    */
-    // that.setData({
-    //   team_list: ['龙舟队', '赛艇队'],  // 计划的目标队伍，仅供局部测试
-    //   //list: fileData.getIndexNavSectionData(),
-    // })
     console.log('训练项目信息')
     console.log(that.data.indi_index)
     console.log(that.data.trainPlanData.indicators)
@@ -232,18 +231,13 @@ Page({
           console.log(res)
         }
       })
-
-      //这里暂时用数据缓存来方便后面打卡取这个计划
-      // wx.setStorageSync('single_trainPlanData', that.data.trainPlanData)
-
-      
     }
   },
   showErrorToast: function (message) {
     wx.showToast({
       title: message,
       icon:'none',
-      duration: 1000,
+      duration: 2000,
     })
   },
   SaveToDrafts:function() {
@@ -256,11 +250,11 @@ Page({
     if (that.data.indi_index == 0) {  // 如果训练项目数目为0
       that.showErrorToast("请添加训练项目")
       return false;
-    } else if(trainPlanData.description==""){
-      that.showErrorToast("计划简介不能为空")
-      return false
     } else if(trainPlanData.title == "") {
       that.showErrorToast("计划标题不能为空")
+      return false
+    } else if (trainPlanData.description == "") {
+      that.showErrorToast("计划简介不能为空")
       return false
     } else {
       if (trainPlanData.training_class == '测试') {

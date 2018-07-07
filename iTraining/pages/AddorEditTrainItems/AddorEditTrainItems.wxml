@@ -15,7 +15,7 @@
     <view class="item_name">
       <text>项目名称：</text>
       <view wx:if="{{add}}">
-        <input type="text" placeholder="请输入项目名称" bindinput="getItemName"></input>
+        <input type="text" placeholder="请输入项目名称" bindinput="getItemName" auto-focus></input>
       </view>
       <view wx:else>
         <input type="text" placeholder="{{old_item_name}}" bindinput="getItemName"></input>

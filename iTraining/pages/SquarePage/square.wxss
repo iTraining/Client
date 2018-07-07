@@ -17,6 +17,7 @@ page {
   display: inline-block;
   width: 20%;
   color: #777;
+  font-weight: bold;
 }
 .on {
   color: #7cba23;
