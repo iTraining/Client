@@ -250,7 +250,6 @@ Page({
            'train_item_info.meta_id':res.data.data[0].meta_id
         })
         }
-        // 应该通过team_id向从数据库获取，这里 暂时用全局变量的方式
         
         var the_meta_list = res.data.data   // meta_list是team_id对应的项目信息列表
         var the_amount_meta = res.data.data.length
