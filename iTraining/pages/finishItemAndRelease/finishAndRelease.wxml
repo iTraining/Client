@@ -16,7 +16,7 @@
 <!-- 输入图片  -->
 <view class='image_class' bindtap="selectImage">
   <view class='backgro'>
-    <image class="img_1" src="{{imagePath}}" bindlongtap='img_delete' mode='center'></image>
+    <image class="img_1" src="{{imagePath}}" bindlongtap='img_delete' mode='aspectFill'></image>
   </view>
 </view>
 

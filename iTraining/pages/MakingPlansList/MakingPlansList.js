@@ -70,6 +70,8 @@ Page({
         'Cookie': wx.getStorageSync("set-cookie")
       },
       success: function (res) {
+        console.log("该队伍项目信息")
+        console.log(res.data)
         if (res.data.data.length == 0) {
           that.showErrorToast("该队伍暂无训练项目")
           var str='add'
