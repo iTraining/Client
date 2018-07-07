@@ -199,48 +199,17 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
+    console.log("队伍简介")
+    console.log(this.data.team_bio)
     return {
       title: 'iTraining~',
       desc:'token='+this.data.token,
-      path: '/pages/JoinCommunity/JoinCommunity?team_id=' + this.data.team_id +'&token='+this.data.token
+      path: '/pages/JoinCommunity/JoinCommunity?team_id=' + this.data.team_id + '&token=' + this.data.token + '&team_image_url=' + this.data.team_image + '&team_name=' + this.data.name + '&team_bio=' + this.data.bio
     }
   },
   inviteSomeone:function() {
+    
     this.onShareAppMessage()
-    // var that=this
-    // wx.request({
-    //   url: 'https://itraining.zhanzy.xyz/api/v1/team/invitation',
-    //   data: {
-    //     team_id: that.data.team_id
-    //     // option:'created'
-    //   },
-    //   header: {
-    //     'content-type': 'application/x-www-form-urlencoded',
-    //     // 'content-type': 'application/json',
-    //     'Cookie': wx.getStorageSync("set-cookie")
-    //   },
-    //   method: "GET",
-    //   success: function (res) {
-    //     // 从链接中获取到teamid 和token
-    //     console.log(res.data)
-    //     var url=res.data.data
-    //     var index=url.indexOf('?')
-    //     var resdata=url.substr(index+1)
-    //     // console.log(resdata)
-    //     var strs = resdata.split("&")
-    //     // console.log(strs)
-    //     var mtoken=strs[0].split('=')[1]
-    //     var mteamid=strs[1].split('=')[1]
-    //     console.log("token "+mtoken)
-    //     console.log('teamid'+mteamid)
-    //     // console.log(res.data.data.indexOf('?'))
-    //     // var resdata=
-    //     that.setData({
-    //       token:mtoken,
-    //       teamid:mteamid,
-    //     })
-    //   },
-    // })
   },
   deleteCommunity:function() {
     var that=this;

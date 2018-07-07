@@ -74,27 +74,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    var that = this
-
-    // wx.request({
-    //   url: 'https://itraining.zhanzy.xyz/api/v1/team',
-    //   data: {
-    //     option: 'joined'
-    //     // option:'created'
-    //   },
-    //   header: {
-    //     'content-type': 'application/x-www-form-urlencoded',
-    //     // 'content-type': 'application/json',
-    //     'Cookie': wx.getStorageSync("set-cookie")
-    //   },
-    //   method: "GET",
-    //   success: function (res) {
-    //     console.log(res.data)
-    //     that.setData({
-    //       list: res.data.data
-    //     })
-    //   },
-    // })
+    
   },
 
   /**

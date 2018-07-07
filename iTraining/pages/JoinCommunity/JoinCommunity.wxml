@@ -1,3 +1,32 @@
-<!--pages/JoinCommunity/JoinCommunity.wxml-->
-<!-- <text>pages/JoinCommunity/JoinCommunity.wxml</text> -->
-<button bindtap='joinCommunity'>加入队伍</button>
+<view class="container edit_wrap">
+  <view class='community_info'>
+
+    <view class="team_image">
+      <image class='team_img' placeholder="队伍头像" src="{{team_image_url}}" mode='widthFix'
+      style='width:100%;'></image>
+    </view>
+
+    <view class='team_info'>
+      <view class="team_name">
+        <text class='teamName'>{{team_name}}</text>
+      </view>
+
+      <view class='team_members'>
+        <view class='member_avator' wx:for="{{[1,2,3]}}" wx:for-index='idx'>
+          <image class='single_member_avator' bindload='autoImage' data-index='{{idx}}' src='{{team_members[idx].image_url}}'
+        style='width:{{autoSize[idx].width}}rpx; height:{{autoSize[idx].height}}rpx'></image>
+        </view>
+        <text class='whoHaveJoin'decode="{{true}}" space="{{true}}">&nbsp;{{team_members[0].nickname}}等{{team_members.length}}人已加入</text>
+      </view>
+
+    </view>
+
+    <view style="width:100%;border-bottom:2rpx solid #ccc;"></view>
+    <view class='team_bio'>
+      <view class='bio_header'>队伍简介</view>
+      <text class='bio_cover'>{{team_bio}}</text>
+    </view>
+  </view>
+
+  <button class='add_btn'bindtap='joinCommunity'>立即加入</button>
+</view>
