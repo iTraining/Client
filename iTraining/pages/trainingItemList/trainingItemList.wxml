@@ -23,10 +23,6 @@
   
   
   <image class='add_button' bindtap='AddItem' src="../../image/icon_tab/add1.png" hover-class='grey_active'></image>
- 
-    <!-- <view><button class='button_item' form-type='Edit' bindtap='Addone'>+1
-    </button></view> -->
-    <!-- <view><button class='button_item' form-type='Edit'>确定</button></view> -->
   
 </form>
 </view>

@@ -22,7 +22,7 @@
     </view>
 
     <view style="width:100%;border-bottom:2rpx solid #ccc;"></view>
-    <view class='team_bio'>
+    <view class='team_bio' style="width:100%;">
       <view class='bio_header'>队伍简介</view>
       <text class='bio_cover'>{{team_bio}}</text>
     </view>
