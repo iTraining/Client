@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    imagePath:'../../image/icon_tab/add2.png',
+    imagePath:'../../image/icon_tab/punch_add_image.png',
     completion:'',
     description:'',
     schedule_id:'',
@@ -122,9 +122,6 @@ Page({
           url: '../SquarePage/square',
         })
       },
-      fail:function(res) {
-
-      }
     })
   },
   selectImage: function (e) {

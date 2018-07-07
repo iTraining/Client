@@ -23,9 +23,6 @@
   font-size: 12pt;
 }
 
-.item_name{
-}
-
 .item_do{
   margin-left: 20rpx;
   color: #009688;
@@ -37,10 +34,14 @@
   margin-left: 50rpx;
 }
 
-.image_class .img{
+.backgro {
+  height:200rpx;
+  width:200rpx;
+  background: #e6e6e6;
+}
+.img{
   height:150rpx;
   width:150rpx;
-  background: #ECE9E9;
 }
 
 .img_1{

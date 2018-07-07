@@ -15,7 +15,9 @@
 
 <!-- 输入图片  -->
 <view class='image_class' bindtap="selectImage">
-  <image class="img_1" src="{{imagePath}}" bindlongtap='img_delete' mode='aspectFill'></image>
+  <view class='backgro'>
+    <image class="img_1" src="{{imagePath}}" bindlongtap='img_delete' mode='center'></image>
+  </view>
 </view>
 
  <view wx:if="{{schedule_to_punch.is_punched}}"></view>
