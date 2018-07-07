@@ -117,8 +117,9 @@ Page({
       },
       success: function (res) {
         console.log(res)
+        var punched = 1
         wx.switchTab({
-          url: '../trainingPlanPage/trainingPlanPage',
+          url: '../SquarePage/square',
         })
       },
       fail:function(res) {

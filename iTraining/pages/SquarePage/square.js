@@ -172,10 +172,15 @@ Page({
     var that = this
      // 请求动态信息
     that.requestMoment()
-
-
-
     console.log("成功加载页面")
+    console.log("传进来的参数为")
+    console.log(options)
+    if (options.punched == 1) {
+      that.setData({
+        currentNavTab: options.punched.toString(),
+      })
+    }
+
     //更新当前日期
     app.globalData.day = util.formatTime(new Date()).split(' ')[0];
     this.setData({
