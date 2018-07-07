@@ -238,7 +238,8 @@ Page({
    */
   onLoad: function (options) {
     var that = this
-
+    var t_team_name_list = that.data.team_name_list
+    var t_team_id_list = that.data.team_id_list
     // 获取创建的队伍 
     var createdTeam=''
     wx.request({
@@ -256,19 +257,35 @@ Page({
         console.log(res.data.data)
         createdTeam=res.data.data
         console.log(createdTeam)
-        var t_team_name_list = that.data.team_name_list
-        var t_team_id_list=that.data.team_id_list
+       
         for (var i = 0; i < createdTeam.length; i++) {
           t_team_name_list.push(createdTeam[i].name)
           t_team_id_list.push(createdTeam[i].team_id)
         }
         if(t_team_id_list.length!=0) {
-          that.setData({
-            team_id_list:t_team_id_list,
-            team_name_list:t_team_name_list,
-            'meta.team_id':t_team_id_list[0],
-            'selected_team_name': t_team_name_list[0],
-          })
+          if (options.team_id != -1) {
+            console.log("是给team_id为上面这个的队伍添加训练项目")
+            // 如果是队长制定计划时发现没有训练项目 而转到这里的添加项目页面
+            // 那team_id应默认为参数中的team_id
+            for (var i = 0; i < t_team_id_list.length; ++i) {
+              if (options.team_id == t_team_id_list[i]) {
+                that.setData({
+                  team_id_list: t_team_id_list,
+                  team_name_list: t_team_name_list,
+                  // 'meta.team_id': e.detail.value
+                  'meta.team_id': t_team_id_list[i],
+                  selected_team_name: t_team_name_list[i]
+                })
+              }
+            }
+          } else {
+            that.setData({
+              team_id_list: t_team_id_list,
+              team_name_list: t_team_name_list,
+              'meta.team_id': t_team_id_list[0],
+              'selected_team_name': t_team_name_list[0],
+            })
+          }
         }
       },
       fail: function (res) {
@@ -308,6 +325,7 @@ Page({
       })
       // 添加该项目的指标信息
     }
+    
   },
   showErrorToast: function (message) {
     wx.showToast({

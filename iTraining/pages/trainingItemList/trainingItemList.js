@@ -39,8 +39,9 @@ Page({
   AddItem: function () {
     var that = this
     var str = 'add'
+    var team_id = -1
     wx.navigateTo({
-      url: '../AddorEditTrainItems/AddorEditTrainItems?flag=' + str
+      url: '../AddorEditTrainItems/AddorEditTrainItems?flag=' + str + '&team_id=' + team_id
     })
   },
   Addone:function() {
