@@ -5,7 +5,7 @@
     </view>
     <view class="form_group">
         <text>队伍名称：</text>
-        <input type="text" placeholder="一个霸气的名称" placeholder-class="placeholder_style" name="name" />
+        <input type="text" placeholder="一个霸气的名称" placeholder-class="placeholder_style" name="name" auto-focus/>
     </view>
     <view class="form_group">
         <text>队伍简介：</text>
