@@ -219,17 +219,15 @@ Page({
                 for (var i = 0; i < t_schedule.length; i++) {
                   var isFindinPunchList = false
                   for (var j = 0; j < t_punch_list.length; j++) {
-                    if (t_schedule[i].schedule_id = t_punch_list[j].schedule_id) {
+                    if (t_schedule[i].schedule_id == t_punch_list[j].schedule_id) {
                       isFindinPunchList = true
                     }
                     }
                   console.log(t_schedule[i].schedule_id)
                     if (isFindinPunchList == false) {
-                      console.log("un punched ")
                       t_schedule[i].is_punched = false
                       
                     } else {
-                      console.log("is punched")
                       t_schedule[i].is_punched = true
                     }
                 }

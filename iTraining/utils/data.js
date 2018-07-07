@@ -16,7 +16,7 @@ function getDefaultIndicator() {
 
 function getIndicatorMap() {
   var indicator_name= ['distance', 'time', 'weigh', 'frquency', 'friction', 'rest_time', 'amount']
-  var indicator_unit= ['km', 'min', 'kg', 'number/min', '风阻', 'min', 'number']
+  var indicator_unit= ['km', 'min', 'kg', '个每分钟', '风阻', 'min', '个']
   var t_indicator=new Map()
   for(var i=0;i<indicator_name.length;i++) {
     t_indicator.set(indicator_name[i],indicator_unit[i])

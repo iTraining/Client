@@ -212,3 +212,10 @@
   color: #B9B8BF;
   font-size: 14px;
 }
+.item_unpunched{
+  height: 50%;
+  display: flex;
+  font-size: 12px;
+  font-family: Arial;
+  color:rgb(180, 5, 5);
+}

@@ -48,7 +48,10 @@ Page({
           t_meta_data[i].indic2 = fileData.getIndicatorMap().get(t_meta_data[i].index2)
           t_meta_data[i].indic3 = fileData.getIndicatorMap().get(t_meta_data[i].index3)
           t_meta_data[i].indic4 = fileData.getIndicatorMap().get(t_meta_data[i].index4)
+          t_meta_data[i].indic5 = fileData.getIndicatorMap().get(t_meta_data[i].index5)
+          t_meta_data[i].indic6 = fileData.getIndicatorMap().get(t_meta_data[i].index6)
         }
+        console.log(t_meta_data)
         for (var i = 0; i < t_meta_data.length;i++) {
           t_team_map.set(t_meta_data[i].meta_id, t_meta_data[i])
         }

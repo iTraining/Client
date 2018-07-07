@@ -87,6 +87,13 @@
   color:rgb(156, 155, 162);
 }
 
+.item_unpunched{
+  height: 50%;
+  display: flex;
+  font-size: 12px;
+  font-family: Arial;
+  color:rgb(180, 5, 5);
+}
  /* .border-bottom{
   background: black;
   height:1rpx;

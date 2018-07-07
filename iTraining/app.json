@@ -16,7 +16,6 @@
     "pages/DailyPlansList/DailyPlansList",
     "pages/JoinCommunity/JoinCommunity",
     "pages/AddorEditTrainItems/AddorEditTrainItems",
-    "pages/PunchSchedule/PunchSchedule",
     "pages/HistoryScheduleList/HistoryScheduleList",
     "pages/injuryArticleList/injuryArticleList",
     "pages/foodArticleList/foodArticleList",
