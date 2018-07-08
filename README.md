@@ -1,4 +1,3 @@
-# prototype
-Storing the prototype code for each member
+# Client
 
-The iTraining document is for the fore end demo codes, commited by wenkun and yuhai.
+存储微信小程序客户端代码，详情设计说明见[document](https://github.com/iTraining/documents)
