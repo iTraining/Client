@@ -23,12 +23,12 @@
   <view class="plan_item" wx:for="{{schedule_to_punch.references}}" wx:key="{{item.id}}">
      <view class="plan_item_name">{{item.meta_details.training_name}}*{{item.group_number}}组 </view> 
     <view class="plan_item_detail">每组：
-    <view wx:if="{{item.meta_details.indic1}}">{{item.data1}}{{item.meta_details.indic1}},</view>
-    <view wx:if="{{item.meta_details.indic2}}">{{item.data2}}{{item.meta_details.indic2}},</view>
-    <view wx:if="{{item.meta_details.indic3}}">{{item.data3}}{{item.meta_details.indic3}},</view>
-    <view wx:if="{{item.meta_details.indic4}}">{{item.data4}}{{item.meta_details.indic4}},</view>
-    <view wx:if="{{item.meta_details.indic5}}">{{item.data5}}{{item.meta_details.indic5}},</view>
-    <view wx:if="{{item.meta_details.indic6}}">{{item.data6}}{{item.meta_details.indic6}}</view>
+    <view wx:if="{{item.data1}}">{{item.data1}}{{item.meta_details.indic1}},</view>
+    <view wx:if="{{item.data2}}">{{item.data2}}{{item.meta_details.indic2}},</view>
+    <view wx:if="{{item.data3}}">{{item.data3}}{{item.meta_details.indic3}},</view>
+    <view wx:if="{{item.data4}}">{{item.data4}}{{item.meta_details.indic4}},</view>
+    <view wx:if="{{item.data5}}">{{item.data5}}{{item.meta_details.indic5}},</view>
+    <view wx:if="{{item.data6}}">{{item.data6}}{{item.meta_details.indic6}}</view>
     </view>
   </view>
 </scroll-view>

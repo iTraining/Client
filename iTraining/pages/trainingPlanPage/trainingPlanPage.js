@@ -1,4 +1,5 @@
 // pages/trainingPlanPage/trainingPlanPage.js
+var fileUtils = require('../../utils/util.js')
 Page({
 
   /**
@@ -118,7 +119,7 @@ Page({
                   var t_training_date = new Date(res.data.data[i].training_date.toLocaleString())
                   console.log(t_training_date)
                   // 加入今日计划
-                  if (t_training_date.getFullYear() == t_date.getFullYear() && t_training_date.getDay() == t_date.getDay() && t_training_date.getMonth() == t_date.getMonth()) {
+                  if (t_training_date.getFullYear() == t_date.getFullYear() && t_training_date.getDate() == t_date.getDate() && t_training_date.getMonth() == t_date.getMonth()) {
                     console.log("加入今日计划")
                     t_schedule_today.push(res.data.data[i])
                   }
@@ -126,7 +127,7 @@ Page({
                   var t_tomorrow_date=+new Date()
                   t_tomorrow_date = t_tomorrow_date + 1000 * 60 * 60 * 24
                   t_tomorrow_date = new Date(t_tomorrow_date)
-                  if (t_training_date.getFullYear() == t_tomorrow_date.getFullYear() && t_training_date.getDay() == t_tomorrow_date.getDay()&& t_training_date.getMonth() == t_tomorrow_date.getMonth()) {
+                  if (t_training_date.getFullYear() == t_tomorrow_date.getFullYear() && t_training_date.getDate() == t_tomorrow_date.getDate()&& t_training_date.getMonth() == t_tomorrow_date.getMonth()) {
                     console.log("加入明日计划")
                     t_schedule_tomorrow.push(res.data.data[i])
                   }
@@ -163,10 +164,11 @@ Page({
       }
     })
     // 显示时间
-    var t_date = new Date()
+    var t_date_string = fileUtils.getNowDate()
+    var t_date = new Date(t_date_string)
     var weekday = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
-    var t_show_date = t_date.getFullYear() + ' ' + (t_date.getMonth() + 1) + '月' + (t_date.getDay() + 1) + '日 ' + weekday[t_date.getDay()]
-    console.log(t_show_date)
+    var t_show_date = t_date.getFullYear() + ' ' + (t_date.getMonth() + 1) + '月' + t_date.getDate() + '日 ' + weekday[t_date.getDay()]
+    console.log("今日时间"+t_show_date)
     that.setData({
       timeNow: t_show_date
     })

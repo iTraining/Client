@@ -3,13 +3,13 @@
  */
 function getDefaultIndicator() {
   var arr = [
-    { id: '每组距离', unit: 'km', value: 0 },
-    { id: '每组时间', unit: 'min', value: 0 },
-    { id: '每组重量', unit: 'kg', value: 0 },
-    { id: '每组桨频', unit: '桨数/min', value: 0 },
-    { id: '每组风阻', unit: '风阻', value: 0 },
+    { id: '距离', unit: 'km', value: 0 },
+    { id: '时间', unit: 'min', value: 0 },
+    { id: '重量', unit: 'kg', value: 0 },
+    { id: '桨频', unit: '桨数/min', value: 0 },
+    { id: '风阻', unit: '风阻', value: 0 },
     { id: '组间歇时间', unit: 'min', value: 0 },
-    { id: '每组个数', unit: '个', value: 0 }
+    { id: '个数', unit: '个', value: 0 }
   ]
   return arr
 }

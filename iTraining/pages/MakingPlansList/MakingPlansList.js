@@ -1,6 +1,6 @@
 var app = getApp()
 var fileData = require('../../utils/data.js')
-
+var fileUtils = require('../../utils/util.js')
 // pages/TrainingItemTodoList/TrainingItemTodoList.js
 Page({
 
@@ -144,10 +144,8 @@ Page({
     console.log(that.data.trainPlanData.indicators)
 
     // 设置时间选择器为今日时间
-    var t_date = new Date()
-    console.log(t_date)
-    var t_date_string = t_date.getFullYear() + '-' + (t_date.getMonth()+1) + '-' + (t_date.getDay()+1)
-    console.log("今日时间"+t_date_string)
+    var t_date_string = fileUtils.getNowDate()
+    console.log('今日时间', t_date_string)
     that.setData({
       ['trainPlanData.training_date']:t_date_string
     })

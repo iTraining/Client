@@ -80,9 +80,12 @@ Page({
           // 测试zzy的服务器
         }
       })
-
+      console.log("跳转到首页")
       wx.switchTab({
-        url: '../TrainingItemTodoList/TrainingItemTodoList',
+        url: '../SquarePage/square',
+        fail:function(res) {
+          console.log(res)
+        }
       })
     } else {
       //用户按了拒绝按钮
